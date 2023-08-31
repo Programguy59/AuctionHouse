@@ -25,7 +25,6 @@ namespace AutoAuctionProjekt.Classes
             this.EngineSize = engineSize;
             this.KmPerLiter = kmPerLiter;
             this.FuelType = fuelType;
-            //TODO: V1 - Constructor for Vehicle
             //TODO: V2 - Add to database and set ID
         }
         /// <summary>
