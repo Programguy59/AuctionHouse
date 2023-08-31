@@ -87,8 +87,8 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public override string ToString()
         {
-            //TODO: V15 - ToString for PersonalCar
-            throw new NotImplementedException();
+            string desc = $"The {this.Name} is from {this.Year} Regisration number is {this.RegistrationNumber}. it has driven {this.Km} when new it cost {this.NewPrice}. The engine is {this.EngineSize} liters  and does {this.KmPerLiter} km per liter on {this.FuelType}. It has {this.NumberOfSeat} seats, and the trunk has the dimensions {this.TrunkDimentions.ToString}";
+            return desc;
         }
     }
 }
