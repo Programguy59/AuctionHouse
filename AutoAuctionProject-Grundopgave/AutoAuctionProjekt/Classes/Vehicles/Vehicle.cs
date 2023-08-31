@@ -114,8 +114,8 @@ namespace AutoAuctionProjekt.Classes
         /// <returns>The Veihcle as a string</returns>
         public new virtual string ToString()
         {
-            //TODO: V3 - Vehicle tostring
-            throw new NotImplementedException();
+            string desc = $"The {this.Name} is from {this.Year} Regisration number is {this.RegistrationNumber}. it has driven {this.Km} when new it cost {this.NewPrice}. The engine is {this.EngineSize} liters  and does {this.KmPerLiter} km per liter on {this.FuelType} ";
+            return desc;
         }
     }
 }
