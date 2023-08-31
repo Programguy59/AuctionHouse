@@ -37,11 +37,28 @@ namespace AutoAuctionProjekt.Classes
             get { return EngineSize; }
             set
             {
-                //V7 - TODO value must be between 4.2 and 15.0 L or cast an out of range exection.
-                throw new NotImplementedException();
-                EngineSize = value;
+                if (4.2 < value && value < 15.0)
+                {
+                    EngineSize = value;
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("value");
+                }
             }
         }
+        public override DriversLisenceEnum DriversLisence {
+            get { return DriversLisence; }
+
+            set{
+                if (DriversLisence == DriversLisenceEnum.D || DriversLisence == DriversLisenceEnum.DE)
+                {
+                    DriversLisence = value;
+                }
+                else { throw new ArgumentOutOfRangeException("value"); }        
+            } }
+
+
         /// <summary>
         /// NumberOfSeats proberty
         /// </summary>
