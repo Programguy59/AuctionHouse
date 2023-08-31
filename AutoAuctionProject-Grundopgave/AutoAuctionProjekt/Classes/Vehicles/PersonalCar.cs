@@ -65,6 +65,23 @@ namespace AutoAuctionProjekt.Classes
 
             }
         }
+
+        public override DriversLisenceEnum DriversLisence
+        {
+            get { return DriversLisence; }
+            set 
+            {
+                if (DriversLisence == DriversLisenceEnum.B || DriversLisence == DriversLisenceEnum.BE)
+                {
+                    DriversLisence = value; 
+                }
+                else
+                {
+                    throw new ArgumentOutOfRangeException("value");
+                }
+            }
+        }
+
         /// <summary>
         /// Returns the PersonalCar in a string with relivant information.
         /// </summary>

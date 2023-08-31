@@ -66,7 +66,7 @@ namespace AutoAuctionProjekt.Classes
         /// <summary>
         /// Drivers lisence Enum, field and proberty
         /// </summary>
-        public DriversLisenceEnum DriversLisence { get; set; }
+        public virtual DriversLisenceEnum DriversLisence { get; set; }
         public enum DriversLisenceEnum
         {
             A,
