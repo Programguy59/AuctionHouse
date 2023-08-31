@@ -45,8 +45,8 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public override string ToString()
         {
-            //TODO: V6 - ToString for HeavyVehicle
-            throw new NotImplementedException();
+            string desc = $"The {this.Name} is from {this.Year} Regisration number is {this.RegistrationNumber}. The height of the vehicle is {this.VehicleDimensions.Height} the length is {this.VehicleDimensions.Length} it weights {this.VehicleDimensions.Weight} it has driven {this.Km} when new it cost {this.NewPrice}. The engine is {this.EngineSize} liters  and does {this.KmPerLiter} km per liter on {this.FuelType} ";
+            return desc;
         }
     }
 }
