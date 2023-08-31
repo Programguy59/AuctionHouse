@@ -53,7 +53,6 @@ namespace AutoAuctionProjekt.Classes
             get { return EngineSize; }
             set
             {
-                //TODO: V13 - EngineSize: must be between 0.7 and 10.0 L or cast an out of range exection.
                 if (0.7 < value && value < 10.0)
                 {
                     EngineSize = value;
@@ -62,7 +61,6 @@ namespace AutoAuctionProjekt.Classes
                 {
                     throw new ArgumentOutOfRangeException("value");
                 }
-
             }
         }
 
