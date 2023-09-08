@@ -73,7 +73,7 @@ namespace AutoAuctionProjekt.Classes
             {
                 if (DriversLisence == DriversLisenceEnum.B || DriversLisence == DriversLisenceEnum.BE)
                 {
-                    DriversLisence = value; 
+                    DriversLisence = value;
                 }
                 else
                 {
@@ -87,7 +87,7 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public override string ToString()
         {
-            string desc = $"The {this.Name} is from {this.Year} Regisration number is {this.RegistrationNumber}. it has driven {this.Km} when new it cost {this.NewPrice}. The engine is {this.EngineSize} liters  and does {this.KmPerLiter} km per liter on {this.FuelType}. It has {this.NumberOfSeat} seats, and the trunk has the dimensions {this.TrunkDimentions.ToString}";
+            string desc = base.ToString() + $"It has {this.NumberOfSeat} seats, and the trunk has the dimensions {this.TrunkDimentions.ToString}";
             return desc;
         }
     }
