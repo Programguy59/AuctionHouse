@@ -66,50 +66,57 @@
   <Class Name="AutoAuctionProjekt.Classes.Bus">
     <Position X="8.25" Y="3.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AABAAAAAAABAAAAEAAAACAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Bus.cs</FileName>
+      <HashCode>AABAAAAAAABAAAAEAAAACAAAAAgAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Classes\Vehicles\Bus.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AutoAuctionProjekt.Classes.HeavyVehicle" Collapsed="true">
     <Position X="9.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
-      <FileName>Classes\HeavyVehicle.cs</FileName>
+      <FileName>Classes\Vehicles\HeavyVehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AutoAuctionProjekt.Classes.PersonalCar" Collapsed="true">
     <Position X="13.75" Y="1.75" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="AutoAuctionProjekt.Classes.PersonalCar.TrunkDimentionsStruct" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\Vehicles\PersonalCar.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAIAAAAAAAAAAEAAAAAAAABAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\PersonalCar.cs</FileName>
+      <HashCode>AAAAIAAAAAAAAAAEAAAAAAAABAgAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Classes\Vehicles\PersonalCar.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AutoAuctionProjekt.Classes.PrivatePersonalCar">
     <Position X="12.75" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\PrivatePersonalCar.cs</FileName>
+      <FileName>Classes\Vehicles\PrivatePersonalCar.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AutoAuctionProjekt.Classes.ProfessionalPersonalCar">
     <Position X="15" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAQCAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\ProfessionalPersonalCar.cs</FileName>
+      <FileName>Classes\Vehicles\ProfessionalPersonalCar.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AutoAuctionProjekt.Classes.Truck">
     <Position X="10.5" Y="3.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAQAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Classes\Truck.cs</FileName>
+      <FileName>Classes\Vehicles\Truck.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="AutoAuctionProjekt.Classes.Vehicle" Collapsed="true">
     <Position X="11.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQIAAAEBAAAgAgEAAAAAAQAAAgACEAAEAQAAAAAAIA=</HashCode>
-      <FileName>Classes\Vehicle.cs</FileName>
+      <FileName>Classes\Vehicles\Vehicle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Interface Name="AutoAuctionProjekt.ISeller">

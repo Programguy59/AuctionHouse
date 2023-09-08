@@ -38,14 +38,14 @@ namespace AutoAuctionProjekt.Classes
             public double Height { get; }
             public double Weight { get; }
             public double Length { get; }
-            public override string ToString() => $"(Height: {Height}, Weight: {Weight}, Depth: {Length})";
+            public override string ToString() => $"(Height: {Height}, Weight: {Weight}, length: {Length})";
         }
         /// <summary>
         /// Returns the HeavyVehicle in a string with relivant information.
         /// </summary>
         public override string ToString()
         {
-            string desc = $"The {this.Name} is from {this.Year} Regisration number is {this.RegistrationNumber}. The height of the vehicle is {this.VehicleDimensions.Height} the length is {this.VehicleDimensions.Length} it weights {this.VehicleDimensions.Weight} it has driven {this.Km} when new it cost {this.NewPrice}. The engine is {this.EngineSize} liters  and does {this.KmPerLiter} km per liter on {this.FuelType} ";
+            string desc = $"(Height: {this.VehicleDimensions.Height}, Weight: {this.VehicleDimensions.Weight}, length: {this.VehicleDimensions.Length})";
             return desc;
         }
     }
