@@ -85,7 +85,7 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public override string ToString()
         {
-            string desc = base.ToString() + $"NumberOfSeat: {this.NumberOfSeat}, TrunkDimentions: {this.TrunkDimentions.ToString}";
+            string desc = base.ToString() + $"NumberOfSeat: {this.NumberOfSeat}, TrunkDimentions: {this.TrunkDimentions.ToString} ";
             return desc;
         }
     }
