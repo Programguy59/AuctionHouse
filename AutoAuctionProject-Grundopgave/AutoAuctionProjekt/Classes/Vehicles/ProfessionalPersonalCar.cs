@@ -39,8 +39,8 @@ namespace AutoAuctionProjekt.Classes
         /// <returns>The Veihcle as a string</returns>
         public override string ToString()
         {
-            //TODO: V18 - ToString for ProfessionalPersonalCar 
-            throw new NotImplementedException();
+            string description = base.ToString() + $"LoadCapacity: {this.LoadCapacity} HasSafetyBar: {this.HasSafetyBar}";
+            return description;
         }
     }
 }
