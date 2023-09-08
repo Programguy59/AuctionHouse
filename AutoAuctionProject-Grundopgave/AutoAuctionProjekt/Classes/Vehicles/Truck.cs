@@ -48,8 +48,8 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public override string ToString()
         {
-            //TODO: V12 - ToString for Truck 
-            throw new NotImplementedException();
+            string description = base.ToString() + $"LoadCapacity: {this.LoadCapacity}";
+            return description;
         }
     }
 }
