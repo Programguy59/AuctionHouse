@@ -45,7 +45,7 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public override string ToString()
         {
-            string desc = $"(Height: {this.VehicleDimensions.Height}, Weight: {this.VehicleDimensions.Weight}, length: {this.VehicleDimensions.Length})";
+            string desc = base.ToString() + $"(Height: {this.VehicleDimensions.Height}, Weight: {this.VehicleDimensions.Weight}, length: {this.VehicleDimensions.Length})";
             return desc;
         }
     }
