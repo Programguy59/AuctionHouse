@@ -75,10 +75,7 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public override string ToString()
         {
-            string desc = $"The {this.Name} is from {this.Year} Regisration number is {this.RegistrationNumber}. The height of the vehicle is {this.VehicleDimensions.Height}" +
-                $" the length is {this.VehicleDimensions.Length} it weights {this.VehicleDimensions.Weight} there are {this.NumberOfSeats} seats and {NumberOfSleepingSpaces} Sleeping spaces," +
-                $" does it have a toilet? {this.HasToilet},it has driven {this.Km} when new it cost {this.NewPrice}. The engine is {this.EngineSize} liters  and does {this.KmPerLiter} " +
-                $"km per liter on {this.FuelType} ";
+            string desc = base.ToString() + $"Number of seats {NumberOfSeats}, number of sleeping spaces {NumberOfSleepingSpaces}, has toilet{HasToilet}";
             return desc;
         }
     }
