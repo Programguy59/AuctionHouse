@@ -105,7 +105,97 @@ namespace AutoAuctionProjekt.Classes
         /// </returns>
         private EnergyClassEnum GetEnergyClass()
         {
-            //TODO: V4 - Implement GetEnergyClass
+            if (Year > 2010)
+            {
+                if (FuelType == FuelTypeEnum.Diesel)
+                {
+                    switch (KmPerLiter )
+                    {
+                        case var kmPerLiter when (kmPerLiter >= 25):
+                            return EnergyClassEnum.A;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 25 && kmPerLiter >= 20):
+                            return EnergyClassEnum.B;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 20 && kmPerLiter >= 15):
+                            return EnergyClassEnum.C;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 15):
+                            return EnergyClassEnum.D;
+                            break;
+                    }
+                }
+                else if (FuelType == FuelTypeEnum.Benzin)
+                {
+                    switch (KmPerLiter )
+                    {
+                        case var kmPerLiter when (kmPerLiter >= 20 ):
+                            return EnergyClassEnum.A;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 20 && kmPerLiter >= 16):
+                            return EnergyClassEnum.B;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 16 && kmPerLiter >= 12):
+                            return EnergyClassEnum.C;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 12):
+                            return EnergyClassEnum.D;
+                            break;
+                    }   
+                }
+            }
+            
+            if (Year < 2010 )
+                if (FuelType == FuelTypeEnum.Diesel)
+                {
+                    switch (KmPerLiter )
+                    {
+                        case var kmPerLiter when (kmPerLiter >= 23):
+                            return EnergyClassEnum.A;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 23 && kmPerLiter >= 18):
+                            return EnergyClassEnum.B;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 18 && kmPerLiter >= 13):
+                            return EnergyClassEnum.C;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 13):
+                            return EnergyClassEnum.D;
+                            break;
+                    }
+                }
+                else if (FuelType == FuelTypeEnum.Diesel)
+                {
+                    switch (KmPerLiter )
+                    {
+                        case var kmPerLiter when (kmPerLiter >= 18):
+                            return EnergyClassEnum.A;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 18 && kmPerLiter >= 14):
+                            return EnergyClassEnum.B;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 14 && kmPerLiter >= 10):
+                            return EnergyClassEnum.C;
+                            break;
+                    
+                        case var kmPerLiter when (kmPerLiter < 10):
+                            return EnergyClassEnum.D;
+                            break;
+                    }   
+                }
+            
+            return EnergyClassEnum.A;
             throw new NotImplementedException();
         }
         /// <summary>

@@ -71,7 +71,7 @@ namespace AutoAuctionProjekt.Classes
             {
                 if (DriversLisence == DriversLisenceEnum.B || DriversLisence == DriversLisenceEnum.BE)
                 {
-                    DriversLisence = value; 
+                    DriversLisence = value;
                 }
                 else
                 {
@@ -85,8 +85,8 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public override string ToString()
         {
-            //TODO: V15 - ToString for PersonalCar
-            throw new NotImplementedException();
+            string desc = base.ToString() + $"It has {this.NumberOfSeat} seats, and the trunk has the dimensions {this.TrunkDimentions.ToString}";
+            return desc;
         }
     }
 }
