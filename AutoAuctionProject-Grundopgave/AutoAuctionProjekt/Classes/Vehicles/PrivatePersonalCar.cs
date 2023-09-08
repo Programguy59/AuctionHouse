@@ -34,8 +34,8 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public override string ToString()
         {
-            //TODO: V21 - ToString for PrivatePersonalCar
-            throw new NotImplementedException();
+            string desc = base.ToString() + $"HasIsofixFittings: {HasIsofixFittings} ";
+            return desc;
         }
     }
 }
