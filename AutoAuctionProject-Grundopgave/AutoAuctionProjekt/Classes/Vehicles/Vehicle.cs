@@ -204,7 +204,7 @@ namespace AutoAuctionProjekt.Classes
         /// <returns>The Veihcle as a string</returns>
         public new virtual string ToString()
         {
-            string desc = $"The {this.Name} is from {this.Year} Regisration number is {this.RegistrationNumber}. it has driven {this.Km} when new it cost {this.NewPrice}. The engine is {this.EngineSize} liters  and does {this.KmPerLiter} km per liter on {this.FuelType} ";
+            string desc = $"Name: {this.Name} Year: {this.Year} Regisration number: {this.RegistrationNumber} Km: {this.Km} NewPrice: {this.NewPrice} EngineSize: {this.EngineSize} KmPerLiter: {this.KmPerLiter} FuelType: {this.FuelType} ";
             return desc;
         }
     }
