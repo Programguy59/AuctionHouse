@@ -17,9 +17,15 @@ namespace AutoAuctionProjekt.Classes
             double kmPerLiter,
             FuelTypeEnum fuelType,
             VehicleDimensionsStruct vehicleDimentions,
-            double LoadCapacity) : base(name, km, registrationNumber, year, newPrice, hasTowbar, engineSize, kmPerLiter, fuelType, vehicleDimentions)
+            double loadCapacity) : 
+            base(name, km, registrationNumber, year, newPrice, hasTowbar, engineSize, kmPerLiter, fuelType, vehicleDimentions)
         {
             //TODO: V10 - Constructor for Truck, DriversLisence should be CE if the truck has a towbar, otherwise it should be C
+
+            EngineSize = engineSize;
+            LoadCapacity = loadCapacity;
+
+
             //TODO: V11 - Add to database and set ID
             throw new NotImplementedException();
         }
@@ -34,7 +40,8 @@ namespace AutoAuctionProjekt.Classes
             set
             {
                 //TODO: V10 - EngineSize must be between 4.2 and 15.0 L or cast an out of range exection.
-                throw new NotImplementedException();
+
+
 
                 EngineSize = value;
             }
