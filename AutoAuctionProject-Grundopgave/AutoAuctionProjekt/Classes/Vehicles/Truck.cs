@@ -22,6 +22,14 @@ namespace AutoAuctionProjekt.Classes
         {
             //TODO: V10 - Constructor for Truck, DriversLisence should be CE if the truck has a towbar, otherwise it should be C
 
+            if (hasTowbar)
+            {
+                DriversLisence = DriversLisenceEnum.CE;
+            } else
+            {
+                DriversLisence = DriversLisenceEnum.C;
+            }
+
             EngineSize = engineSize;
             LoadCapacity = loadCapacity;
 
