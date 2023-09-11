@@ -24,7 +24,16 @@ namespace AutoAuctionProjekt.Classes
             this.NumberOfSeats = numberOfSeats;
             this.NumberOfSleepingSpaces = numberOfSleepingSpaces;
             this.HasToilet = hasToilet;
-            //TODO: V7 - set contructor and DriversLisence to DE if the car has a towbar or D if not.
+
+            if (hasTowbar)
+            {
+                DriversLisence = DriversLisenceEnum.DE;
+            }
+            else
+            {
+                DriversLisence = DriversLisenceEnum.D;
+            }
+
             //TODO: V8 - Add to database and set ID
             throw new NotImplementedException();
         }
@@ -47,16 +56,7 @@ namespace AutoAuctionProjekt.Classes
                 }
             }
         }
-        public override DriversLisenceEnum DriversLisence {
-            get { return DriversLisence; }
-
-            set{
-                if (DriversLisence == DriversLisenceEnum.D || DriversLisence == DriversLisenceEnum.DE)
-                {
-                    DriversLisence = value;
-                }
-                else { throw new ArgumentOutOfRangeException("value"); }        
-            } }
+        public override DriversLisenceEnum DriversLisence { get; set; }
 
 
         /// <summary>
