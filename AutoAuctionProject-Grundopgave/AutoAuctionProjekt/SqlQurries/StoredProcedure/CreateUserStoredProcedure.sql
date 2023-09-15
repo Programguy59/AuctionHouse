@@ -1,4 +1,4 @@
-alter PROCEDURE CreateUser
+ALTER PROCEDURE CreateUser
 @userName varchar(128),
 @password varchar(128),
 @corporateUser bit,
@@ -10,12 +10,31 @@ set @sqllogin = 'CREATE LOGIN ' + @username + ' WITH PASSWORD = ''' + @password 
 print @sqllogin;
 exec(@sqllogin);
 
+
 declare @sqluser varchar(1023)
-set @sqluser = 'CREATE USER '+ @username +' FROM LOGIN '+ @username +''
+set @sqluser = 'USE AuctionHouse; CREATE USER '+ @username +' FROM LOGIN '+ @username +''
 print @sqluser;
 exec(@sqluser);
 
+declare @sqlGiveReaderRole varchar(1023)
+set @sqlGiveReaderRole = 'USE AuctionHouse; ALTER ROLE db_datareader ADD MEMBER ' + @username + ' ;' 
+print(@sqlGiveReaderRole)
+exec(@sqlGiveReaderRole);
+
+declare @sqlGiveWriterRole varchar(1023)
+set @sqlGiveWriterRole = 'USE AuctionHouse; ALTER ROLE db_datawriter ADD MEMBER ' + @username + ' ;' 
+print(@sqlGiveWriterRole)
+exec(@sqlGiveWriterRole);
+
+Insert into AuctionHouse.dbo.Users
+(
+	userName, CorporateUser, Balance
+)
+Values 
+(
+	@userName, @corporateUser, @balance
+)
+
 end
 
-exec CreateUser 'Bser','Bass',0,10000; 
 
