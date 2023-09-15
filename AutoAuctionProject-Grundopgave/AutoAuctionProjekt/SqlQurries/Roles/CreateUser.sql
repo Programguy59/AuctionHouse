@@ -1,1 +1,0 @@
-Create Role User [ AUTHORIZATION diskadmin ]  
