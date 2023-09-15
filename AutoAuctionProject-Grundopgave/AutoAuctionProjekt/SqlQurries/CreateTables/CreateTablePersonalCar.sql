@@ -1,6 +1,6 @@
 CREATE TABLE PersonalCar ( 
-    id INT PRIMARY KEY not null,
-	vehicleid INT FOREIGN KEY (vehicleid) REFERENCES Vehicle(id) not null,
+    id INT PRIMARY KEY identity not null,
+	vehicleid INT FOREIGN KEY (vehicleid) REFERENCES Vehicle(id) ON DELETE CASCADE not null,
 	numberOfSeats int not null,
 	height Decimal not null,
 	width decimal not null,

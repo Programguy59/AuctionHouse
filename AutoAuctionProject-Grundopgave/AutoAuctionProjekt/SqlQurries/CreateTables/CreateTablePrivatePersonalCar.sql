@@ -1,5 +1,5 @@
 CREATE TABLE PrivatePersonalCar ( 
-    id INT PRIMARY KEY not null,
-	PersonalCarId INT FOREIGN KEY (PersonalCarId) REFERENCES PersonalCar(id) not null,
+    id INT PRIMARY KEY identity not null,
+	PersonalCarId INT FOREIGN KEY (PersonalCarId) REFERENCES PersonalCar(id) ON DELETE CASCADE not null,
 	hasIsoFixFittings bit,
 )

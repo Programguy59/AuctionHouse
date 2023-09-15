@@ -1,6 +1,6 @@
 CREATE TABLE HeavyVehicle ( 
-    id INT PRIMARY KEY not null,
-	vehicleid INT FOREIGN KEY (vehicleid) REFERENCES Vehicle(id) not null,
+    id INT PRIMARY KEY identity not null,
+	vehicleid INT FOREIGN KEY (vehicleid) REFERENCES Vehicle(id) ON DELETE CASCADE not null,
 	height Decimal not null,
 	weight Decimal not null,
 	length Decimal not null,
