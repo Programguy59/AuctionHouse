@@ -1,3 +1,5 @@
+use AuctionHouse;
+
 CREATE TABLE Bus ( 
     id INT PRIMARY KEY not null identity,
 	heavyVehicleId INT FOREIGN KEY (heavyVehicleId) REFERENCES HeavyVehicle(id) not null,

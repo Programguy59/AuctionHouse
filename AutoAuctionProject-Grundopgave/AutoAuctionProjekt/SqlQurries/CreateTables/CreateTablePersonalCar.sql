@@ -1,3 +1,5 @@
+use AuctionHouse;
+
 CREATE TABLE PersonalCar ( 
     id INT PRIMARY KEY identity not null,
 	vehicleid INT FOREIGN KEY (vehicleid) REFERENCES Vehicle(id) ON DELETE CASCADE not null,
