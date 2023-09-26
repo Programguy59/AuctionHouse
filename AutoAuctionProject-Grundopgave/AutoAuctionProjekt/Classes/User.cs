@@ -36,7 +36,7 @@ privat og company som klasser
         public uint ID { get; private set; }
         public string UserName { get; set; }
         public bool IsCorporate { get; set; }
-        public double Balance { get; set; }
+        public decimal Balance { get; set; }
         public uint ZipCode { get; set; }
 
         //TODO: U4 - Implement interface proberties and methods.
