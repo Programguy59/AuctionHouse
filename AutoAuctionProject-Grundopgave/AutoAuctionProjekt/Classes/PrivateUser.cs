@@ -6,7 +6,7 @@ namespace AutoAuctionProjekt.Classes
 {
     public class PrivateUser : User
     {
-        public PrivateUser(string userName, bool isCorporate, double balance, uint zipCode, uint cprNummer) : base(userName, isCorporate, balance, zipCode)
+        public PrivateUser(string userName, bool isCorporate, decimal balance, uint zipCode, uint cprNummer) : base(userName, isCorporate, balance, zipCode)
         {
             //TODO: U10 - Set constructor
                

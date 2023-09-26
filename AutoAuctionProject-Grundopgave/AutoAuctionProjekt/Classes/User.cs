@@ -18,7 +18,7 @@ privat og company som klasser
 
     public abstract class User //TODO: U4 - Implement interfaces
     {
-        protected User(string userName, bool isCorporate, double balance, uint zipCode)
+        protected User(string userName, bool isCorporate, decimal balance, uint zipCode)
         {
             //TODO: U1 - Set constructor and field
 

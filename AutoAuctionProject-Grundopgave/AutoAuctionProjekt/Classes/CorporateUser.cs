@@ -6,7 +6,7 @@ namespace AutoAuctionProjekt.Classes
 {
     public class CorporateUser : User
     {
-        public CorporateUser(string userName, bool isCorporate, double balance, uint zipCode, uint cvrNummer, decimal credit) : base(userName, isCorporate, balance, zipCode)
+        public CorporateUser(string userName, bool isCorporate, decimal balance, uint zipCode, uint cvrNummer, decimal credit) : base(userName, isCorporate, balance, zipCode)
         {
             CVRNumber = cvrNummer;
             Credit = credit;
