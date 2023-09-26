@@ -52,7 +52,7 @@ privat og company som klasser
         /// <returns>...</returns>
         public override string ToString()
         {
-            string desc = $"UserName: {this.UserName}, IsCorporate: {this.IsCorporate}, Balance: {this.Balance}, ZipCode: {this.ZipCode}";
+            string desc = $"UserName: {this.UserName}, IsCorporate: {this.IsCorporate}, Balance: {this.Balance}, ZipCode: {this.Zipcode}";
             return desc;
         }
     }
