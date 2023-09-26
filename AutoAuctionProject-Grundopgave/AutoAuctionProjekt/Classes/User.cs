@@ -16,7 +16,7 @@ køber og sælger som interfaces
 privat og company som klasser
  */
 
-    public abstract class User //TODO: U4 - Implement interfaces
+    public abstract class User : ISeller, IBuyer
     {
         protected User(string userName, bool isCorporate, decimal balance, uint zipCode)
         {
@@ -25,7 +25,7 @@ privat og company som klasser
             UserName = userName;
             IsCorporate = isCorporate;
             Balance = balance;
-            ZipCode = zipCode;
+            Zipcode = zipCode;
 
             
 
@@ -37,9 +37,14 @@ privat og company som klasser
         public string UserName { get; set; }
         public bool IsCorporate { get; set; }
         public decimal Balance { get; set; }
-        public uint ZipCode { get; set; }
+        public uint Zipcode { get; set; }
 
-        //TODO: U4 - Implement interface proberties and methods.
+        public string ReceiveBidNodification(string message)
+        {
+            return "";
+        }
+
+
 
         /// <summary>
         /// Returns the User in a string with relivant information.
