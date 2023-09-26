@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
+using System.Reflection.Metadata.Ecma335;
 
 namespace AutoAuctionProjekt.Classes
 {
@@ -46,8 +47,8 @@ privat og company som klasser
         /// <returns>...</returns>
         public override string ToString()
         {
-            //TODO: U3 - ToString for User
-            throw new NotImplementedException();
+            string desc = $"UserName: {this.UserName}, IsCorporate: {this.IsCorporate}, Balance: {this.Balance}, ZipCode: {this.ZipCode}";
+            return desc;
         }
     }
 }
