@@ -1,7 +1,7 @@
 use AuctionHouse;
 
 CREATE TABLE Bus ( 
-    id INT PRIMARY KEY not null identity,
+    id INT PRIMARY KEY IDENTITY not null,
 	heavyVehicleId INT FOREIGN KEY (heavyVehicleId) REFERENCES HeavyVehicle(id) not null,
 	numberOfSeats int not null,
 	numberOfSleepingSpaces int not null,

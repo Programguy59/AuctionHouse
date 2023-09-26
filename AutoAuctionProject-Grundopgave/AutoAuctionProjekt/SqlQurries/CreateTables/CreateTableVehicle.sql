@@ -1,7 +1,7 @@
 use AuctionHouse;
 
 CREATE TABLE Vehicle ( 
-    id int primary key identity not null ,
+    id int primary key IDENTITY not null ,
 	carName varchar(255) not null,
 	km int not null,
 	registrationNumber varchar(255) not null,
