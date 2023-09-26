@@ -6,12 +6,21 @@ namespace AutoAuctionProjekt.Classes
 {
     public class PrivateUser : User
     {
-        public PrivateUser(string userName, string password, uint zipCode, uint cprNummer) : base(userName, password, zipCode)
+        public PrivateUser(string userName, bool isCorporate, double balance, uint zipCode, uint cprNummer) : base(userName, isCorporate, balance, zipCode)
         {
             //TODO: U10 - Set constructor
+               
+            CPRNumber = cprNummer;
+            
             //TODO: U11 - Add to database and set ID
-            throw new NotImplementedException();
         }
         public uint CPRNumber { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString() + $", CPRNumber: {this.CPRNumber}";
+        }
+
     }
+
 }
