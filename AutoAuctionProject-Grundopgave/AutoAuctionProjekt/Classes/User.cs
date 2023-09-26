@@ -17,39 +17,26 @@ privat og company som klasser
 
     public abstract class User //TODO: U4 - Implement interfaces
     {
-        protected User(string userName, string password, uint zipCode)
+        protected User(string userName, bool isCorporate, double balance, uint zipCode)
         {
             //TODO: U1 - Set constructor and field
 
-            HashAlgorithm sha = SHA256.Create();
-            byte[] result = sha.ComputeHash(Encoding.ASCII.GetBytes(password));
-            PasswordHash = result;
+            UserName = userName;
+            IsCorporate = isCorporate;
+            Balance = balance;
+            ZipCode = zipCode;
 
-            throw new NotImplementedException();
+            
+
         }
         /// <summary>
         /// ID proberty
         /// </summary>
         public uint ID { get; private set; }
-        /// <summary>
-        /// PasswordHash proberty
-        /// </summary>
-        private byte[] PasswordHash { get; set; }
-        /// <summary>
-        /// A method that ...
-        /// </summary>
-        /// <returns>Whether login is valid</returns>
-        private bool ValidateLogin(string loginUserName, string loginPassword)
-        {
-            //TODO: U5 - Implement the rest of validation for password and user name
-
-            HashAlgorithm sha = SHA256.Create(); //Make a HashAlgorithm object for makeing hash computations.
-            byte[] result = sha.ComputeHash(Encoding.ASCII.GetBytes(loginPassword)); //Encodes the password into a hash in a Byte array.
-
-            return PasswordHash == result;
-
-            throw new NotImplementedException();
-        }
+        public string UserName { get; set; }
+        public bool IsCorporate { get; set; }
+        public double Balance { get; set; }
+        public uint ZipCode { get; set; }
 
         //TODO: U4 - Implement interface proberties and methods.
 
