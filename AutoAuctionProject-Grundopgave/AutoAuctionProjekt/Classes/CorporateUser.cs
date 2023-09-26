@@ -14,5 +14,11 @@ namespace AutoAuctionProjekt.Classes
         }
         public uint CVRNumber { get; set; }
         public decimal Credit { get; set; }
+
+        public override string ToString()
+        {
+            return base.ToString() + $", CVRNumber: {this.CVRNumber}, Credit: {this.Credit}";
+        }
+
     }
 }
