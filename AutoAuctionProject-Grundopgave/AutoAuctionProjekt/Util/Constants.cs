@@ -1,4 +1,4 @@
-﻿namespace H1_ERP_System.util;
+﻿namespace AutoAuctionProjekt.Util;
 
 public static class Constants
 {
@@ -8,11 +8,11 @@ public static class Constants
 
 	public static class Sql
 	{
-		public const string Host = "192.168.1.70";
+		public const string Host = "docker.data.techcollege.dk,20005";
 		public const int Port = 1433;
 
-		public const string Database = "H1PD021123_Gruppe3";
-		public const string User = "H1PD021123_Gruppe3";
-		public const string Password = "H1PD021123_Gruppe3";
+		public const string Database = "AuctionHouse";
+		public const string User = "sa";
+		public const string Password = "H2PD071123_Gruppe5";
 	}
 }
