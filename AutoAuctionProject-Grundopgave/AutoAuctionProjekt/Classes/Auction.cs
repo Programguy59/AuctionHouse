@@ -10,9 +10,9 @@ namespace AutoAuctionProjekt.Classes
 
         public Auction(Vehicle vehicle, ISeller seller, decimal minimumPrice)
         {
-            Vehicle = Vehicle;
-            Seller = Seller;
-            MinimumPrice = MinimumPrice;
+            Vehicle = vehicle;
+            Seller = seller;
+            MinimumPrice = minimumPrice;
         }
         /// <summary>
         /// ID of the auction
