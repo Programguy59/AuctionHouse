@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Text;
 using AutoAuctionProjekt.Classes;
+using AutoAuctionProjekt.Util;
+using System.Collections.Generic;
 
 namespace AutoAuctionProjekt
 {
@@ -10,6 +12,10 @@ namespace AutoAuctionProjekt
     {
         static void Main(string[] args)
         {
+            Console.Title = "Auto Auction";
+            DatabaseServer.Initialize(0);
+
+
             //AuctionHouse objects init
             #region init car objects
             //PersonalCar.TrunkDimentionsStruct td = new PersonalCar.TrunkDimentionsStruct(14.0, 10.0, 16.0);
