@@ -7,14 +7,12 @@ namespace AutoAuctionProjekt.Classes
 {
     public class Auction
     {
-        Vehicle _vehicle;
-        ISeller _seller;
-        decimal _minimumPrice;
-        public Auction(Vehicle Vehicle, ISeller Seller, decimal MinimumPrice)
+
+        public Auction(Vehicle vehicle, ISeller seller, decimal minimumPrice)
         {
-            _vehicle = Vehicle;
-            _seller = Seller;
-            _minimumPrice = MinimumPrice;
+            Vehicle = Vehicle;
+            Seller = Seller;
+            MinimumPrice = MinimumPrice;
         }
         /// <summary>
         /// ID of the auction
@@ -40,6 +38,8 @@ namespace AutoAuctionProjekt.Classes
         /// The buyer or potential buyer of the auction
         /// </summary>
         internal IBuyer Buyer { get; set; }
+
+
         public override string ToString()
         {
             throw new NotImplementedException();
