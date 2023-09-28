@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
+using AutoAuctionProjekt.Util;
 
 namespace AutoAuctionProjekt.Classes
 {
-    class Bus : HeavyVehicle
+    public class Bus : HeavyVehicle
     {
         public Bus (
             string name,
@@ -35,7 +37,9 @@ namespace AutoAuctionProjekt.Classes
             }
 
             //TODO: V8 - Add to database and set ID
-            throw new NotImplementedException();
+
+
+
         }
         /// <summary>
         /// Engine size proberty
@@ -71,6 +75,10 @@ namespace AutoAuctionProjekt.Classes
         /// Towbar proberty
         /// </summary>
         public bool HasToilet { get; set; }
+
+        public int Id { get; set; }
+
+
         /// <summary>
         /// Returns the Bus in a string with relivant information.
         /// </summary>
