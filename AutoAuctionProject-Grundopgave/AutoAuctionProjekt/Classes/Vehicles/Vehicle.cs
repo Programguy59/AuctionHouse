@@ -84,7 +84,10 @@ namespace AutoAuctionProjekt.Classes
         public enum FuelTypeEnum
         {
             Diesel,
-            Benzin
+            Benzin,
+            Electric,
+            Hydrogen,
+            Unknown
         }
         /// <summary>
         /// Engery class Enum, field and proberty
