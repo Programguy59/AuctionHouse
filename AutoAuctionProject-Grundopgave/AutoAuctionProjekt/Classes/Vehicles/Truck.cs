@@ -17,7 +17,7 @@ namespace AutoAuctionProjekt.Classes
             double kmPerLiter,
             FuelTypeEnum fuelType,
             VehicleDimensionsStruct vehicleDimentions,
-            double loadCapacity) : 
+            decimal loadCapacity) : 
             base(name, km, registrationNumber, year, newPrice, hasTowbar, engineSize, kmPerLiter, fuelType, vehicleDimentions)
         {
             //TODO: V10 - Constructor for Truck, DriversLisence should be CE if the truck has a towbar, otherwise it should be C
@@ -62,7 +62,7 @@ namespace AutoAuctionProjekt.Classes
         /// <summary>
         /// Load Capacity field and proberty
         /// </summary>
-        public double LoadCapacity { get; set; }
+        public Decimal LoadCapacity { get; set; }
         /// <summary>
         /// Returns the Truck in a string with relivant information.
         /// </summary>

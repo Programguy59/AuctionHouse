@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using AutoAuctionProjekt.Classes;
 using static AutoAuctionProjekt.Classes.Vehicle;
 using static AutoAuctionProjekt.Classes.HeavyVehicle;
+using static AutoAuctionProjekt.Classes.PersonalCar;
+using System.Diagnostics;
 
 namespace AutoAuctionProjekt.Util;
 
@@ -195,19 +197,65 @@ public static class DatabaseServer
 								fuelType,
 								vehicleDimensions, 
 								loadCapacity);
-				}
+                    vehicle = truck;
+                    Vehicles.Add(vehicle);
+                }
             }
 			else{
 				//PersonalCar
-				if (TableName == "ProfessionalPersonalCar")
-				{
-					//ProfessionalPersonalCar
+				var personalCarId = reader.GetInt32(11);
+				var numberOfSeats = reader.GetInt32(13);
+				var height = reader.GetDecimal(14);
+				var width = reader.GetDecimal(15);
+				var depth = reader.GetDecimal(16);
+				TrunkDimentionsStruct trunkDimentionsStruct = new TrunkDimentionsStruct(height, width, depth);
 
-				}
+
+
+
+                if (TableName == "ProfessionalPersonalCar")
+				{
+                    //ProfessionalPersonalCar
+                    var ProfessionalPersonalCarId = reader.GetInt32(17);
+					var hasSafetyBar  =reader.GetBoolean(19);
+					var loadCapacity = reader.GetDecimal(20);
+
+					ProfessionalPersonalCar professionalPersonalCar = new(carName,
+								km,
+								registrationNumber,
+								Convert.ToUInt16(releaseYear),
+								newPrice,
+								Convert.ToUInt16(engineSize),
+								Convert.ToUInt16(kmPerLiter),
+								fuelType,
+								Convert.ToUInt16(numberOfSeats),
+								trunkDimentionsStruct,
+								hasSafetyBar,
+								loadCapacity);
+						vehicle = professionalPersonalCar;
+						Vehicles.Add(vehicle);
+                }
 				else
 				{
-					//PrivatePersonalCar
-				}
+                    //PrivatePersonalCar
+                    var PrivatePersonalCarId = reader.GetInt32(17);
+                    var hasIsoFixFittings = reader.GetBoolean(19);
+
+					PrivatePersonalCar privatePersonalCar = new(carName,
+								km,
+								registrationNumber,
+								Convert.ToUInt16(releaseYear),
+								newPrice,
+                                hasTowbar,
+                                Convert.ToUInt16(engineSize),
+								Convert.ToUInt16(kmPerLiter),
+								fuelType,
+								Convert.ToUInt16(numberOfSeats),
+								trunkDimentionsStruct,
+								hasIsoFixFittings);
+						vehicle = privatePersonalCar;
+						Vehicles.Add(vehicle);
+                }
 			}
 		}
 
