@@ -48,6 +48,7 @@ namespace AutoAuctionProjekt.Classes
         public static bool RecieveBid(IBuyer buyer, uint auctionID, decimal bid)
         {
             //TODO: A5 - RecieveBid
+            //Use ReceiveBidNodification form i seller because simon
             throw new NotImplementedException();
         }
         /// <summary>
