@@ -33,15 +33,15 @@ namespace AutoAuctionProjekt.Classes
         public TrunkDimentionsStruct TrunkDimentions { get; set; }
         public readonly struct TrunkDimentionsStruct
         {
-            public TrunkDimentionsStruct(double height, double width, double depth)
+            public TrunkDimentionsStruct(decimal height, decimal width, decimal depth)
             {
                 Height = height;
                 Width = width;
                 Depth = depth;
             }
-            public double Height { get; }
-            public double Width { get; }
-            public double Depth { get; }
+            public decimal Height { get; }
+            public decimal Width { get; }
+            public decimal Depth { get; }
             public override string ToString() => $"(Height: {Height}, Width: {Width}, Depth: {Depth})";
         }
         /// <summary>

@@ -3,6 +3,8 @@ using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using AutoAuctionProjekt.Classes;
+using static AutoAuctionProjekt.Classes.Vehicle;
+using static AutoAuctionProjekt.Classes.HeavyVehicle;
 
 namespace AutoAuctionProjekt.Util;
 
@@ -24,7 +26,7 @@ public static class DatabaseServer
 	public static void Initialize(int attempts)
 	{
 		// Clear all local lists.
-		
+
 
 		// Attempt database connection and insert data into local lists.
 		try
@@ -112,35 +114,108 @@ public static class DatabaseServer
 	///     Fetch all addresses from the database.
 	/// </summary>
 	/// <returns>A list of all addresses.</returns>
-	private static List<Auction> FetchAuctions()
+	private static List<Vehicle> FetchAuctions(int vechicleID)
 	{
-		var Auctions = new List<Auction>();
+		var Vehicles = new List<Vehicle>();
 
-		const string query = "SELECT * FROM Auctions";
+	
+		string query = $"EXEC FetchVehicle {vechicleID}";
 
 		using var reader = ExecuteQuery(query);
 
 		while (reader.Read())
 		{
-			var id = reader.GetInt32(0);
+			Vehicle vehicle;
 
-			var streetName = reader.GetString(1);
-			var streetNumber = reader.GetString(2);
+            var TableName = reader.GetString(0);
+			var id = reader.GetInt32(1);
 
-			var zipCode = reader.GetString(3);
-			var city = reader.GetString(4);
+			var carName = reader.GetString(2);
+			var km = reader.GetInt32(3);
+			var registrationNumber = reader.GetString(4);
+			var releaseYear = reader.GetInt32(5);
+			var newPrice = reader.GetDecimal(6);
+			var hasTowbar = reader.GetBoolean(7);
+			var engineSize = reader.GetDecimal(8);
+			var kmPerLiter = reader.GetDecimal(9);
 
-			var country = reader.GetString(5);
+			var fuelTypeEnum = reader.GetString(10);
+;
+			Enum.TryParse(fuelTypeEnum, out FuelTypeEnum fuelType);
 
-			var auction = new Auction();
+           if (TableName == "Bus" || TableName == "Truck")
+			{
+				//HeavyVehicle
+                var HeavyId = reader.GetInt32(11);
 
-            Auctions.Add(auction);
+                var height = reader.GetDecimal(13);
+                var weight = reader.GetDecimal(14);
+                var length = reader.GetDecimal(15);
+                VehicleDimensionsStruct vehicleDimensions = new VehicleDimensionsStruct(height, weight, length);
+
+				if (TableName == "Bus")
+				{
+					//Bus
+                    var busId = reader.GetInt32(16);
+                    var numberOfSeats = reader.GetDecimal(18);
+                    var numberOfSleepingSpaces = reader.GetDecimal(19);
+                    var hasToilet = reader.GetBoolean(20);
+
+
+                    Bus bus = new(carName,
+                                km,
+                                registrationNumber,
+                                Convert.ToUInt16(releaseYear),
+                                newPrice,
+                                hasTowbar,
+                                Convert.ToUInt16(engineSize),
+                                Convert.ToUInt16(kmPerLiter),
+                                fuelType,
+                                vehicleDimensions,
+                                Convert.ToUInt16(numberOfSeats),
+                                Convert.ToUInt16(numberOfSleepingSpaces),
+                                hasToilet
+                                );
+                    vehicle = bus;
+                    Vehicles.Add(vehicle);
+                }
+				else{
+					//Trucks
+					var truckId = reader.GetInt32(16);
+					var loadCapacity  = reader.GetDecimal(18);
+
+					Truck truck = new(carName,
+								km,
+								registrationNumber,
+								Convert.ToUInt16(releaseYear),
+								newPrice,
+								hasTowbar,
+								Convert.ToUInt16(engineSize),
+								Convert.ToUInt16(kmPerLiter),
+								fuelType,
+								vehicleDimensions, 
+								loadCapacity);
+				}
+            }
+			else{
+				//PersonalCar
+				if (TableName == "ProfessionalPersonalCar")
+				{
+					//ProfessionalPersonalCar
+
+				}
+				else
+				{
+					//PrivatePersonalCar
+				}
+			}
 		}
 
 		reader.Close();
 
-		return addresses;
+		return Vehicles;
 	}
+}
 
 
 
@@ -149,57 +224,57 @@ public static class DatabaseServer
 	/// </summary>
 	/// <param name="address">The address to insert.</param>
 	/// <returns>True if the address was inserted successfully, false otherwise.</returns>
-	public static bool InsertAddress(Address address)
-	{
-		var query =
-			"INSERT INTO Addresses (StreetName, StreetNumber, City, ZipCode, Country) " +
-			"OUTPUT INSERTED.Id " +
-			$"VALUES ('{address.StreetName}', '{address.StreetNumber}', '{address.City}', '{address.ZipCode}', '{address.Country}')";
+	//public static bool InsertAddress(Address address)
+	//{
+	//	var query =
+	//		"INSERT INTO Addresses (StreetName, StreetNumber, City, ZipCode, Country) " +
+	//		"OUTPUT INSERTED.Id " +
+	//		$"VALUES ('{address.StreetName}', '{address.StreetNumber}', '{address.City}', '{address.ZipCode}', '{address.Country}')";
 
-		var reader = ExecuteQuery(query);
+	//	var reader = ExecuteQuery(query);
 
-		// Get the ID of the inserted order.
-		while (reader.Read())
-		{
-			address.Id = reader.GetInt32(0);
-		}
+	//	// Get the ID of the inserted order.
+	//	while (reader.Read())
+	//	{
+	//		address.Id = reader.GetInt32(0);
+	//	}
 
-		// If the ID is DefaultId, the query must have failed.
-		if (address.Id == Constants.DefaultId)
-		{
-			return false;
-		}
+	//	// If the ID is DefaultId, the query must have failed.
+	//	if (address.Id == Constants.DefaultId)
+	//	{
+	//		return false;
+	//	}
 
-		// Update the local cache.
-		Database.Addresses.Add(address);
+	//	// Update the local cache.
+	//	//Database.Addresses.Add(address);
 
-		return true;
-	}
+	//	return true;
+	//}
 
 	/// <summary>
 	///     Updates an address in the database.
 	/// </summary>
 	/// <param name="address">The address to update.</param>
 	/// <returns>True if the address was updated successfully, false otherwise.</returns>
-	public static bool UpdateAddress(Address address)
-	{
-		var query =
-			"UPDATE Addresses " +
-			$"SET StreetName = '{address.StreetName}', StreetNumber = '{address.StreetNumber}', City = '{address.City}', ZipCode = '{address.ZipCode}', Country = '{address.Country}' " +
-			$"WHERE Id = '{address.Id}'";
+	//public static bool UpdateAddress(Address address)
+	//{
+	//	var query =
+	//		"UPDATE Addresses " +
+	//		$"SET StreetName = '{address.StreetName}', StreetNumber = '{address.StreetNumber}', City = '{address.City}', ZipCode = '{address.ZipCode}', Country = '{address.Country}' " +
+	//		$"WHERE Id = '{address.Id}'";
 
-		// If the query fails, return false.
-		if (!ExecuteNonQuery(query))
-		{
-			return false;
-		}
+	//	// If the query fails, return false.
+	//	if (!ExecuteNonQuery(query))
+	//	{
+	//		return false;
+	//	}
 
-		// Update the local cache.
-		var index = Database.Addresses.FindIndex(a => a.Id == address.Id);
-		Database.Addresses[index] = address;
+	//	// Update the local cache.
+	//	//var index = Database.Addresses.FindIndex(a => a.Id == address.Id);
+	//	//Database.Addresses[index] = address;
 
-		return true;
-	}
+	//	//return true;
+	//}
 
 
 	/// <summary>
@@ -207,21 +282,21 @@ public static class DatabaseServer
 	/// </summary>
 	/// <param name="address">The address to delete.</param>
 	/// <returns>True if the address was deleted successfully, false otherwise.</returns>
-	public static bool DeleteAddress(Address address)
-	{
-		var query =
-			"DELETE FROM Addresses " +
-			$"WHERE Id = '{address.Id}'";
+	//public static bool DeleteAddress(Address address)
+	//{
+	//	var query =
+	//		"DELETE FROM Addresses " +
+	//		$"WHERE Id = '{address.Id}'";
 
-		// If the query fails, return false.
-		if (!ExecuteNonQuery(query))
-		{
-			return false;
-		}
+	//	// If the query fails, return false.
+	//	if (!ExecuteNonQuery(query))
+	//	{
+	//		return false;
+	//	}
 
 		// Update the local cache.
-		Database.Addresses.Remove(address);
+		//Database.Addresses.Remove(address);
 
-		return true;
-	}
-}
+//		return true;
+//	}
+//}

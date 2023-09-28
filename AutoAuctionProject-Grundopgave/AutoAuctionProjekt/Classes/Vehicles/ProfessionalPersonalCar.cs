@@ -18,7 +18,7 @@ namespace AutoAuctionProjekt.Classes
             ushort numberOfSeat,
             TrunkDimentionsStruct trunkDimentions,
             bool hasSafetyBar,
-            double loadCapacity)
+            decimal loadCapacity)
             : base(name, km, registrationNumber, year, newPrice, true, engineSize, kmPerLiter, fuelType, numberOfSeat, trunkDimentions)
         {
             if (loadCapacity < 750)
@@ -40,7 +40,7 @@ namespace AutoAuctionProjekt.Classes
         /// <summary>
         /// Load Capacity proberty
         /// </summary>
-        public double LoadCapacity { get; set; }
+        public decimal LoadCapacity { get; set; }
         /// <summary>
         /// Returns the ProfessionalPersonalCar in a string with relivant information.
         /// </summary>

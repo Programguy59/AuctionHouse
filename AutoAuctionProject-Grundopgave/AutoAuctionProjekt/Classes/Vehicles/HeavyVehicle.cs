@@ -29,15 +29,15 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public struct VehicleDimensionsStruct
         {
-            public VehicleDimensionsStruct(double height, double weight, double length)
+            public VehicleDimensionsStruct(decimal height, decimal weight, decimal length)
             {
                 Height = height;
                 Weight = weight;
                 Length = length;
             }
-            public double Height { get; }
-            public double Weight { get; }
-            public double Length { get; }
+            public decimal Height { get; }
+            public decimal Weight { get; }
+            public decimal Length { get; }
             public override string ToString() => $"(Height: {Height}, Weight: {Weight}, length: {Length})";
         }
         /// <summary>
