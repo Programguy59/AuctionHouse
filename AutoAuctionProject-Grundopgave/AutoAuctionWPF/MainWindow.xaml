@@ -3,13 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:AutoAuctionWPF"
+        xmlns:uc="clr-namespace:AutoAuctionWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Height="30" Width="50" Click="ButtonBase_OnClick" >login</Button>
-        
-
+    
+      <uc:UserControlLogin> </uc:UserControlLogin>
 
     </Grid>
 </Window>

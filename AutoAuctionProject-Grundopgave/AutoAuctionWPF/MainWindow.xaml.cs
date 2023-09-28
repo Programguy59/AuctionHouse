@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -23,12 +24,6 @@ namespace AutoAuctionWPF
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
         }
     }
 }
