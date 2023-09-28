@@ -34,9 +34,10 @@ public static class DatabaseServer
 		try
 		{
 			Console.WriteLine("Connecting to the database... (" + ++attempts + ")");
+			FetchAuctions(6);
 
 
-		}
+        }
 		catch (SqlException e)
 		{
 			Console.WriteLine("Failed to connect to the database!");
@@ -170,7 +171,7 @@ public static class DatabaseServer
                                 Convert.ToUInt16(releaseYear),
                                 newPrice,
                                 hasTowbar,
-                                Convert.ToUInt16(engineSize),
+                                Convert.ToDouble(engineSize),
                                 Convert.ToUInt16(kmPerLiter),
                                 fuelType,
                                 vehicleDimensions,
@@ -192,7 +193,7 @@ public static class DatabaseServer
 								Convert.ToUInt16(releaseYear),
 								newPrice,
 								hasTowbar,
-								Convert.ToUInt16(engineSize),
+								Convert.ToDouble(engineSize),
 								Convert.ToUInt16(kmPerLiter),
 								fuelType,
 								vehicleDimensions, 
@@ -225,7 +226,7 @@ public static class DatabaseServer
 								registrationNumber,
 								Convert.ToUInt16(releaseYear),
 								newPrice,
-								Convert.ToUInt16(engineSize),
+								Convert.ToDouble(engineSize),
 								Convert.ToUInt16(kmPerLiter),
 								fuelType,
 								Convert.ToUInt16(numberOfSeats),
@@ -247,7 +248,7 @@ public static class DatabaseServer
 								Convert.ToUInt16(releaseYear),
 								newPrice,
                                 hasTowbar,
-                                Convert.ToUInt16(engineSize),
+                                Convert.ToDouble(engineSize),
 								Convert.ToUInt16(kmPerLiter),
 								fuelType,
 								Convert.ToUInt16(numberOfSeats),
