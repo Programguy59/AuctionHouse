@@ -35,28 +35,29 @@ namespace AutoAuctionProjekt.Classes
 
 
             //TODO: V11 - Add to database and set ID
-            throw new NotImplementedException();
+    
         }
         /// <summary>
         /// Engine size proberty
         /// must be between 4.2 and 15.0 L or cast an out of range exection.
         /// </summary>
         /// <returns>The size the the engine as a double</returns>
+        double _EngineSize;
         public override double EngineSize
         {
-            get { return EngineSize; }
+            get { return _EngineSize; }
             set
             {
                 if (4.2 < value && value < 15.0)
                 {
-                    EngineSize = value;
+                    _EngineSize = value;
                 }
                 else
                 {
                     throw new ArgumentOutOfRangeException("value");
                 }
 
-                EngineSize = value;
+                _EngineSize = value;
             }
         }
         /// <summary>

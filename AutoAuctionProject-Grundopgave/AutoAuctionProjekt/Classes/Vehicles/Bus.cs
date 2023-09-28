@@ -41,14 +41,15 @@ namespace AutoAuctionProjekt.Classes
         /// Engine size proberty
         /// must be between 4.2 and 15.0 L or cast an out of range exection.
         /// </summary>
+        private double _EngineSize;
         public override double EngineSize
         {
-            get { return EngineSize; }
+            get { return _EngineSize; }
             set
             {
                 if (4.2 < value && value < 15.0)
                 {
-                    EngineSize = value;
+                    _EngineSize = value;
                 }
                 else
                 {
