@@ -9,36 +9,17 @@
    <Grid  Height="350" Width="525" Margin="0,0,0,0" Background="LightSkyBlue">  
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" Name="textBlockHeading" Text="Login" VerticalAlignment="Top" Width="110"  FontSize="17" FontStretch="ExtraCondensed"/>  
         <!--Button as a Link button using style-->  
-        <Button Margin="451,5,12,288" Content="Login" Cursor="Hand">  
-            <Button.Template>  
-                <ControlTemplate TargetType="Button">  
-                    <TextBlock TextDecorations="Underline">  
-                    <ContentPresenter />  
-                    </TextBlock>  
-                </ControlTemplate>  
-            </Button.Template>  
-            <Button.Style>  
-                <Style TargetType="Button">  
-                    <Setter Property="Foreground" Value="Navy" />  
-                    <Style.Triggers>  
-                        <Trigger Property="IsMouseOver" Value="true">  
-                            <Setter Property="Foreground" Value="Red" />  
-                        </Trigger>  
-                    </Style.Triggers>  
-                </Style>  
-            </Button.Style>  
-        </Button>  
         <!--end Button as a Link button using style-->  
         <Grid Margin="31,0,29,23" Background="White" Height="250" VerticalAlignment="Bottom">  
             <Grid.RowDefinitions>  
                 <RowDefinition Height="252*" />  
                 <!--   <RowDefinition Height="12*" />-->  
             </Grid.RowDefinitions>  
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="textBlockFirstname" Text="First Name:" VerticalAlignment="Top" Width="110" />  
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="textBlockUserName" Text="Username:" VerticalAlignment="Top" Width="110" />  
            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,60,0,0" Name="textBlockPassword" Text="Password:" VerticalAlignment="Top" Width="110"  />  
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Name="textBoxFirstName" VerticalAlignment="Top" Width="222" />  
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Name="textBoxUserName" VerticalAlignment="Top" Width="222" />  
             <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,60,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="222" />  
-            <Button Content="Submit" Height="23" HorizontalAlignment="Left" Margin="183,100,0,0" Name="Submit" VerticalAlignment="Top" Width="70"/>  
+            <Button Content="login" Height="23" HorizontalAlignment="Left" Margin="183,100,0,0" Name="login" VerticalAlignment="Top" Width="70"/>  
             <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,100,60,0" Name="button3" VerticalAlignment="Top" Width="70"  />  
         </Grid>  
     </Grid>  
