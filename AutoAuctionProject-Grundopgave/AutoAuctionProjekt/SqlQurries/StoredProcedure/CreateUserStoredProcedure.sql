@@ -29,11 +29,11 @@ exec(@sqlGiveWriterRole);
 
 Insert into AuctionHouse.dbo.Users
 (
-	userName, CorporateUser, Balance
+	userName, CorporateUser, Balance , zipCode
 )
 Values 
 (
-	@userName, @corporateUser, @balance
+	@userName, @corporateUser, @balance, @zipCode
 )
 IF @corporateUser = 0 Insert into AuctionHouse.dbo.PrivateUsers
 (
