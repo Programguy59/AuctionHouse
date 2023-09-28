@@ -42,7 +42,7 @@ namespace AutoAuctionProjekt.Classes
         /// must be between 4.2 and 15.0 L or cast an out of range exection.
         /// </summary>
         /// <returns>The size the the engine as a double</returns>
-        double _EngineSize;
+        private double _EngineSize;
         public override double EngineSize
         {
             get { return _EngineSize; }

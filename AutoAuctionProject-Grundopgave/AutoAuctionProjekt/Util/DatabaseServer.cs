@@ -7,6 +7,7 @@ using static AutoAuctionProjekt.Classes.Vehicle;
 using static AutoAuctionProjekt.Classes.HeavyVehicle;
 using static AutoAuctionProjekt.Classes.PersonalCar;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace AutoAuctionProjekt.Util;
 
@@ -34,7 +35,7 @@ public static class DatabaseServer
 		try
 		{
 			Console.WriteLine("Connecting to the database... (" + ++attempts + ")");
-			FetchAuctions(6);
+			
 
 
         }
@@ -113,22 +114,18 @@ public static class DatabaseServer
 		return command.ExecuteNonQuery() > 0;
 	}
 
-	/// <summary>
-	///     Fetch all addresses from the database.
-	/// </summary>
-	/// <returns>A list of all addresses.</returns>
-	private static List<Vehicle> FetchAuctions(int vechicleID)
-	{
-		var Vehicles = new List<Vehicle>();
 
-	
+	public static Vehicle FetchVehicle(int vechicleID)
+	{
 		string query = $"EXEC FetchVehicle {vechicleID}";
 
 		using var reader = ExecuteQuery(query);
 
-		while (reader.Read())
+    
+
+        while (reader.Read())
 		{
-			Vehicle vehicle;
+            Vehicle vehicle;
 
             var TableName = reader.GetString(0);
 			var id = reader.GetInt32(1);
@@ -180,9 +177,10 @@ public static class DatabaseServer
                                 hasToilet
                                 );
                     vehicle = bus;
-                    Vehicles.Add(vehicle);
+                    return vehicle;
                 }
-				else{
+                else
+                {
 					//Trucks
 					var truckId = reader.GetInt32(16);
 					var loadCapacity  = reader.GetDecimal(18);
@@ -199,7 +197,7 @@ public static class DatabaseServer
 								vehicleDimensions, 
 								loadCapacity);
                     vehicle = truck;
-                    Vehicles.Add(vehicle);
+                    return vehicle;
                 }
             }
 			else{
@@ -234,9 +232,10 @@ public static class DatabaseServer
 								hasSafetyBar,
 								loadCapacity);
 						vehicle = professionalPersonalCar;
-						Vehicles.Add(vehicle);
+						return vehicle;
+
                 }
-				else
+                else
 				{
                     //PrivatePersonalCar
                     var PrivatePersonalCarId = reader.GetInt32(17);
@@ -255,15 +254,17 @@ public static class DatabaseServer
 								trunkDimentionsStruct,
 								hasIsoFixFittings);
 						vehicle = privatePersonalCar;
-						Vehicles.Add(vehicle);
+						return vehicle;
+
+
                 }
 			}
 		}
 
 		reader.Close();
 
-		return Vehicles;
-	}
+        return null;
+    }
 }
 
 
