@@ -3,6 +3,8 @@ using System.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using AutoAuctionProjekt.Classes;
+using AutoAuctionProjekt.Classes.Vehicles;
+using AutoAuctionProjekt.Classes.Vehicles.Database;
 using static AutoAuctionProjekt.Classes.Vehicle;
 using static AutoAuctionProjekt.Classes.HeavyVehicle;
 using static AutoAuctionProjekt.Classes.PersonalCar;
@@ -304,7 +306,7 @@ public static class DatabaseServer
 
 
 		// Update the local cache.
-		//Database.buses.Add(bus);
+		Database.Buses.Add(bus);
 	}
 }
 
