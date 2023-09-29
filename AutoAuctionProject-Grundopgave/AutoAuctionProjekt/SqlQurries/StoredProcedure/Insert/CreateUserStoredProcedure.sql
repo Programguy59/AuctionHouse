@@ -3,6 +3,7 @@ ALTER PROCEDURE CreateUser
 @password varchar(128),
 @corporateUser bit,
 @balance decimal, 
+@zipCode varchar(128),
 @CRNumber varchar(10)
 AS
 begin
