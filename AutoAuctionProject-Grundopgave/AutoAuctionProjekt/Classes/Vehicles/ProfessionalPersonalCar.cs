@@ -21,6 +21,10 @@ namespace AutoAuctionProjekt.Classes
             decimal loadCapacity)
             : base(name, km, registrationNumber, year, newPrice, true, engineSize, kmPerLiter, fuelType, numberOfSeat, trunkDimentions)
         {
+
+            HasSafetyBar = hasSafetyBar;
+            LoadCapacity = loadCapacity;
+
             if (loadCapacity < 750)
             {
                 DriversLisence = DriversLisenceEnum.B;
@@ -31,8 +35,11 @@ namespace AutoAuctionProjekt.Classes
             }
 
             //TODO: V17 - Add to database and set ID
-            throw new NotImplementedException();
         }
+
+        public int ProfessionalPersonalCarID { get; set; }
+
+
         /// <summary>
         /// Safety Bar proberty
         /// </summary>
