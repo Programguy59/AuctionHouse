@@ -282,7 +282,6 @@ public static class DatabaseServer
 	///     Inserts an bus into the database.
 	/// </summary>
 	/// <param name="bus">The bus to insert.</param>
-	/// <returns>True if the bus was inserted successfully, false otherwise.</returns>
 	public static void InsertBus(Bus bus)
     {
         var query =
@@ -302,7 +301,7 @@ public static class DatabaseServer
 			+" "+ bus.NumberOfSleepingSpaces
 			+" "+ bus.HasToilet;
 
-		var reader = ExecuteQuery(query);
+		var reader = ExecuteNonQuery(query);
 
 
 		// Update the local cache.
