@@ -15,11 +15,11 @@
                 <RowDefinition Height="252*" />  
                 <!--   <RowDefinition Height="12*" />-->  
             </Grid.RowDefinitions>  
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="textBlockUserName" Text="Username:" VerticalAlignment="Top" Width="110" />  
-           <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,60,0,0" Name="textBlockPassword" Text="Password:" VerticalAlignment="Top" Width="110"  />  
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Name="textBoxUserName" VerticalAlignment="Top" Width="222" />  
-            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,60,0,0" Name="passwordBox1" VerticalAlignment="Top" Width="222" />  
-            <Button Content="login" Height="23" HorizontalAlignment="Left" Margin="183,100,0,0" Name="login" VerticalAlignment="Top" Width="70"/>  
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="TextBlockUserName" Text="Username:" VerticalAlignment="Top" Width="110" />  
+           <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,60,0,0" Name="TextBlockPassword" Text="Password:" VerticalAlignment="Top" Width="110"  />  
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Name="UserNameBox" VerticalAlignment="Top" Width="222" />  
+            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,60,0,0" Name="PasswordBox" VerticalAlignment="Top" Width="222" />  
+            <Button Content="login" Height="23" HorizontalAlignment="Left" Margin="183,100,0,0" Name="login" VerticalAlignment="Top" Width="70" Click="Login_OnClick"/>  
             <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,100,60,0" Name="button3" VerticalAlignment="Top" Width="70"  />  
         </Grid>  
     </Grid>  
