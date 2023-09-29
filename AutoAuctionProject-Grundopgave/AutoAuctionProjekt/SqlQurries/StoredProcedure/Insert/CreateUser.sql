@@ -30,6 +30,11 @@ set @sqlGiveWriterRole = 'USE AuctionHouse; ALTER ROLE db_datawriter ADD MEMBER 
 print(@sqlGiveWriterRole)
 exec(@sqlGiveWriterRole);
 
+declare @sqlGiveExecRole varchar(1023)
+set @sqlGiveExecRole = 'USE AuctionHouse; ALTER ROLE ExecRole ADD MEMBER ' + @username + ' ;' 
+print(@sqlGiveExecRole)
+exec(@sqlGiveExecRole);
+
 Insert into AuctionHouse.dbo.Users
 (
 	userName, CorporateUser, Balance , zipCode
