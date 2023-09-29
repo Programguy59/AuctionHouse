@@ -4,8 +4,9 @@ ALTER PROCEDURE CreateUser
 @corporateUser bit,
 @balance decimal, 
 @zipCode varchar(128),
-@CRNumber varchar(10),
-@credit
+@credit decimal,
+@CRNumber varchar(10)
+
 AS
 begin
 declare @sqllogin varchar(1023)
