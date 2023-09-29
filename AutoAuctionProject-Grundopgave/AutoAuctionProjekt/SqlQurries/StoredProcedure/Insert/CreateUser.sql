@@ -4,7 +4,8 @@ ALTER PROCEDURE CreateUser
 @corporateUser bit,
 @balance decimal, 
 @zipCode varchar(128),
-@CRNumber varchar(10)
+@CRNumber varchar(10),
+@credit
 AS
 begin
 declare @sqllogin varchar(1023)
@@ -46,11 +47,11 @@ Values
 )
 ELSE Insert into AuctionHouse.dbo.CorporateUsers
 (
-	CVR,userName
+	CVR,credit,userName
 )
 Values 
 (
-	@CRNumber,@userName
+	@CRNumber,@credit,@userName
 )
 end
 
