@@ -289,26 +289,35 @@ public static class DatabaseServer
     {
         var query =
             "EXEC CreateBus " + bus.Name
-			+" "+ bus.Km 
-			+" "+ bus.RegistrationNumber
-			+" "+ bus.Year
-			+" "+ bus.NewPrice
-			+" "+ bus.HasTowbar
-			+" "+ bus.EngineSize
-			+" "+ bus.KmPerLiter
-			+" "+ bus.FuelType
-			+" "+ bus.VehicleDimensions.Height
-			+" "+ bus.VehicleDimensions.Weight
-			+" "+ bus.VehicleDimensions.Length
-			+" "+ bus.NumberOfSeats
-			+" "+ bus.NumberOfSleepingSpaces
-			+" "+ bus.HasToilet;
+			+", " + bus.Km 
+			+", " + bus.RegistrationNumber
+			+", " + bus.Year
+			+", " + bus.NewPrice
+			+", " + bus.HasTowbar
+			+", " + bus.EngineSize
+			+", " + bus.KmPerLiter
+			+", " + bus.FuelType
+			+", " + bus.VehicleDimensions.Height
+			+", " + bus.VehicleDimensions.Weight
+			+", " + bus.VehicleDimensions.Length
+			+", " + bus.NumberOfSeats
+			+", " + bus.NumberOfSleepingSpaces
+			+", " + bus.HasToilet;
 
-		var reader = ExecuteNonQuery(query);
+		var reader = ExecuteQuery(query);
+        while (reader.Read())
+        {
+			var VehicleId = reader.GetInt32(0);
+			var HeavyVehicleId = reader.GetInt32(1);
+			var BusId = reader.GetInt32(2);
+			bus.VehicleID = VehicleId;
+			bus.HeavyVehicleID = HeavyVehicleId;
+			bus.BusID = BusId;
+			Database.Buses.Add(bus);
+        }
 
 
-		// Update the local cache.
-		Database.Buses.Add(bus);
+        // Update the local cache.
 	}
 
     public static void InsertUser(string userName,string password,Boolean CorporateUser,decimal balance,string zipCode,decimal credit, string CRNumber )
