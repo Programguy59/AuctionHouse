@@ -281,44 +281,77 @@ public static class DatabaseServer
 
 
 
-	/// <summary>
-	///     Inserts an bus into the database.
-	/// </summary>
-	/// <param name="bus">The bus to insert.</param>
-	public static void InsertBus(Bus bus)
+    /// <summary>
+    ///     Inserts an bus into the database.
+    /// </summary>
+    /// <param name="bus">The bus to insert.</param>
+    public static void InsertBus(Bus bus)
     {
         var query =
             "EXEC CreateBus " + bus.Name
-			+", " + bus.Km 
-			+", " + bus.RegistrationNumber
-			+", " + bus.Year
-			+", " + bus.NewPrice
-			+", " + bus.HasTowbar
-			+", " + bus.EngineSize
-			+", " + bus.KmPerLiter
-			+", " + bus.FuelType
-			+", " + bus.VehicleDimensions.Height
-			+", " + bus.VehicleDimensions.Weight
-			+", " + bus.VehicleDimensions.Length
-			+", " + bus.NumberOfSeats
-			+", " + bus.NumberOfSleepingSpaces
-			+", " + bus.HasToilet;
+            + ", " + bus.Km
+            + ", " + bus.RegistrationNumber
+            + ", " + bus.Year
+            + ", " + bus.NewPrice
+            + ", " + bus.HasTowbar
+            + ", " + bus.EngineSize
+            + ", " + bus.KmPerLiter
+            + ", " + bus.FuelType
+            + ", " + bus.VehicleDimensions.Height
+            + ", " + bus.VehicleDimensions.Weight
+            + ", " + bus.VehicleDimensions.Length
+            + ", " + bus.NumberOfSeats
+            + ", " + bus.NumberOfSleepingSpaces
+            + ", " + bus.HasToilet;
 
-		var reader = ExecuteQuery(query);
+        var reader = ExecuteQuery(query);
         while (reader.Read())
         {
-			var VehicleId = reader.GetInt32(0);
-			var HeavyVehicleId = reader.GetInt32(1);
-			var BusId = reader.GetInt32(2);
-			bus.VehicleID = VehicleId;
-			bus.HeavyVehicleID = HeavyVehicleId;
-			bus.BusID = BusId;
-			Database.Buses.Add(bus);
+            var VehicleId = reader.GetInt32(0);
+            var HeavyVehicleId = reader.GetInt32(1);
+            var BusId = reader.GetInt32(2);
+            bus.VehicleID = VehicleId;
+            bus.HeavyVehicleID = HeavyVehicleId;
+            bus.BusID = BusId;
+            // Update the local cache.
+            Database.Buses.Add(bus);
         }
 
 
-        // Update the local cache.
-	}
+    }
+
+    public static void InsertTruck(Truck truck)
+    {
+		var query =
+			"EXEC CreateTruck " + truck.Name
+			+ ", " + truck.Km
+			+ ", " + truck.RegistrationNumber
+			+ ", " + truck.Year
+			+ ", " + truck.NewPrice
+			+ ", " + truck.HasTowbar
+			+ ", " + truck.EngineSize
+			+ ", " + truck.KmPerLiter
+			+ ", " + truck.FuelType
+			+ ", " + truck.VehicleDimensions.Height
+			+ ", " + truck.VehicleDimensions.Weight
+			+ ", " + truck.VehicleDimensions.Length
+			+ ", " + truck.LoadCapacity;
+
+        var reader = ExecuteQuery(query);
+        while (reader.Read())
+        {
+            var VehicleId = reader.GetInt32(0);
+            var HeavyVehicleId = reader.GetInt32(1);
+            var TruckId = reader.GetInt32(2);
+            truck.VehicleID = VehicleId;
+            truck.HeavyVehicleID = HeavyVehicleId;
+            truck.TruckID = TruckId;
+            // Update the local cache.
+            Database.Trucks.Add(truck);
+        }
+
+
+    }
 
     public static void InsertUser(string userName,string password,Boolean CorporateUser,decimal balance,string zipCode,decimal credit, string CRNumber )
     {

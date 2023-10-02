@@ -1,10 +1,11 @@
-﻿using System;
+﻿using AutoAuctionProjekt.Util;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AutoAuctionProjekt.Classes
 {
-    class Truck : HeavyVehicle
+    public class Truck : HeavyVehicle
     {
 
         //Create truck from database
@@ -74,8 +75,7 @@ namespace AutoAuctionProjekt.Classes
             LoadCapacity = loadCapacity;
 
 
-            //TODO: V11 - Add to database and set ID
-    
+            DatabaseServer.InsertTruck(this);
         }
         /// <summary>
         /// Engine size proberty
