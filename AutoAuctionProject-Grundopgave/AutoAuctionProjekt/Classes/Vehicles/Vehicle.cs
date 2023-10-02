@@ -30,7 +30,7 @@ namespace AutoAuctionProjekt.Classes
         /// <summary>
         /// ID field and proberty
         /// </summary>
-        public uint ID { get; private set; }
+        public int VehicleID { get; set; }
         /// <summary>
         /// Name field and proberty
         /// </summary>

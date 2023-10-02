@@ -149,7 +149,7 @@ public static class DatabaseServer
 			if (TableName == "Bus" || TableName == "Truck")
 			{
 				//HeavyVehicle
-				var HeavyId = reader.GetInt32(11);
+				var heavyId = reader.GetInt32(11);
 
 				var height = reader.GetDecimal(13);
 				var weight = reader.GetDecimal(14);
@@ -177,9 +177,12 @@ public static class DatabaseServer
 								vehicleDimensions,
 								Convert.ToUInt16(numberOfSeats),
 								Convert.ToUInt16(numberOfSleepingSpaces),
-								hasToilet
+								hasToilet, id, heavyId, busId
 								);
-					vehicle = bus;
+					
+
+
+                    vehicle = bus;
 					return vehicle;
 				}
 				else
@@ -198,7 +201,7 @@ public static class DatabaseServer
 								Convert.ToUInt16(kmPerLiter),
 								fuelType,
 								vehicleDimensions,
-								loadCapacity);
+								loadCapacity, id, heavyId, truckId);
 					vehicle = truck;
 					return vehicle;
 				}
@@ -219,7 +222,7 @@ public static class DatabaseServer
 				if (TableName == "ProfessionalPersonalCar")
 				{
 					//ProfessionalPersonalCar
-					var ProfessionalPersonalCarId = reader.GetInt32(17);
+					var professionalPersonalCarId = reader.GetInt32(17);
 					var hasSafetyBar = reader.GetBoolean(19);
 					var loadCapacity = reader.GetDecimal(20);
 
@@ -234,7 +237,7 @@ public static class DatabaseServer
 								Convert.ToUInt16(numberOfSeats),
 								trunkDimentionsStruct,
 								hasSafetyBar,
-								loadCapacity);
+								loadCapacity, id, personalCarId, professionalPersonalCarId);
 					vehicle = professionalPersonalCar;
 					return vehicle;
 
@@ -242,7 +245,7 @@ public static class DatabaseServer
 				else
 				{
 					//PrivatePersonalCar
-					var PrivatePersonalCarId = reader.GetInt32(17);
+					var privatePersonalCarId = reader.GetInt32(17);
 					var hasIsoFixFittings = reader.GetBoolean(19);
 
 					PrivatePersonalCar privatePersonalCar = new(carName,
@@ -256,7 +259,7 @@ public static class DatabaseServer
 								fuelType,
 								Convert.ToUInt16(numberOfSeats),
 								trunkDimentionsStruct,
-								hasIsoFixFittings);
+								hasIsoFixFittings, id, personalCarId, privatePersonalCarId);
 					vehicle = privatePersonalCar;
 					return vehicle;
 

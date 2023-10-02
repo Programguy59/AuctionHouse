@@ -27,6 +27,9 @@ namespace AutoAuctionProjekt.Classes
         /// Number of seat proberty
         /// </summary>
         public ushort NumberOfSeat { get; set; }
+
+        public int PersonalCarID { get; set; }
+
         /// <summary>
         /// Trunk dimentions proberty and struct
         /// </summary>

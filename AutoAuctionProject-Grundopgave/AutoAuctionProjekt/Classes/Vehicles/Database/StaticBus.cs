@@ -11,12 +11,12 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
     {
         public static readonly List<Bus> Buses = new();
 
-        public static Bus? GetAddressById(int id)
+        public static Bus? GetBusById(int id)
         {
-            return Buses.FirstOrDefault(bus => bus.Id == id);
+            return Buses.FirstOrDefault(bus => bus.BusID == id);
         }
 
-        public static List<Bus> GetAllAddresses()
+        public static List<Bus> GetAllBuses()
         {
             return Buses;
         }

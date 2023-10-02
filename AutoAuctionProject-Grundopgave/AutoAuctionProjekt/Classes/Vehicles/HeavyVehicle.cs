@@ -20,6 +20,10 @@ namespace AutoAuctionProjekt.Classes
         {
             this.VehicleDimensions = vehicleDimentions;
         }
+
+        public int HeavyVehicleID { get; set; }
+
+
         /// <summary>
         /// Vehicle dimentions proberty and struct
         /// </summary>
@@ -38,6 +42,7 @@ namespace AutoAuctionProjekt.Classes
             public decimal Height { get; }
             public decimal Weight { get; }
             public decimal Length { get; }
+
             public override string ToString() => $"(Height: {Height}, Weight: {Weight}, length: {Length})";
         }
         /// <summary>
