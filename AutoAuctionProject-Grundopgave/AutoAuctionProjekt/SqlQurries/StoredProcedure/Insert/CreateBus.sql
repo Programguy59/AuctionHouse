@@ -20,6 +20,9 @@ Create PROCEDURE CreateBus
 AS
 begin
 
+DECLARE @VehicleId int
+DECLARE @BusId int
+
 EXEC CreateHeavyVehicle @carName, @km, @registrationNumber, @releaseYear, @newPrice, @hasTowbar, @engineSize, @kmPerLiter, @fuelTypeEnum, @height, @weight, @length;
 
 DECLARE @currentID INT
@@ -33,4 +36,10 @@ VALUES
 (
 	@currentID, @numberOfSeats, @numberOfSleepingSpaces, @hasToilet
 );
+
+SET @VehicleId = IDENT_CURRENT('Vehicle');
+SET @BusId = IDENT_CURRENT('Bus');
+
+SELECT @VehicleId AS VehicleId, @currentID AS HeavyVehicleId, @BusId;
+
 end
