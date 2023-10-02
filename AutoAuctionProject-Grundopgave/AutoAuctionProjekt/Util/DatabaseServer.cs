@@ -310,6 +310,23 @@ public static class DatabaseServer
 		// Update the local cache.
 		Database.Buses.Add(bus);
 	}
+
+    public static void InsertUser(string userName,string password,Boolean CorporateUser,decimal balance,string zipCode,decimal credit, string CRNumber )
+    {
+		var query =
+			"EXEC CreateUser " + userName
+			+ ", " + password
+			+ ", " + CorporateUser
+			+ ", " + balance
+			+ ", " + zipCode
+			+ ", " + credit
+			+ ", " + CRNumber;
+
+
+
+        var reader = ExecuteNonQuery(query);
+
+    }
 }
 
 /// <summary>

@@ -18,12 +18,25 @@
             
                 <Label Content="confirm password" Foreground="Gray" Margin="0,0,0,5"/>
                 <PasswordBox x:Name="ConfirmPasswordBox" Width="200" Margin="0,0,0,10"/>
+
+                <Label Content="balance" Foreground="Gray" Margin="0,0,0,5"/>
+                <TextBox x:Name="balanceTextBox" Width="200" Margin="0,0,0,10"/>
+
+                <Label Content="zipCode" Foreground="Gray" Margin="0,0,0,5"/>
+                <TextBox x:Name="zipCodeTextBox" Width="200" Margin="0,0,0,10"/>
+
+
+
+            <RadioButton x:Name="UserRadioButton" Content="Corporate" Margin="0,0,0,5" Checked="UserRadioButton_Checked" />
+            <RadioButton x:Name="PrivateUserRadioButton" Content="Private" Margin="0,0,0,5" Checked="PrivateUserRadioButton_Checked"/>
+
+            <Label x:Name="CreditLabel" Content="Credit" Foreground="Gray" Margin="0,0,0,5" Visibility="Collapsed" />
+            <TextBox x:Name="CreditTextBox" Width="200" Margin="0,0,0,10" Visibility="Collapsed"/>
+
+            <Label x:Name="CRLabel" Content="CPR Nummer" Foreground="Gray" Margin="0,0,0,5" Visibility="Collapsed"/>
+            <TextBox x:Name="CPRNummerTextBox" Width="200" Margin="0,0,0,10" Visibility="Collapsed"/>
                 
-                <RadioButton x:Name="UserRadioButton" Content="Corporate" Margin="0,0,0,5" />
-                <RadioButton x:Name="AdminRadioButton" Content="Private" Margin="0,0,0,10" />
-                
-            
-                <StackPanel Orientation="Horizontal">
+            <StackPanel Orientation="Horizontal">
                     <Button Content="Creat User" Click="CreateUserButton_Click" Margin="0,0,10,0"/>
                     <Button Content="Cancel" Click="CancelButton_Click"/>
                 </StackPanel>
