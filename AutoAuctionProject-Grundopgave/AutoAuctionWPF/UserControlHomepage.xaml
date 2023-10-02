@@ -5,8 +5,17 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:AutoAuctionWPF"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Border Background="LightSkyBlue" CornerRadius="20">
         
-    </Grid>
+        <Grid>
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                <ListBox x:Name="YourAuctionsList" Width="400" Height="200" Margin="0,0,0,10"/>
+                <ListBox x:Name="CurrentAuctionsList" Width="400" Height="200" Margin="0,0,0,10"/>
+                <Button Content="Create New Auction" Click="CreateAuctionButton_Click"/>
+                <Button Content="View User Profile" Click="ViewProfileButton_Click"/>
+            </StackPanel>
+      </Grid>
+       
+    </Border>
 </UserControl>

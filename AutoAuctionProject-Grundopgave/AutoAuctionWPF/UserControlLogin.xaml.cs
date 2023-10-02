@@ -1,40 +1,64 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using AutoAuctionProjekt.Util;
 
-
-namespace AutoAuctionWPF;
-
-public partial class UserControlLogin : UserControl
+namespace AutoAuctionWPF
 {
-    public UserControlLogin()
+    public partial class UserControlLogin : UserControl
     {
-        InitializeComponent();
-        this.DataContext = this;
-    }
+        private MainWindow mainWindow;
 
-    string _userName;
-    string _password;
-
-    private void Login_OnClick(object sender, RoutedEventArgs e)
-    {
-        Constants.Sql.User = UserNameBox.Text;
-        Constants.Sql.Password = PasswordBox.Password;
-        if (string.IsNullOrEmpty(UserNameBox.Text) || string.IsNullOrEmpty(PasswordBox.Password))
+        public UserControlLogin()
         {
-            MessageBox.Show("Please enter a username and password");
+            InitializeComponent();
+            mainWindow = (MainWindow)Application.Current.MainWindow;
         }
-        else
+
+        private bool _isLoginSuccessful = false;
+
+        private void Login_OnClick(object sender, RoutedEventArgs e)
         {
-            DatabaseServer.ExecuteQuery("SELECT * FROM Users");
-            var test = DatabaseServer.FetchVehicle(8);
-            MessageBox.Show(test.ToString());
-                MessageBox.Show("Login successful");
+            if (IsValid())
+            {
+                mainWindow.ShowHomeScreen();
+            }
         }
-        
-        
 
+        private bool IsValid()
+        {
+            Constants.Sql.User = UserNameBox.Text;
+            Constants.Sql.Password = PasswordBox.Password;
+
+            if (string.IsNullOrEmpty(UserNameBox.Text) || string.IsNullOrEmpty(PasswordBox.Password))
+            {
+                MessageBox.Show("Please enter a username and password");
+                _isLoginSuccessful = false;
+            }
+            else
+            {
+                try
+                {
+                    DatabaseServer.ExecuteQuery("SELECT * FROM Users");
+                    var test = DatabaseServer.FetchVehicle(8);
+                   // MessageBox.Show(test.ToString());
+                   _isLoginSuccessful = true;
+                }
+                catch (Exception exception)
+                {
+                    MessageBox.Show("User does not exist");
+                    _isLoginSuccessful = false;
+                }
+                
+            }
+            
+            
+            return _isLoginSuccessful;
+        }
+
+        private void CreatUser_OnClick(object sender, RoutedEventArgs e)
+        {
+            mainWindow.ShowCreateUserScreen();
+        }
     }
-
 }
-    

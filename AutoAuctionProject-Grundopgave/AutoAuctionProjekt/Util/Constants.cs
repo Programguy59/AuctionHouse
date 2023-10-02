@@ -12,7 +12,7 @@ public static class Constants
 		public const int Port = 1433;
 
 		public const string Database = "AuctionHouse";
-		public const string User = "sa";
-		public const string Password = "H2PD071123_Gruppe5";
+		public static string User = "sa";
+		public static string Password = "H2PD071123_Gruppe5";
 	}
 }

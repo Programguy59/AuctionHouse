@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static AutoAuctionWPF.UserControlLogin;
 
 namespace AutoAuctionWPF
 {
@@ -24,6 +25,47 @@ namespace AutoAuctionWPF
         public MainWindow()
         {
             InitializeComponent();
+            ShowLoginScreen(); // Start med at vise Login-skærmen
+        }
+
+        public void ShowLoginScreen()
+        {
+            contentControl.Content = new UserControlLogin();
+        }
+
+        public void ShowHomeScreen()
+        {
+            contentControl.Content = new UserControlHomepage();
+        }
+        
+        public void ShowCreateUserScreen()
+        {
+            contentControl.Content = new CreateUserControl(this);
+        }
+        
+        public void ShowSetForSaleScreen()
+        {
+            contentControl.Content = new SetForSaleControl(this);
+        }
+        
+        public void ShowBuyerOfAuctionScreen()
+        {
+            contentControl.Content = new BuyerOfAuctionControl();
+        }
+        
+        public void ShowSellerOfAuctionScreen()
+        {
+            contentControl.Content = new SellerOfAuctionControl();
+        }
+        
+        public void ShowUserProfileScreen()
+        {
+            contentControl.Content = new UserProfileControl();
+        }
+        
+        public void BidHistoryControl()
+        {
+            contentControl.Content = new BidHistoryControl();
         }
     }
 }
