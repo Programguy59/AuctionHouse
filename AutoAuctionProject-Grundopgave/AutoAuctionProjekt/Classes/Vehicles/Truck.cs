@@ -6,6 +6,46 @@ namespace AutoAuctionProjekt.Classes
 {
     class Truck : HeavyVehicle
     {
+
+        //Create truck from database
+        public Truck(
+            string name,
+            double km,
+            string registrationNumber,
+            ushort year,
+            decimal newPrice,
+            bool hasTowbar,
+            double engineSize,
+            double kmPerLiter,
+            FuelTypeEnum fuelType,
+            VehicleDimensionsStruct vehicleDimentions,
+            decimal loadCapacity,
+            int vehicleID,
+            int heavyVehicleID,
+            int truckID
+            ) :
+            base(name, km, registrationNumber, year, newPrice, hasTowbar, engineSize, kmPerLiter, fuelType, vehicleDimentions)
+        {
+            //TODO: V10 - Constructor for Truck, DriversLisence should be CE if the truck has a towbar, otherwise it should be C
+
+            if (hasTowbar)
+            {
+                DriversLisence = DriversLisenceEnum.CE;
+            }
+            else
+            {
+                DriversLisence = DriversLisenceEnum.C;
+            }
+
+            EngineSize = engineSize;
+            LoadCapacity = loadCapacity;
+            VehicleID = vehicleID;
+            HeavyVehicleID = heavyVehicleID;
+            TruckID = truckID;
+
+        }
+
+        //Create truck from program
         public Truck(
             string name,
             double km,
@@ -64,6 +104,9 @@ namespace AutoAuctionProjekt.Classes
         /// Load Capacity field and proberty
         /// </summary>
         public Decimal LoadCapacity { get; set; }
+
+        public int TruckID { get; set; }
+
         /// <summary>
         /// Returns the Truck in a string with relivant information.
         /// </summary>

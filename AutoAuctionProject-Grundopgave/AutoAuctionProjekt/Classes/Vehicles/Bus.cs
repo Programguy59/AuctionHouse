@@ -8,6 +8,51 @@ namespace AutoAuctionProjekt.Classes
 {
     public class Bus : HeavyVehicle
     {
+        //Constructor for creating bus from database
+        public Bus(
+                string name,
+                double km,
+                string registrationNumber,
+                ushort year,
+                decimal newPrice,
+                bool hasTowbar,
+                double engineSize,
+                double kmPerLiter,
+                FuelTypeEnum fuelType,
+                VehicleDimensionsStruct vehicleDimentions,
+                ushort numberOfSeats,
+                ushort numberOfSleepingSpaces,
+                bool hasToilet,
+                int vehicleId,
+                int heavyVechicleId,
+                int busId
+
+                ) : base(name, km, registrationNumber, year, newPrice, hasTowbar, engineSize, kmPerLiter, fuelType, vehicleDimentions)
+        {
+            this.NumberOfSeats = numberOfSeats;
+            this.NumberOfSleepingSpaces = numberOfSleepingSpaces;
+            this.HasToilet = hasToilet;
+
+            this.VehicleID = vehicleId;
+            this.HeavyVehicleID = heavyVechicleId;
+            this.BusID = busId;
+
+
+            if (hasTowbar)
+            {
+                DriversLisence = DriversLisenceEnum.DE;
+            }
+            else
+            {
+                DriversLisence = DriversLisenceEnum.D;
+            }
+
+            //TODO: V8 - Add to database and set ID
+
+
+        }
+
+        //Constructor for creating Bus from program
         public Bus (
             string name,
             double km,
@@ -38,7 +83,7 @@ namespace AutoAuctionProjekt.Classes
 
             //TODO: V8 - Add to database and set ID
 
-
+            DatabaseServer.InsertBus (this);
 
         }
         /// <summary>
@@ -76,8 +121,7 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         public bool HasToilet { get; set; }
 
-        public int Id { get; set; }
-
+        public int BusID { get; set; }
 
         /// <summary>
         /// Returns the Bus in a string with relivant information.

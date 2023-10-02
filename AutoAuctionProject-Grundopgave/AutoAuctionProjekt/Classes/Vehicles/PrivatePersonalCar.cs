@@ -6,6 +6,35 @@ namespace AutoAuctionProjekt.Classes
 {
     public class PrivatePersonalCar : PersonalCar
     {
+        //Constructor for creating PrivatePersonalCar from database
+        public PrivatePersonalCar(
+            string name,
+            double km,
+            string registrationNumber,
+            ushort year,
+            decimal newPrice,
+            bool hasTowbar,
+            double engineSize,
+            double kmPerLiter,
+            FuelTypeEnum fuelType,
+            ushort numberOfSeat,
+            TrunkDimentionsStruct trunkDimentions,
+            bool hasIsofixFittings,
+            int vehicleId,
+            int personalCarId,
+            int privatePersonalCarId
+            )
+            : base(name, km, registrationNumber, year, newPrice, hasTowbar, engineSize, kmPerLiter, fuelType, numberOfSeat, trunkDimentions)
+        {
+
+            HasIsofixFittings = hasIsofixFittings;
+
+            VehicleID = vehicleId;
+            PersonalCarID = personalCarId;
+            PrivatePersonalCarID = privatePersonalCarId;
+
+        }
+        //Constructor for creating PrivatePersonalCar from program
         public PrivatePersonalCar(
             string name,
             double km,
@@ -28,6 +57,10 @@ namespace AutoAuctionProjekt.Classes
 
             //TODO: V20 - Add to database and set ID
         }
+
+        public int PrivatePersonalCarID { get; set; }
+
+
         /// <summary>
         /// Isofix Fittings proberty
         /// </summary>
