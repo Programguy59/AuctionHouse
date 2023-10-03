@@ -17,7 +17,7 @@ namespace AutoAuctionProjekt.Classes
         /// <summary>
         /// ID of the auction
         /// </summary>
-        public uint ID { get; private set; }
+        public uint ID { get; set; }
         /// <summary>
         /// The minimum price of the auction
         /// </summary>

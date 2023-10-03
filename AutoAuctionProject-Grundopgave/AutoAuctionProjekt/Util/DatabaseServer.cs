@@ -322,22 +322,29 @@ public static class DatabaseServer
 		
         while (reader.Read())
         {
+
             var VehicleId = reader.GetInt32(1);
             var userName = reader.GetString(2);
-            var MinimumPrice = reader.GetInt32(3);
+            var MinimumPrice = reader.GetDecimal(3);
 			var vehicle = FetchVehicle(VehicleId);
 
 			FetchUser(userName);
 			PrivateUser privateUser = Database.GetPrivateUserByUserName(userName);
 			CorporateUser corporateUser = Database.GetCorporateUserByUserName(userName);
 
-			if (privateUser != null)
+
+
+            if (privateUser != null)
 			{
                 Auction auction = new(vehicle, privateUser, MinimumPrice);
+				auction.ID = auctionId;
+                return auction;
             }
             if (corporateUser != null)
             {
-                Auction auction = new(vehicle, privateUser, MinimumPrice);
+                Auction auction = new(vehicle, corporateUser, MinimumPrice);
+				auction.ID = auctionId;
+                return auction;
             }
 
 
