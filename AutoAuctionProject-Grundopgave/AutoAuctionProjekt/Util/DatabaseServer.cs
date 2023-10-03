@@ -181,7 +181,7 @@ public static class DatabaseServer
 								hasToilet, id, heavyId, busId
 								);
 					
-
+					Database.Buses.Add(bus);
 
                     vehicle = bus;
 					return vehicle;
@@ -204,6 +204,7 @@ public static class DatabaseServer
 								vehicleDimensions,
 								loadCapacity, id, heavyId, truckId);
 					vehicle = truck;
+					Database.Trucks.Add(truck);
 					return vehicle;
 				}
 			}
@@ -239,6 +240,7 @@ public static class DatabaseServer
 								trunkDimentionsStruct,
 								hasSafetyBar,
 								loadCapacity, id, personalCarId, professionalPersonalCarId);
+					Database.ProfessionalPersonalCars.Add(professionalPersonalCar);
 					vehicle = professionalPersonalCar;
 					return vehicle;
 
@@ -261,6 +263,7 @@ public static class DatabaseServer
 								Convert.ToUInt16(numberOfSeats),
 								trunkDimentionsStruct,
 								hasIsoFixFittings, id, personalCarId, privatePersonalCarId);
+					Database.PrivatePersonalCars.Add(privatePersonalCar);
 					vehicle = privatePersonalCar;
 					return vehicle;
 
