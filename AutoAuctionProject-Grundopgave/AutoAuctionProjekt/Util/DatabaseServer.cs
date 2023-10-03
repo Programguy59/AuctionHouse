@@ -11,6 +11,7 @@ using static AutoAuctionProjekt.Classes.PersonalCar;
 using System.Diagnostics;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Linq;
+using System.Reflection.Emit;
 
 namespace AutoAuctionProjekt.Util;
 
@@ -273,7 +274,77 @@ public static class DatabaseServer
 		return null;
 	}
 
+	public static void FetchUser (string userName)
+	{
+        string query = $"EXEC FetchUser {userName}";
 
+        using var reader = ExecuteQuery(query);
+		
+		
+        while (reader.Read())
+        {
+            var corporateUser = reader.GetBoolean(1);
+            var balance = reader.GetDecimal(2);
+            var zipCode = reader.GetString(3);
+            var CRNumber = reader.GetString(4);
+
+
+			if (corporateUser == true)
+			{
+				var credit = reader.GetDecimal(5);
+				CorporateUser corporate = new(userName, corporateUser, balance, zipCode, CRNumber, credit);
+				Database.CorporateUsers.Add(corporate);
+            }
+			else
+			{
+                PrivateUser Private = new(userName, corporateUser, balance, zipCode, CRNumber);
+                Database.PrivateUsers.Add(Private);
+            }
+
+        }
+
+
+        
+        
+        reader.Close();
+
+       
+    }
+    public static Auction FetchAuction(int auctionId)
+    {
+        string query = $"EXEC FetchAuction {auctionId}";
+
+        using var reader = ExecuteQuery(query);
+
+		
+        while (reader.Read())
+        {
+            var VehicleId = reader.GetInt32(1);
+            var userName = reader.GetString(2);
+            var MinimumPrice = reader.GetInt32(3);
+			var vehicle = FetchVehicle(VehicleId);
+
+			PrivateUser privateUser = Database.GetPrivateUserByUserName(userName);
+			CorporateUser corporateUser = Database.GetCorporateUserByUserName(userName);
+
+			if (privateUser != null)
+			{
+                Auction auction = new(vehicle, privateUser, MinimumPrice);
+            }
+            if (corporateUser != null)
+            {
+                Auction auction = new(vehicle, privateUser, MinimumPrice);
+            }
+
+
+        }
+
+		 
+		
+        reader.Close();
+
+        return null;
+    }
 
 
 

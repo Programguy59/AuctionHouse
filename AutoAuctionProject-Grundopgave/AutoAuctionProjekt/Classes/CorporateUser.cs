@@ -6,7 +6,7 @@ namespace AutoAuctionProjekt.Classes
 {
     public class CorporateUser : User
     {
-        public CorporateUser(string userName, bool isCorporate, decimal balance, string zipCode, uint cvrNummer, decimal credit) : base(userName, isCorporate, balance, zipCode)
+        public CorporateUser(string userName, bool isCorporate, decimal balance, string zipCode, string cvrNummer, decimal credit) : base(userName, isCorporate, balance, zipCode)
         {
             CVRNumber = cvrNummer;
             Credit = credit;
@@ -14,7 +14,7 @@ namespace AutoAuctionProjekt.Classes
             //TODO: U8 - Add to database and set ID
             throw new NotImplementedException();
         }
-        public uint CVRNumber { get; set; }
+        public string CVRNumber { get; set; }
         public decimal Credit { get; set; }
 
         public override string ToString()

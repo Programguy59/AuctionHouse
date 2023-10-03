@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AutoCorporateUserProjekt.Classes.Vehicles.Database
+namespace AutoAuctionProjekt.Classes.Vehicles.Database
 {
     public static partial class Database
     {
