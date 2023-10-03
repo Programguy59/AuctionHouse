@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoAuctionProjekt.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,8 @@ namespace AutoAuctionProjekt.Classes
         /// <returns> Auction ID </returns>
         public static uint SetForSale(Vehicle vehicle, ISeller seller, decimal miniumBid)
         {
-            //TODO: A3 - SetForSale
-            throw new NotImplementedException();
+           uint auctionId =  DatabaseServer.InsertAuction(vehicle, seller, miniumBid);
+           return auctionId;
         }
         /// <summary>
         /// An overload of SetForSale, that ...

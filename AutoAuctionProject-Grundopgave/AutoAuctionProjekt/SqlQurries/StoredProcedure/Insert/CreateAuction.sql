@@ -1,7 +1,7 @@
 use AuctionHouse
 go
 
-Create PROCEDURE CreateAuction 
+CREATE PROCEDURE CreateAuction 
 @vehicleId int,
 @userName varchar(128),
 @minimumPrice decimal
@@ -16,4 +16,11 @@ VALUES
 (
 	@vehicleId, @userName, @minimumPrice 
 );
+
+declare @auctionId int
+SET @auctionId = IDENT_CURRENT('Auctions');
+
+SELECT @auctionId AS id
+
 END
+

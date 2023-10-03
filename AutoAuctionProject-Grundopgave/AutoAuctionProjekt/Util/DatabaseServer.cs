@@ -442,6 +442,24 @@ public static class DatabaseServer
         var reader = ExecuteNonQuery(query);
 
     }
+
+    public static uint InsertAuction(Vehicle vehicle, ISeller seller, decimal miniumBid)
+    {
+		//set to minus one to create error if auction ID not read and for all return path to be filed
+		int auctionId = -1;
+
+        var query =
+			"EXEC CreateUser " + vehicle.VehicleID
+			+ ", " + seller.UserName
+			+ ", " + miniumBid;
+
+        var reader = ExecuteQuery(query);
+        while (reader.Read())
+        {
+            auctionId = reader.GetInt32(0);
+        }
+        return Convert.ToUInt32((int)auctionId);
+    }
 }
 
 /// <summary>
