@@ -11,4 +11,32 @@
       <ProjectReference Include="..\AutoAuctionProjekt\AutoAuctionProjekt.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Page Update="SetForSale\Vehicle\SetForSaleBus.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="SetForSale\Vehicle\SetForSalePrivatePersonalCar.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="SetForSale\Vehicle\SetForSaleProfessionalPersonalCar.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="SetForSale\Vehicle\SetForSaleTruck.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+      <Page Update="SetForSale\SetForSaleControl.xaml">
+        <Generator>MSBuild:Compile</Generator>
+        <XamlRuntime>Wpf</XamlRuntime>
+        <SubType>Designer</SubType>
+      </Page>
+    </ItemGroup>
+
 </Project>
