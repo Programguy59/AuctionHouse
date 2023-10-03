@@ -6,9 +6,10 @@ namespace AutoAuctionWPF;
 public partial class UserControlHomepage : UserControl
 {
     private MainWindow mainWindow;
-    public UserControlHomepage()
+    public UserControlHomepage(MainWindow main)
     {
         InitializeComponent();
+        mainWindow = main;
     }
 
 
@@ -19,11 +20,8 @@ public partial class UserControlHomepage : UserControl
     private void CreateAuctionButton_Click(object sender, RoutedEventArgs e)
     {
 
-        if (mainWindow == null)
-        {
+        
             mainWindow.ShowSetForSaleScreen();
-            
-        }
         
 
     }

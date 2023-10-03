@@ -35,7 +35,7 @@ namespace AutoAuctionWPF
 
         public void ShowHomeScreen()
         {
-            contentControl.Content = new UserControlHomepage();
+            contentControl.Content = new UserControlHomepage(this);
         }
         
         public void ShowCreateUserScreen()
