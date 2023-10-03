@@ -15,6 +15,11 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
         {
             return Trucks.FirstOrDefault(truck => truck.TruckID == id);
         }
+        public static Truck? GetTruckByVehicleId(int id)
+        {
+            return Trucks.FirstOrDefault(truck => truck.VehicleID == id);
+        }
+
 
         public static List<Truck> GetAllTrucks()
         {
