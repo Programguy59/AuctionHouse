@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoAuctionProjekt.Util;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -73,7 +74,9 @@ namespace AutoAuctionProjekt.Classes
                 DriversLisence = DriversLisenceEnum.BE;
             }
 
-            //TODO: V17 - Add to database and set ID
+            DatabaseServer.InsertProfessionalPersonalCar(this);
+
+
         }
 
         public int ProfessionalPersonalCarID { get; set; }
