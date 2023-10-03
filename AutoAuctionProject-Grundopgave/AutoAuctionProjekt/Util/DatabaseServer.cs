@@ -426,7 +426,7 @@ public static class DatabaseServer
 
 
 
-    public static void InsertUser(string userName,string password,Boolean CorporateUser,decimal balance,string zipCode,decimal credit, string CRNumber )
+    public static void InsertUser(string userName,string password,bool CorporateUser,decimal balance,string zipCode,decimal credit, string CRNumber )
     {
 		var query =
 			"EXEC CreateUser " + userName
