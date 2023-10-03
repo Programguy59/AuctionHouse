@@ -353,6 +353,42 @@ public static class DatabaseServer
 
     }
 
+    public static void InsertPrivatePersonalCar(PrivatePersonalCar privatePersonalCar)
+    {
+        var query =
+            "EXEC CreatePrivatePersonalCar " + privatePersonalCar.Name
+            + ", " + privatePersonalCar.Km
+            + ", " + privatePersonalCar.RegistrationNumber
+            + ", " + privatePersonalCar.Year
+            + ", " + privatePersonalCar.NewPrice
+            + ", " + privatePersonalCar.HasTowbar
+            + ", " + privatePersonalCar.EngineSize
+            + ", " + privatePersonalCar.KmPerLiter
+            + ", " + privatePersonalCar.FuelType
+            + ", " + privatePersonalCar.NumberOfSeat
+            + ", " + privatePersonalCar.TrunkDimentions.Height
+            + ", " + privatePersonalCar.TrunkDimentions.Width
+            + ", " + privatePersonalCar.TrunkDimentions.Depth
+            + ", " + privatePersonalCar.HasIsofixFittings;
+
+        var reader = ExecuteQuery(query);
+        while (reader.Read())
+        {
+            var VehicleId = reader.GetInt32(0);
+            var PersonalCarId = reader.GetInt32(1);
+            var PrivatePersonalCarId = reader.GetInt32(2);
+            privatePersonalCar.VehicleID = VehicleId;
+            privatePersonalCar.PersonalCarID = PersonalCarId;
+            privatePersonalCar.PrivatePersonalCarID = PrivatePersonalCarId;
+            // Update the local cache.
+            Database.PrivatePersonalCars.Add(privatePersonalCar);
+        }
+
+
+    }
+
+
+
     public static void InsertUser(string userName,string password,Boolean CorporateUser,decimal balance,string zipCode,decimal credit, string CRNumber )
     {
 		var query =

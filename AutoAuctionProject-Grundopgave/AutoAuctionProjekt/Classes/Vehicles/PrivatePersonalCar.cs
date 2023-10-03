@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoAuctionProjekt.Util;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -55,7 +56,7 @@ namespace AutoAuctionProjekt.Classes
             HasIsofixFittings = hasIsofixFittings;
 
 
-            //TODO: V20 - Add to database and set ID
+            DatabaseServer.InsertPrivatePersonalCar( this );
         }
 
         public int PrivatePersonalCarID { get; set; }
