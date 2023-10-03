@@ -18,6 +18,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
+        <Button x:Name="CancelButton" Content="cancel" Width="50" Height="50" Click="CancelButton_OnClick" ></Button>
     </Grid>
 </UserControl>

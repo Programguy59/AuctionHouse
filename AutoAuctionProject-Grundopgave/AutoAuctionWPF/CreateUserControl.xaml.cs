@@ -19,10 +19,10 @@ public partial class CreateUserControl : UserControl
     private decimal credit;
     private string CrNumber;
 
-    public CreateUserControl(MainWindow mainWindow)
+    public CreateUserControl(MainWindow main)
     {
         InitializeComponent();
-        this.mainWindow = mainWindow;
+        this.mainWindow = main;
     }
 
     private void CreateUserButton_Click(object sender, RoutedEventArgs e)
@@ -54,7 +54,7 @@ public partial class CreateUserControl : UserControl
 
     private void CancelButton_Click(object sender, RoutedEventArgs e)
     {
-        
+     mainWindow.ShowLoginScreen();   
     }
 
 

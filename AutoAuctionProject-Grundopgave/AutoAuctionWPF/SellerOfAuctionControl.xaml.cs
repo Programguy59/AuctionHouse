@@ -5,9 +5,11 @@ namespace AutoAuctionWPF;
 
 public partial class SellerOfAuctionControl : UserControl
 {
-    public SellerOfAuctionControl()
+    private MainWindow mainWindow;
+    public SellerOfAuctionControl(MainWindow main)
     {
         InitializeComponent();
+        this.mainWindow = main;
     }
 
     private void AcceptBidButton_Click(object sender, RoutedEventArgs e)

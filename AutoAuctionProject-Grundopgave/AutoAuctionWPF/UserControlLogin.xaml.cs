@@ -9,7 +9,7 @@ namespace AutoAuctionWPF
     {
         private MainWindow mainWindow;
 
-        public UserControlLogin()
+        public UserControlLogin(MainWindow main)
         {
             InitializeComponent();
             mainWindow = (MainWindow)Application.Current.MainWindow;

@@ -25,12 +25,12 @@ namespace AutoAuctionWPF
         public MainWindow()
         {
             InitializeComponent();
-            ShowLoginScreen(); // Start med at vise Login-skærmen
+            BidHistoryControl(); // Start med at vise Login-skærmen
         }
 
         public void ShowLoginScreen()
         {
-            contentControl.Content = new UserControlLogin();
+            contentControl.Content = new UserControlLogin(this);
         }
 
         public void ShowHomeScreen()
@@ -50,22 +50,22 @@ namespace AutoAuctionWPF
         
         public void ShowBuyerOfAuctionScreen()
         {
-            contentControl.Content = new BuyerOfAuctionControl();
+            contentControl.Content = new BuyerOfAuctionControl(this);
         }
         
         public void ShowSellerOfAuctionScreen()
         {
-            contentControl.Content = new SellerOfAuctionControl();
+            contentControl.Content = new SellerOfAuctionControl(this);
         }
         
         public void ShowUserProfileScreen()
         {
-            contentControl.Content = new UserProfileControl();
+            contentControl.Content = new UserProfileControl(this);
         }
         
         public void BidHistoryControl()
         {
-            contentControl.Content = new BidHistoryControl();
+            contentControl.Content = new BidHistoryControl(this);
         }
     }
 }

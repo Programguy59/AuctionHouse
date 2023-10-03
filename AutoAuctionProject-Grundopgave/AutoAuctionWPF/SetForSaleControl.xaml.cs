@@ -5,9 +5,11 @@ namespace AutoAuctionWPF;
 
 public partial class SetForSaleControl : UserControl
 {
-    public SetForSaleControl(MainWindow mainWindow)
+    private MainWindow mainWindow;
+    public SetForSaleControl(MainWindow main)
     {
         InitializeComponent();
+        this.mainWindow = main;
     }
 
     private void SetForSaleButton_Click(object sender, RoutedEventArgs e)

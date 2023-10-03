@@ -5,7 +5,7 @@ namespace AutoAuctionWPF;
 
 public partial class UserProfileControl : UserControl
 {
-    public UserProfileControl()
+    public UserProfileControl(MainWindow mainWindow)
     {
         InitializeComponent();
     }

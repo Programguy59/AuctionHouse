@@ -15,6 +15,7 @@ public partial class UserControlHomepage : UserControl
 
     private void ViewProfileButton_Click(object sender, RoutedEventArgs e)
     {
+        mainWindow.ShowUserProfileScreen();
     }
 
     private void CreateAuctionButton_Click(object sender, RoutedEventArgs e)
