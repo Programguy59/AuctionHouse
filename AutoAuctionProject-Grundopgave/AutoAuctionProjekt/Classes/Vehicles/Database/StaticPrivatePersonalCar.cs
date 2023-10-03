@@ -15,7 +15,10 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
         {
             return PrivatePersonalCars.FirstOrDefault(privatePersonalCar => privatePersonalCar.PrivatePersonalCarID == id);
         }
-
+        public static PrivatePersonalCar? GetPrivatePersonalCarByVehicleId(int id)
+        {
+            return PrivatePersonalCars.FirstOrDefault(privatePersonalCar => privatePersonalCar.VehicleID == id);
+        }
         public static List<PrivatePersonalCar> GetAllPrivatePersonalCars()
         {
             return PrivatePersonalCars;

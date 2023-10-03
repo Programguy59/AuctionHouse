@@ -16,6 +16,11 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
             return Buses.FirstOrDefault(bus => bus.BusID == id);
         }
 
+        public static Bus? GetBusByVehicleId(int id)
+        {
+            return Buses.FirstOrDefault(bus => bus.VehicleID == id);
+        }
+
         public static List<Bus> GetAllBuses()
         {
             return Buses;
