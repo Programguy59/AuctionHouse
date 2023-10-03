@@ -449,7 +449,7 @@ public static class DatabaseServer
 		int auctionId = -1;
 
         var query =
-			"EXEC CreateUser " + vehicle.VehicleID
+			"EXEC CreateAuction " + vehicle.VehicleID
 			+ ", " + seller.UserName
 			+ ", " + miniumBid;
 
