@@ -327,6 +327,7 @@ public static class DatabaseServer
             var MinimumPrice = reader.GetInt32(3);
 			var vehicle = FetchVehicle(VehicleId);
 
+			FetchUser(userName);
 			PrivateUser privateUser = Database.GetPrivateUserByUserName(userName);
 			CorporateUser corporateUser = Database.GetCorporateUserByUserName(userName);
 
