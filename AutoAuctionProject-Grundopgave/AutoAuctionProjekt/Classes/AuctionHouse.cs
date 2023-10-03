@@ -26,19 +26,6 @@ namespace AutoAuctionProjekt.Classes
            return auctionId;
         }
         /// <summary>
-        /// An overload of SetForSale, that ...
-        /// </summary>
-        /// <param name="vehicle"></param>
-        /// <param name="seller"></param>
-        /// <param name="miniumBid"></param>
-        /// <param name="NodificationMethod"> This is a delegate that is used to nodifi the user, with more information</param>
-        /// <returns> The auction ID </returns>
-        public static uint SetForSale(Vehicle vehicle, ISeller seller, decimal miniumBid, NodificationDelegate NodificationMethod)
-        {
-            //TODO: A4 - SetForSale overload
-            throw new NotImplementedException();
-        }
-        /// <summary>
         /// Recieves a bid from a buyer.
         /// Checks if the bid is eligable, by ...
         /// </summary>
