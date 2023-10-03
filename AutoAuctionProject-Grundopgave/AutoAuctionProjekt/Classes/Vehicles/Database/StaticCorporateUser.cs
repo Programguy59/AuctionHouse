@@ -11,7 +11,7 @@ namespace AutoCorporateUserProjekt.Classes.Vehicles.Database
     {
         public static readonly List<CorporateUser> CorporateUsers = new();
 
-        public static CorporateUser? GetCorporateUserById(string userName)
+        public static CorporateUser? GetCorporateUserByUserName(string userName)
         {
             return CorporateUsers.FirstOrDefault(corporateUser => corporateUser.UserName == userName);
         }

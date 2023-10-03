@@ -10,7 +10,7 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
     {
         public static readonly List<PrivateUser> privateUsers = new();
         
-        public static PrivateUser? GetPrivateUserById(string userName)
+        public static PrivateUser? GetPrivateUserByUserName(string userName)
         {
             return privateUsers.FirstOrDefault(PrivateUser => PrivateUser.UserName == userName);
         }

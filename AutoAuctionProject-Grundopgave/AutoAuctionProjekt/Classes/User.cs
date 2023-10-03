@@ -18,7 +18,7 @@ privat og company som klasser
 
     public abstract class User : ISeller, IBuyer
     {
-        protected User(string userName, bool isCorporate, decimal balance, uint zipCode)
+        protected User(string userName, bool isCorporate, decimal balance, string zipCode)
         {
             //TODO: U1 - Set constructor and field
 
@@ -37,7 +37,7 @@ privat og company som klasser
         public string UserName { get; set; }
         public bool IsCorporate { get; set; }
         public decimal Balance { get; set; }
-        public uint Zipcode { get; set; }
+        public string Zipcode { get; set; }
 
         public string ReceiveBidNodification(string message)
         {

@@ -6,7 +6,7 @@ namespace AutoAuctionProjekt.Classes
 {
     public class PrivateUser : User
     {
-        public PrivateUser(string userName, bool isCorporate, decimal balance, uint zipCode, uint cprNummer) : base(userName, isCorporate, balance, zipCode)
+        public PrivateUser(string userName, bool isCorporate, decimal balance, string zipCode, string cprNummer) : base(userName, isCorporate, balance, zipCode)
         {
             //TODO: U10 - Set constructor
                
@@ -14,7 +14,7 @@ namespace AutoAuctionProjekt.Classes
             
             //TODO: U11 - Add to database and set ID
         }
-        public uint CPRNumber { get; set; }
+        public string CPRNumber { get; set; }
 
         public override string ToString()
         {
