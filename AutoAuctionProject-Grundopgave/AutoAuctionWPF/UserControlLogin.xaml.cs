@@ -22,6 +22,7 @@ namespace AutoAuctionWPF
             if (IsValid())
             {
                 mainWindow.ShowHomeScreen();
+                DatabaseServer.FetchUser(UserNameBox.Text);
             }
         }
 
