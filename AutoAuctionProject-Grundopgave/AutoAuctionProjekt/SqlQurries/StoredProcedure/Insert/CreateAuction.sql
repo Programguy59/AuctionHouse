@@ -1,20 +1,21 @@
 use AuctionHouse
 go
 
-CREATE PROCEDURE CreateAuction 
+Create PROCEDURE CreateAuction 
 @vehicleId int,
 @userName varchar(128),
-@minimumPrice decimal
+@minimumPrice decimal,
+@isDone bit
 
 AS
 begin
 Insert into Auctions
 (
-	vehicleId, UserName, minimumPrice
+	vehicleId, UserName, minimumPrice, isDone
 )
 VALUES 
 (
-	@vehicleId, @userName, @minimumPrice 
+	@vehicleId, @userName, @minimumPrice, @isDone
 );
 
 declare @auctionId int
