@@ -49,7 +49,6 @@ public static class DatabaseServer
 			Console.WriteLine("Cause: " + e.Message);
 
 			Console.WriteLine("Press any key to retry...");
-			Console.ReadKey();
 			Console.WriteLine();
 
 			// Retry connecting to the database.
