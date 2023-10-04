@@ -30,7 +30,7 @@ namespace AutoAuctionWPF
 
             DatabaseServer.Initialize(0);
 
-            ShowHomeScreen(); // Start med at vise Login-skærmen
+            ShowLoginScreen(); // Start med at vise Login-skærmen
         }
 
         public void ShowLoginScreen()

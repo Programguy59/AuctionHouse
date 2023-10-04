@@ -7,12 +7,32 @@
              mc:Ignorable="d"
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel>
             <TextBlock Text="User Information" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBlock x:Name="UserInfoTextBlock" Margin="0,0,0,10"/>
+            <StackPanel x:Name="UserInfoPanel" Margin="0,0,0,10">
+
+                <TextBlock Text="Username:" FontWeight="Bold" />
+                <TextBlock Text="{Binding UserName}" />
+                
+                <TextBlock Text="Zip Code:" FontWeight="Bold" />
+                <TextBlock Text="{Binding Zipcode}" />
+
+
+                <TextBlock Text="Balance:" FontWeight="Bold" />
+                <TextBlock Text="{Binding Balance}" />
+
+                <TextBlock Text="Credit:" FontWeight="Bold" x:Name="CreditBox" Visibility="Collapsed"/>
+                <TextBlock Text="{Binding Credit}" />
+                
+                <Button Content="Change Balance" x:Name="ChangeBalance" Click="ChangeBalance_Click"/>
+                <Button Content="Change Credit" x:Name="ChangeCredit" Click="ChangeCredit_Click" Visibility="Collapsed"/>
+
+                <Button Content="Back" x:Name="backButton" Click="backButton_Click"/>
+
+            </StackPanel>
+            
             
      
-            <Button Content="Change Password" Click="ChangePasswordButton_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>
