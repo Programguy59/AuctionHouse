@@ -39,7 +39,8 @@ public static class DatabaseServer
 		try
 		{
 			Console.WriteLine("Connecting to the database... (" + ++attempts + ")");
-			InitializeAuctions();
+			FetchBidHistory();
+            InitializeAuctions();
 
 
 		}
@@ -331,13 +332,12 @@ public static class DatabaseServer
         }
 
         reader.Close();
-
     }
 
 
-    public static void FetchBidHistory(int aucId)
+	public static void FetchBidHistory()
 	{
-        string query = $"EXEC FetchBids {aucId}";
+        string query = $"EXEC FetchBids";
 
         using var reader = ExecuteQuery(query);
 
@@ -349,7 +349,7 @@ public static class DatabaseServer
             string userName = reader.GetString(3);
             int auctionId = reader.GetInt32(4);
 
-			BidHistory bid = new(id, date, bidAmound, userName, auctionId);
+			BidHistory bid = new(date, bidAmound, userName, auctionId);
 			if (!Database.BidHistory.Contains(bid)) { Database.BidHistory.Add(bid); }
         }
 
@@ -379,15 +379,13 @@ public static class DatabaseServer
 
             if (privateUser != null)
 			{
-                Auction auction = new(vehicle, privateUser, MinimumPrice);
-				auction.ID = auctionId;
+                Auction auction = new(auctionId,vehicle, privateUser, MinimumPrice);
 				auction.isDone = isDone;
                 return auction;
             }
             if (corporateUser != null)
             {
-                Auction auction = new(vehicle, corporateUser, MinimumPrice);
-				auction.ID = auctionId;
+                Auction auction = new(auctionId,vehicle, corporateUser, MinimumPrice);
                 auction.isDone = isDone;
                 return auction;
             }
@@ -595,10 +593,25 @@ public static class DatabaseServer
         return Convert.ToUInt32((int)auctionId);
     }
 
+    public static void InsertBidHistory(DateTime date, decimal bidAmound, string userName, int auctionId)
+    {
+		var SQLDate = date.ToString("yyyy/MM/dd HH:mm:ss.FFF");
+
+        var query =
+			"EXEC CreateBidHistory '" + SQLDate
+        + "', " + bidAmound
+			+ ", " + userName
+			+ ", " + auctionId;
+
+
+        var reader = ExecuteNonQuery(query);
+
+    }
+
     public static void UpdateBalance(decimal balance)
     {
         var query =
-                "EXEC CreateAuction " + balance;
+                "EXEC UpdateBalance " + balance;
 
         var reader = ExecuteNonQuery(query);
     }
@@ -606,7 +619,7 @@ public static class DatabaseServer
     public static void UpdateIsDone(bool isDone)
     {
         var query =
-                "EXEC CreateAuction " + isDone;
+                "EXEC UpdateIsDone " + isDone;
 
         var reader = ExecuteNonQuery(query);
     }
