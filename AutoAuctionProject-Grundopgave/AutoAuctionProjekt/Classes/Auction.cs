@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoAuctionProjekt.Classes.Vehicles.Database;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Text;
@@ -8,11 +9,14 @@ namespace AutoAuctionProjekt.Classes
     public class Auction
     {
 
-        public Auction(Vehicle vehicle, ISeller seller, decimal minimumPrice)
+        public Auction(int id ,Vehicle vehicle, ISeller seller, decimal minimumPrice)
         {
             Vehicle = vehicle;
             Seller = seller;
             MinimumPrice = minimumPrice;
+            ID = id;
+
+            StandingBid = Database.GetHigestBidOnAuction(id).BidAmount;
         }
         /// <summary>
         /// ID of the auction

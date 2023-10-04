@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
+using AutoAuctionProjekt.Util;
 
 namespace AutoAuctionProjekt.Classes.Vehicles.Database
 {
@@ -13,7 +14,10 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
 
         public static BidHistory? GetBidByAUctionId(int id)
         {
+            if (BidHistory.FirstOrDefault(bid => bid.AuctionId == id) == null)
+            { return null; }
             return BidHistory.FirstOrDefault(bid => bid.AuctionId == id);
+
         }
 
         public static BidHistory? GetBidByUserName(string userName)
@@ -23,15 +27,28 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
 
         public static BidHistory GetHigestBidOnAuction(int id)
         {
-            BidHistory higestBid = GetBidByAUctionId(id);
-            foreach(BidHistory bid in BidHistory)
+            if (GetBidByAUctionId(id) == null)
             {
-                if (bid.BidAmount > higestBid.BidAmount)
-                {
-                    higestBid = bid;
-                }
+                Auction auction;
+                    auction = Database.GetAuctionById(id);
+               
+                BidHistory FirstBid = new(DateTime.Now, auction.MinimumPrice, Constants.Sql.User,auction.ID);
+                return FirstBid;
             }
-            return higestBid;
+            else
+            {
+                BidHistory higestBid = GetBidByAUctionId(id);
+                foreach (BidHistory bid in BidHistory)
+                {
+                    if (bid.BidAmount > higestBid.BidAmount)
+                    {
+                        higestBid = bid;
+                    }
+                }
+                return higestBid;
+            }
+            
+           
         }
         public static List<BidHistory> GetAllBidHistory()
         {

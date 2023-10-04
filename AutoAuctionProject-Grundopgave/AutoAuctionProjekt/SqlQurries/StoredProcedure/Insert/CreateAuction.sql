@@ -18,8 +18,19 @@ VALUES
 	@vehicleId, @userName, @minimumPrice, @isDone
 );
 
+
+
 declare @auctionId int
 SET @auctionId = IDENT_CURRENT('Auctions');
+
+Insert into bidHistory
+(
+	date, bidAmount, userName,auctionId
+)
+VALUES 
+(
+	GETDATE(), @minimumPrice, @userName,@auctionId
+);
 
 SELECT @auctionId AS id
 

@@ -364,7 +364,6 @@ public static class DatabaseServer
 		
         while (reader.Read())
         {
-
             var VehicleId = reader.GetInt32(1);
             var userName = reader.GetString(2);
             var MinimumPrice = reader.GetDecimal(3);

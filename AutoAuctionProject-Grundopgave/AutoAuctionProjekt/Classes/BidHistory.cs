@@ -8,9 +8,8 @@ namespace AutoAuctionProjekt.Classes
 {
     public class BidHistory
     {
-        public BidHistory(int id, DateTime date, decimal bidAmound, string userName, int auctionId)
+        public BidHistory(DateTime date, decimal bidAmound, string userName, int auctionId)
         {
-            Id = id;
             Date = date;
             BidAmount = bidAmound;
             UserName = userName;
