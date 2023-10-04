@@ -347,6 +347,7 @@ public static class DatabaseServer
             var VehicleId = reader.GetInt32(1);
             var userName = reader.GetString(2);
             var MinimumPrice = reader.GetDecimal(3);
+			var isDone = reader.GetBoolean(4);
 			var vehicle = FetchVehicle(VehicleId);
 
 			FetchUser(userName);
@@ -359,12 +360,14 @@ public static class DatabaseServer
 			{
                 Auction auction = new(vehicle, privateUser, MinimumPrice);
 				auction.ID = auctionId;
+				auction.isDone = isDone;
                 return auction;
             }
             if (corporateUser != null)
             {
                 Auction auction = new(vehicle, corporateUser, MinimumPrice);
 				auction.ID = auctionId;
+                auction.isDone = isDone;
                 return auction;
             }
 
@@ -554,7 +557,9 @@ public static class DatabaseServer
         var query =
 			"EXEC CreateAuction " + vehicle.VehicleID
 			+ ", " + seller.UserName
-			+ ", " + miniumBid;
+			+ ", " + miniumBid
+		    +", " + false;
+
 
         var reader = ExecuteQuery(query);
         while (reader.Read())

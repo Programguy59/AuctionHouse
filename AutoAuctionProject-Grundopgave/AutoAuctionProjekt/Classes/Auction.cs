@@ -39,6 +39,8 @@ namespace AutoAuctionProjekt.Classes
         /// </summary>
         internal IBuyer Buyer { get; set; }
 
+        public bool isDone { get; set; }
+
 
         public override string ToString()
         {
