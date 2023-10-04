@@ -330,11 +330,12 @@ public static class DatabaseServer
 			Database.Auctions.Add(FetchAuction(auctionId));
         }
 
+        reader.Close();
 
     }
 
 
-	public static void FetchBidHistory(int aucId)
+    public static void FetchBidHistory(int aucId)
 	{
         string query = $"EXEC FetchBids {aucId}";
 
@@ -442,6 +443,7 @@ public static class DatabaseServer
             // Update the local cache.
             Database.Buses.Add(bus);
         }
+        reader.Close();
 
 
     }
@@ -475,6 +477,8 @@ public static class DatabaseServer
             // Update the local cache.
             Database.Trucks.Add(truck);
         }
+
+        reader.Close();
 
 
     }
@@ -510,6 +514,7 @@ public static class DatabaseServer
             Database.PrivatePersonalCars.Add(privatePersonalCar);
         }
 
+		reader.Close();
 
     }
 
@@ -546,6 +551,7 @@ public static class DatabaseServer
             Database.ProfessionalPersonalCars.Add(professionalPersonalCar);
         }
 
+        reader.Close();
 
     }
 
