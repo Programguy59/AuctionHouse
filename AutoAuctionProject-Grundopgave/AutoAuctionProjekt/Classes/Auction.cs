@@ -29,15 +29,17 @@ namespace AutoAuctionProjekt.Classes
         /// <summary>
         /// The vehicle of the auction
         /// </summary>
-        internal Vehicle Vehicle { get; set; }
+        public Vehicle Vehicle { get; set; }
         /// <summary>
         /// The seller of the auction
         /// </summary>
-        internal ISeller Seller { get; set; }
+        public ISeller Seller { get; set; }
         /// <summary>
         /// The buyer or potential buyer of the auction
         /// </summary>
-        internal IBuyer Buyer { get; set; }
+        public IBuyer Buyer { get; set; }
+
+
 
         public bool isDone { get; set; }
 

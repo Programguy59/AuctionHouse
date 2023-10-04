@@ -77,6 +77,12 @@ namespace AutoAuctionProjekt.Classes
 
             DatabaseServer.InsertTruck(this);
         }
+
+
+
+        public override DriversLisenceEnum DriversLisence { get; set; }
+
+
         /// <summary>
         /// Engine size proberty
         /// must be between 4.2 and 15.0 L or cast an out of range exection.
@@ -103,7 +109,7 @@ namespace AutoAuctionProjekt.Classes
         /// <summary>
         /// Load Capacity field and proberty
         /// </summary>
-        public Decimal LoadCapacity { get; set; }
+        public decimal LoadCapacity { get; set; }
 
         public int TruckID { get; set; }
 

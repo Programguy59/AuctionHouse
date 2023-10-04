@@ -52,12 +52,16 @@ namespace AutoAuctionProjekt.Classes
             : base(name, km, registrationNumber, year, newPrice, hasTowbar, engineSize, kmPerLiter, fuelType, numberOfSeat, trunkDimentions)
         {
 
+            DriversLisence = DriversLisenceEnum.B;
 
             HasIsofixFittings = hasIsofixFittings;
 
 
             DatabaseServer.InsertPrivatePersonalCar( this );
         }
+
+
+        public override DriversLisenceEnum DriversLisence { get; set; }
 
         public int PrivatePersonalCarID { get; set; }
 

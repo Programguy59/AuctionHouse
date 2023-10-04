@@ -22,6 +22,8 @@ namespace AutoAuctionProjekt.Classes
         {
             this.NumberOfSeat = numberOfSeat;
             this.TrunkDimentions = trunkDimentions;
+
+
         }
         /// <summary>
         /// Number of seat proberty
@@ -34,7 +36,7 @@ namespace AutoAuctionProjekt.Classes
         /// Trunk dimentions proberty and struct
         /// </summary>
         public TrunkDimentionsStruct TrunkDimentions { get; set; }
-        public readonly struct TrunkDimentionsStruct
+        public struct TrunkDimentionsStruct
         {
             public TrunkDimentionsStruct(decimal height, decimal width, decimal depth)
             {
@@ -45,7 +47,7 @@ namespace AutoAuctionProjekt.Classes
             public decimal Height { get; }
             public decimal Width { get; }
             public decimal Depth { get; }
-            public override string ToString() => $"(Height: {Height}, Width: {Width}, Depth: {Depth})";
+            public override string ToString() => $"Height: {Height}, Width: {Width}, Depth: {Depth}";
         }
         /// <summary>
         /// Engine size proberty

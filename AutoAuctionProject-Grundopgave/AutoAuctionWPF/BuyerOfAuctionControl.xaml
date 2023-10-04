@@ -7,17 +7,147 @@
              mc:Ignorable="d"
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="auto" Height="auto">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock Text="Vehicle Information" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <StackPanel x:Name="VehicleInfoPanel" Margin="0,0,0,10">
+
+                        <TextBlock Text="Name:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Name}" />
+
+                        <TextBlock Text="Kilometers:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Km}" />
+
+                        <TextBlock Text="Registration Number:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding RegistrationNumber}" />
+
+                        <TextBlock Text="Year:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Year}" />
+
+                        <TextBlock Text="New Price:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding NewPrice}" />
+
+                        <TextBlock Text="Has Towbar:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding HasTowbar}" />
+
+                        <TextBlock Text="Engine Size:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding EngineSize}" />
+
+                        <TextBlock Text="Km Per Liter:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding KmPerLiter}" />
+
+                        <TextBlock Text="Fuel Type:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding FuelType}" />
+                    </StackPanel>
+
+                </StackPanel>
+                    
+               
+                <StackPanel x:Name="VehicleTypeGrid" Grid.Column="1">
+                    
+                <StackPanel x:Name="BusPanel" Visibility="Collapsed">
+                    <TextBlock Text="Height:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding VehicleDimensions.Height}" />
+
+                    <TextBlock Text="Weight:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding VehicleDimensions.Weight}" />
+
+                    <TextBlock Text="Length:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding VehicleDimensions.Length}" />
+
+                    <TextBlock Text="Number of Seats:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding NumberOfSeats}" />
+
+                    <TextBlock Text="Number of Sleeping spaces:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding NumberOfSleepingSpaces}" />
+
+                    <TextBlock Text="Number of Sleeping spaces:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding HasToilet}" />
+
+                </StackPanel>
+                    
+                    
+                <StackPanel x:Name="TruckPanel" Visibility="Collapsed">
+                    <TextBlock Text="Height:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding VehicleDimensions.Height}" />
+
+                    <TextBlock Text="Weight:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding VehicleDimensions.Weight}" />
+
+                    <TextBlock Text="Length:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding VehicleDimensions.Length}" />
+
+                    <TextBlock Text="Load Capacity:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding LoadCapacity}" />
+                        
+                        
+                </StackPanel>
+                    
+                    
+                <StackPanel x:Name="PriPerCarPanel" Visibility="Collapsed">
+                        
+                    <TextBlock Text="Number of seats:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding NumberOfSeat}" />
+
+                    <TextBlock Text="Trunk Dimensions:" FontWeight="Bold" />
+                    <TextBlock x:Name="PriPerCarTrunk" />
+
+                    <TextBlock Text="Isofix:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding HasIsofixFittings}" />
+
+                </StackPanel>
+                    
+                    
+                <StackPanel x:Name="ProPerCarPanel" Visibility="Collapsed">
+                        
+                    <TextBlock Text="Number of seats:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding NumberOfSeats}" />
+
+                    <TextBlock Text="Trunk Dimensions:" FontWeight="Bold" />
+                    <TextBlock x:Name="ProPerCarTrunk" />
+
+                    <TextBlock Text="Safetybar:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding HasSafetyBar}" />
+
+                    <TextBlock Text="Load Capacity:" FontWeight="Bold" />
+                    <TextBlock Text="{Binding LoadCapacity}" />
+
+
+                </StackPanel>
+                    
+                </StackPanel>
+
+                <StackPanel Grid.Column="2">
+                    <TextBlock Text="Auction Information" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <StackPanel x:Name="AuctionInfoPanel" Margin="0,0,0,10">
+
+                        <TextBlock Text="Auction ID:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding ID}" />
+
+                        <TextBlock Text="Minimum Price:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding MinimumPrice}" />
+
+                        <TextBlock Text="Standing Bid:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding StandingBid}" />
+
+                        <TextBlock Text="Seller:" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Seller.UserName}" />
+
+
+                    </StackPanel>
+
+                    <TextBlock Text="Latest Bid" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock x:Name="LatestBidTextBlock" Margin="0,0,0,10"/>
+                </StackPanel>
             
-            <TextBlock Text="Vehicle Information" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBlock x:Name="VehicleInfoTextBlock" Margin="0,0,0,10"/>
-            
-            <TextBlock Text="Auction Information" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBlock x:Name="AuctionInfoTextBlock" Margin="0,0,0,10"/>
-            
-            <TextBlock Text="Latest Bid" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBlock x:Name="LatestBidTextBlock" Margin="0,0,0,10"/>
-            
+            </Grid>
+
             <Button Content="Place a Bid" Click="PlaceBidButton_Click"/>
         </StackPanel>
         

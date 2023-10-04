@@ -11,7 +11,24 @@
         <Grid>
             <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                 <ListBox x:Name="YourAuctionsList" Width="400" Height="200" Margin="0,0,0,10"/>
-                <ListBox x:Name="CurrentAuctionsList" Width="400" Height="200" Margin="0,0,0,10"/>
+                
+                <DataGrid x:Name="CurrentAuctionsList" Width="400" Height="200" Margin="0,0,0,10" AutoGenerateColumns="False" >
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Minimum Price" Binding="{Binding MinimumPrice}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Standing Bid" Binding="{Binding StandingBid}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Vehicle" Binding="{Binding Vehicle.Name}" IsReadOnly="True"/>
+                        <DataGridTextColumn Header="Seller" Binding="{Binding Seller.UserName}" IsReadOnly="True"/>
+                        <DataGridTemplateColumn Header="Details and bid">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Content="View Details and bid" Click="Button_Click"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                
                 <Button Content="Create New Auction" Click="CreateAuctionButton_Click"/>
                 <Button Content="View User Profile" Click="ViewProfileButton_Click"/>
             </StackPanel>

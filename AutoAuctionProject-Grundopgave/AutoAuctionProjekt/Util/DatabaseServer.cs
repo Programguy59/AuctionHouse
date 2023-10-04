@@ -39,7 +39,7 @@ public static class DatabaseServer
 		try
 		{
 			Console.WriteLine("Connecting to the database... (" + ++attempts + ")");
-
+			InitializeAuctions();
 
 
 		}
@@ -161,8 +161,8 @@ public static class DatabaseServer
 				{
 					//Bus
 					var busId = reader.GetInt32(16);
-					var numberOfSeats = reader.GetDecimal(18);
-					var numberOfSleepingSpaces = reader.GetDecimal(19);
+					var numberOfSeats = reader.GetInt32(18);
+					var numberOfSleepingSpaces = reader.GetInt32(19);
 					var hasToilet = reader.GetBoolean(20);
 
 
@@ -313,6 +313,27 @@ public static class DatabaseServer
 
        
     }
+
+	public static void InitializeAuctions()
+	{
+		string query = $"SELECT id FROM Auctions";
+		using var reader = ExecuteQuery(query);
+		List<int> auctionIds = new List<int>();
+
+		while (reader.Read())
+		{
+			var auctionId = reader.GetInt32(0);
+			 auctionIds.Add(auctionId);
+		}
+
+        foreach (int auctionId in auctionIds)
+        {
+			Database.Auctions.Add(FetchAuction(auctionId));
+        }
+
+
+    }
+
 
 	public static void FetchBidHistory(int aucId)
 	{

@@ -25,7 +25,9 @@ namespace AutoAuctionProjekt.Classes
             this.EngineSize = engineSize;
             this.KmPerLiter = kmPerLiter;
             this.FuelType = fuelType;
-            //TODO: V2 - Add to database and set ID
+
+            this.EnergyClass = GetEnergyClass();
+
         }
         /// <summary>
         /// ID field and proberty
@@ -92,7 +94,7 @@ namespace AutoAuctionProjekt.Classes
         /// <summary>
         /// Engery class Enum, field and proberty
         /// </summary>
-        public EnergyClassEnum EnergyClass { get { return EnergyClass; } set => GetEnergyClass(); }
+        public EnergyClassEnum EnergyClass { get; set; }
         public enum EnergyClassEnum
         {
             A,
@@ -106,7 +108,7 @@ namespace AutoAuctionProjekt.Classes
         /// <returns>
         /// Returns the energy class in EnergyClassEnum (A,B,C,D)
         /// </returns>
-        private EnergyClassEnum GetEnergyClass()
+        public EnergyClassEnum GetEnergyClass()
         {
             if (Year > 2010)
             {
@@ -116,19 +118,15 @@ namespace AutoAuctionProjekt.Classes
                     {
                         case var kmPerLiter when (kmPerLiter >= 25):
                             return EnergyClassEnum.A;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 25 && kmPerLiter >= 20):
                             return EnergyClassEnum.B;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 20 && kmPerLiter >= 15):
                             return EnergyClassEnum.C;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 15):
                             return EnergyClassEnum.D;
-                            break;
                     }
                 }
                 else if (FuelType == FuelTypeEnum.Benzin)
@@ -137,19 +135,15 @@ namespace AutoAuctionProjekt.Classes
                     {
                         case var kmPerLiter when (kmPerLiter >= 20 ):
                             return EnergyClassEnum.A;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 20 && kmPerLiter >= 16):
                             return EnergyClassEnum.B;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 16 && kmPerLiter >= 12):
                             return EnergyClassEnum.C;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 12):
                             return EnergyClassEnum.D;
-                            break;
                     }   
                 }
             }
@@ -161,19 +155,14 @@ namespace AutoAuctionProjekt.Classes
                     {
                         case var kmPerLiter when (kmPerLiter >= 23):
                             return EnergyClassEnum.A;
-                            break;
-                    
                         case var kmPerLiter when (kmPerLiter < 23 && kmPerLiter >= 18):
                             return EnergyClassEnum.B;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 18 && kmPerLiter >= 13):
                             return EnergyClassEnum.C;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 13):
                             return EnergyClassEnum.D;
-                            break;
                     }
                 }
                 else if (FuelType == FuelTypeEnum.Diesel)
@@ -182,24 +171,19 @@ namespace AutoAuctionProjekt.Classes
                     {
                         case var kmPerLiter when (kmPerLiter >= 18):
                             return EnergyClassEnum.A;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 18 && kmPerLiter >= 14):
                             return EnergyClassEnum.B;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 14 && kmPerLiter >= 10):
                             return EnergyClassEnum.C;
-                            break;
                     
                         case var kmPerLiter when (kmPerLiter < 10):
                             return EnergyClassEnum.D;
-                            break;
                     }   
                 }
             
             return EnergyClassEnum.A;
-            throw new NotImplementedException();
         }
         /// <summary>
         /// Returns the vehicle in a string with relivant information.

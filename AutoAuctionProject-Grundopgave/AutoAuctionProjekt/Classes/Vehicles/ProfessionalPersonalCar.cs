@@ -79,6 +79,8 @@ namespace AutoAuctionProjekt.Classes
 
         }
 
+        public override DriversLisenceEnum DriversLisence { get; set; }
+
         public int ProfessionalPersonalCarID { get; set; }
 
 

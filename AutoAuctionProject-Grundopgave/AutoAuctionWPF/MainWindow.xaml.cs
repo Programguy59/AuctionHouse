@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AutoAuctionProjekt.Classes;
+using AutoAuctionProjekt.Util;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -25,6 +27,9 @@ namespace AutoAuctionWPF
         public MainWindow()
         {
             InitializeComponent();
+
+            DatabaseServer.Initialize(0);
+
             ShowHomeScreen(); // Start med at vise Login-skærmen
         }
 
@@ -48,9 +53,9 @@ namespace AutoAuctionWPF
             contentControl.Content = new SetForSaleControl(this);
         }
         
-        public void ShowBuyerOfAuctionScreen()
+        public void ShowBuyerOfAuctionScreen(Auction auction)
         {
-            contentControl.Content = new BuyerOfAuctionControl(this);
+            contentControl.Content = new BuyerOfAuctionControl(this, auction);
         }
         
         public void ShowSellerOfAuctionScreen()
