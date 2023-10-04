@@ -28,7 +28,7 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
                     Users.Add(user);
                 }
             }
-            return Buses.FirstOrDefault(bus => bus.BusID == id);
+            return Users.FirstOrDefault(user => user.UserName == UserName);
         }
 
         public static List<User> GetAllUsers()
