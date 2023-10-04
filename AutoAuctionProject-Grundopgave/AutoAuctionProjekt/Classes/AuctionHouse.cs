@@ -1,4 +1,5 @@
-﻿using AutoAuctionProjekt.Util;
+﻿using AutoAuctionProjekt.Classes.Vehicles.Database;
+using AutoAuctionProjekt.Util;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,18 +34,41 @@ namespace AutoAuctionProjekt.Classes
         /// <param name="auctionID">Used to find the auction.</param>
         /// <param name="bid">The bid in decimal with the value ending in M for money.</param>
         /// <returns> A bool that indicats whether a bid was recieved or rejected. </returns>
-        public static bool RecieveBid(IBuyer buyer, uint auctionID, decimal bid)
+        public static bool RecieveBid(IBuyer buyer, int auctionID, decimal bid)
         {
-            //TODO: A5 - RecieveBid
-            //Use ReceiveBidNodification form i seller because simon
-            throw new NotImplementedException();
+            DatabaseServer.FetchBidHistory(auctionID);
+            Auction auction = DatabaseServer.FetchAuction(auctionID);
+            BidHistory higestBid = Database.GetHigestBidOnAuction(auctionID);
+            PrivateUser privateUser = Database.GetPrivateUserByUserName(buyer.UserName);
+            CorporateUser corporateUser = Database.GetCorporateUserByUserName(buyer.UserName);
+            if (privateUser != null)
+            {
+                if (privateUser.Balance >= bid && bid > higestBid.BidAmount && bid > auction.MinimumPrice)
+                {
+                    auction.Seller.ReceiveBidNodification("you got a bid on you auction for " + auction.Vehicle.Name);
+                    return true;
+                }
+                else return false;
+            }
+            if (corporateUser != null)
+            {
+                if ((corporateUser.Balance + corporateUser.Credit) >= bid && bid > higestBid.BidAmount && bid > auction.MinimumPrice)
+                {
+                    auction.Seller.ReceiveBidNodification("you got a bid on you auction for " + auction.Vehicle.Name);
+                    return true;
+                }
+                else return false;
+            }
+            return false;
         }
-        /// <summary>
-        /// Accepts a bid and ...
-        /// </summary>
-        /// <param name="seller"></param>
-        /// <param name="auctionID"></param>
-        /// <returns></returns>
+
+            //}
+            /// <summary>
+            /// Accepts a bid and ...
+            /// </summary>
+            /// <param name="seller"></param>
+            /// <param name="auctionID"></param>
+            /// <returns></returns>
         public static bool AcceptBid(ISeller seller, uint auctionID)
         {
             //TODO: A6 - AcceptBid

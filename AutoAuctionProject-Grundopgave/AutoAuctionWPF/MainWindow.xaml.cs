@@ -25,7 +25,7 @@ namespace AutoAuctionWPF
         public MainWindow()
         {
             InitializeComponent();
-            ShowSetForSaleScreen(); // Start med at vise Login-skærmen
+            ShowHomeScreen(); // Start med at vise Login-skærmen
         }
 
         public void ShowLoginScreen()

@@ -313,6 +313,27 @@ public static class DatabaseServer
 
        
     }
+
+	public static void FetchBidHistory(int aucId)
+	{
+        string query = $"EXEC FetchBids {aucId}";
+
+        using var reader = ExecuteQuery(query);
+
+        while (reader.Read())
+        {
+            int id = reader.GetInt32(0);
+            DateTime date = reader.GetDateTime(1);
+            decimal bidAmound = reader.GetDecimal(2);
+            string userName = reader.GetString(3);
+            int auctionId = reader.GetInt32(4);
+
+			BidHistory bid = new(id, date, bidAmound, userName, auctionId);
+			if (!Database.BidHistory.Contains(bid)) { Database.BidHistory.Add(bid); }
+        }
+
+        reader.Close();
+    }
     public static Auction FetchAuction(int auctionId)
     {
         string query = $"EXEC FetchAuction {auctionId}";
