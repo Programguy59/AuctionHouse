@@ -39,8 +39,8 @@ namespace AutoAuctionProjekt.Classes
         /// <returns> A bool that indicats whether a bid was recieved or rejected. </returns>
         public static bool RecieveBid(IBuyer buyer, int auctionID, decimal bid)
         {
-            DatabaseServer.FetchBidHistory(auctionID);
-            Auction auction = DatabaseServer.FetchAuction(auctionID);
+            DatabaseServer.FetchBidHistory();
+            Auction auction = Database.GetAuctionById(auctionID);
             BidHistory higestBid = Database.GetHigestBidOnAuction(auctionID);
             PrivateUser privateUser = Database.GetPrivateUserByUserName(buyer.UserName);
             CorporateUser corporateUser = Database.GetCorporateUserByUserName(buyer.UserName);
@@ -82,11 +82,11 @@ namespace AutoAuctionProjekt.Classes
                 decimal newBalanceBuyer = buyer.Balance - higestBid.BidAmount;
                 decimal newBalanceSeller = seller.Balance + higestBid.BidAmount;
 
-                DatabaseServer.UpdateIsDone(true);
+                DatabaseServer.UpdateIsDone(auctionID, true);
                 auction.isDone = true;
                 
-                DatabaseServer.UpdateBalance(newBalanceBuyer);
-                DatabaseServer.UpdateBalance(newBalanceSeller);
+                DatabaseServer.UpdateBalance(buyer.UserName, newBalanceBuyer);
+                DatabaseServer.UpdateBalance(seller.UserName, newBalanceSeller);
 
 
                 //updates local database for buyer and seller

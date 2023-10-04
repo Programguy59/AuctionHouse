@@ -608,18 +608,20 @@ public static class DatabaseServer
 
     }
 
-    public static void UpdateBalance(decimal balance)
+    public static void UpdateBalance(string userName,decimal balance)
     {
         var query =
-                "EXEC UpdateBalance " + balance;
+                "EXEC UpdateBalance '" + userName 
+				+ "', " + balance;
 
         var reader = ExecuteNonQuery(query);
     }
 
-    public static void UpdateIsDone(bool isDone)
+    public static void UpdateIsDone(int auctionId,bool isDone)
     {
         var query =
-                "EXEC UpdateIsDone " + isDone;
+                "EXEC UpdateIsDone "  + auctionId
+                + "', "  + isDone;
 
         var reader = ExecuteNonQuery(query);
     }
