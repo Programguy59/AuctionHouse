@@ -2,10 +2,13 @@
 using AutoAuctionProjekt.Util;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Threading.Tasks.Dataflow;
 
 namespace AutoAuctionProjekt.Classes
 {
@@ -69,10 +72,49 @@ namespace AutoAuctionProjekt.Classes
             /// <param name="seller"></param>
             /// <param name="auctionID"></param>
             /// <returns></returns>
-        public static bool AcceptBid(ISeller seller, uint auctionID)
+        public static bool AcceptBid(ISeller seller, int auctionID)
         {
-            //TODO: A6 - AcceptBid
-            throw new NotImplementedException();
+           Auction auction = Database.GetAuctionById(auctionID);
+           BidHistory higestBid = Database.GetHigestBidOnAuction(auctionID);
+           IBuyer buyer = Database.GetUserByUserName(higestBid.UserName);
+           if (seller.UserName == auction.Seller.UserName)
+            {
+                decimal newBalanceBuyer = buyer.Balance - higestBid.BidAmount;
+                decimal newBalanceSeller = seller.Balance + higestBid.BidAmount;
+
+                DatabaseServer.UpdateIsDone(true);
+                auction.isDone = true;
+                
+                DatabaseServer.UpdateBalance(newBalanceBuyer);
+                DatabaseServer.UpdateBalance(newBalanceSeller);
+
+
+                //updates local database for buyer and seller
+                PrivateUser buyerPrivateUser = Database.GetPrivateUserByUserName(buyer.UserName);
+                CorporateUser buyerCorporateUser = Database.GetCorporateUserByUserName(buyer.UserName);
+                if (buyerPrivateUser != null)
+                {
+                    buyerPrivateUser.Balance = newBalanceBuyer;
+                }
+                if (buyerCorporateUser != null)
+                {
+                    buyerCorporateUser.Balance = newBalanceBuyer;
+                }
+
+                PrivateUser SellerPrivateUser = Database.GetPrivateUserByUserName(buyer.UserName);
+                CorporateUser SellerCorporateUser = Database.GetCorporateUserByUserName(buyer.UserName);
+                if (SellerPrivateUser != null)
+                {
+                    SellerPrivateUser.Balance = newBalanceSeller;
+                }
+                if (SellerCorporateUser != null)
+                {
+                    SellerCorporateUser.Balance = newBalanceSeller;
+                }
+                return true;
+                
+            }
+           else { return false; }
         }
         #region Search Methods
         /// <summary>

@@ -568,6 +568,22 @@ public static class DatabaseServer
         }
         return Convert.ToUInt32((int)auctionId);
     }
+
+    public static void UpdateBalance(decimal balance)
+    {
+        var query =
+                "EXEC CreateAuction " + balance;
+
+        var reader = ExecuteNonQuery(query);
+    }
+
+    public static void UpdateIsDone(bool isDone)
+    {
+        var query =
+                "EXEC CreateAuction " + isDone;
+
+        var reader = ExecuteNonQuery(query);
+    }
 }
 
 /// <summary>
@@ -575,25 +591,7 @@ public static class DatabaseServer
 /// </summary>
 /// <param name="address">The address to update.</param>
 /// <returns>True if the address was updated successfully, false otherwise.</returns>
-//public static bool UpdateAddress(Address address)
-//{
-//	var query =
-//		"UPDATE Addresses " +
-//		$"SET StreetName = '{address.StreetName}', StreetNumber = '{address.StreetNumber}', City = '{address.City}', ZipCode = '{address.ZipCode}', Country = '{address.Country}' " +
-//		$"WHERE Id = '{address.Id}'";
 
-//	// If the query fails, return false.
-//	if (!ExecuteNonQuery(query))
-//	{
-//		return false;
-//	}
-
-//	// Update the local cache.
-//	//var index = Database.Addresses.FindIndex(a => a.Id == address.Id);
-//	//Database.Addresses[index] = address;
-
-//	//return true;
-//}
 
 
 /// <summary>
