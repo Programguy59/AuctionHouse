@@ -12,7 +12,7 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
 
         public static User? GetUserByUserName(string UserName)
         {
-            foreach (var corpUser in Users)
+            foreach (var corpUser in Database.CorporateUsers)
             {
                 User user = corpUser;
                 if (!Users.Contains(user))
@@ -20,7 +20,7 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
                     Users.Add(user);
                 }
             }
-            foreach (var PrivteUser in Users)
+            foreach (var PrivteUser in Database.PrivateUsers)
             {
                 User user = PrivteUser;
                 if (!Users.Contains(user))
