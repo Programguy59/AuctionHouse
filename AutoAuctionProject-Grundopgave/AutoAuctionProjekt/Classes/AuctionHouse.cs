@@ -27,7 +27,7 @@ namespace AutoAuctionProjekt.Classes
         public static uint SetForSale(Vehicle vehicle, ISeller seller, decimal miniumBid)
         {
            uint auctionId =  DatabaseServer.InsertAuction(vehicle, seller, miniumBid);
-           return auctionId;
+           return auctionId;  
         }
         /// <summary>
         /// Recieves a bid from a buyer.

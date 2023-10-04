@@ -414,8 +414,8 @@ public static class DatabaseServer
     public static void InsertBus(Bus bus)
     {
         var query =
-            "EXEC CreateBus " + bus.Name
-            + ", " + bus.Km
+            "EXEC CreateBus '" + bus.Name
+            + "', " + bus.Km
             + ", " + bus.RegistrationNumber
             + ", " + bus.Year
             + ", " + bus.NewPrice
@@ -449,8 +449,8 @@ public static class DatabaseServer
     public static void InsertTruck(Truck truck)
     {
 		var query =
-			"EXEC CreateTruck " + truck.Name
-			+ ", " + truck.Km
+			"EXEC CreateTruck '" + truck.Name
+			+ "', " + truck.Km
 			+ ", " + truck.RegistrationNumber
 			+ ", " + truck.Year
 			+ ", " + truck.NewPrice
@@ -482,8 +482,8 @@ public static class DatabaseServer
     public static void InsertPrivatePersonalCar(PrivatePersonalCar privatePersonalCar)
     {
         var query =
-            "EXEC CreatePrivatePersonalCar " + privatePersonalCar.Name
-            + ", " + privatePersonalCar.Km
+            "EXEC CreatePrivatePersonalCar '" + privatePersonalCar.Name
+            + "', " + privatePersonalCar.Km
             + ", " + privatePersonalCar.RegistrationNumber
             + ", " + privatePersonalCar.Year
             + ", " + privatePersonalCar.NewPrice
@@ -517,8 +517,8 @@ public static class DatabaseServer
 	public static void InsertProfessionalPersonalCar(ProfessionalPersonalCar professionalPersonalCar)
     {
         var query =
-            "EXEC CreateProfessionalPersonalCar " + professionalPersonalCar.Name
-            + ", " + professionalPersonalCar.Km
+            "EXEC CreateProfessionalPersonalCar '" + professionalPersonalCar.Name
+            + "', " + professionalPersonalCar.Km
             + ", " + professionalPersonalCar.RegistrationNumber
             + ", " + professionalPersonalCar.Year
             + ", " + professionalPersonalCar.NewPrice
@@ -555,8 +555,8 @@ public static class DatabaseServer
     public static void InsertUser(string userName,string password,bool CorporateUser,decimal balance,string zipCode,decimal credit, string CRNumber )
     {
 		var query =
-			"EXEC CreateUser " + userName
-			+ ", " + password
+			"EXEC CreateUser '" + userName
+			+ "', " + password
 			+ ", " + CorporateUser
 			+ ", " + balance
 			+ ", " + zipCode
@@ -576,8 +576,8 @@ public static class DatabaseServer
 
         var query =
 			"EXEC CreateAuction " + vehicle.VehicleID
-			+ ", " + seller.UserName
-			+ ", " + miniumBid
+			+ ", '" + seller.UserName
+			+ "', " + miniumBid
 		    +", " + false;
 
 
