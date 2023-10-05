@@ -51,6 +51,9 @@
 
                 <TextBlock>Start Bid</TextBlock>
                 <TextBox x:Name="StartBidTextBox"/>
+                
+                <TextBlock>new price</TextBlock>
+                <TextBox x:Name="NewPriceTextBox"/>
 
                 <TextBlock>End Date</TextBlock>
                 <DatePicker x:Name="EndDatePicker"/>
@@ -64,6 +67,7 @@
                 </ComboBox>
 
                 <Button Content="Set for Sale" Click="SetForSaleButton_Click" Background="#0078D4" Foreground="White"/>
+                <Button x:Name="cancel" Click="Cancel_OnClick"></Button>
             </StackPanel>
         </Border>
 

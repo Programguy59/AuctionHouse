@@ -19,7 +19,7 @@
 
 
                 <TextBlock Text="Balance:" FontWeight="Bold" />
-                <TextBlock Text="{Binding Balance}" />
+                <TextBlock Text="{Binding Balance, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
 
                 <TextBlock Text="Credit:" FontWeight="Bold" x:Name="CreditBox" Visibility="Collapsed"/>
                 <TextBlock Text="{Binding Credit}" />

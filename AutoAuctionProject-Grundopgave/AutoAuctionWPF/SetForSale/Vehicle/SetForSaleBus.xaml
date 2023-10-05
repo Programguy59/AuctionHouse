@@ -5,27 +5,95 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:AutoAuctionWPF"
              mc:Ignorable="d"
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBox x:Name="Height" Width="200" Text="Height" Margin="0,0,0,10"/>
-            <TextBox x:Name="Length" Width="200" Text="Length" Margin="0,0,0,10"/>
-            <TextBox x:Name="Width" Width="200" Text="Width" Margin="0,0,0,10"/>
-            <TextBox x:Name="Weight" Width="200" Text="Weight" Margin="0,0,0,10"/>
-            <TextBox x:Name="Engine" Width="200" Text="Engine" Margin="0,0,0,10"/>
-            <TextBox x:Name="numberOfSeats" Width="200" Text="number Of Seats" Margin="0,0,0,10"/>
-            <TextBox x:Name="numberOfSleepingSpaces" Width="200" Text="number Of Sleeping Spaces" Margin="0,0,0,10"/>
-            <TextBox x:Name="Toilet" Width="200" Text="Toilet" Margin="0,0,0,10"/>
-            <TextBox x:Name="kmPerLiter" Width="200" Text="km Per Liter" Margin="0,0,0,10"/>
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid Background="#F0F0F0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
-            <ComboBox>
-                <ComboBoxItem Content="Diesel"/>
-                <ComboBoxItem Content="Benzin"/>
-                <ComboBoxItem Content="Electric"/>
-                <ComboBoxItem Content="Hydrogen"/>
+        <StackPanel Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Margin" Value="0,0,0,10"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Margin" Value="0,0,0,10"/>
+                </Style>
+                <Style TargetType="ComboBox">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Margin" Value="0,0,0,10"/>
+                </Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Margin" Value="0,0,0,10"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <Label Content="Height"/>
+            <TextBox x:Name="HeightTextBox" TextChanged="HeightTextBox_OnTextChanged"/>
+
+            <Label Content="Length"/>
+            <TextBox x:Name="LengthTextBox" TextChanged="LengthTextBox_OnTextChanged" />
+            
+            <Label Content="Weight"/>
+            <TextBox x:Name="WeightTextBox" TextChanged="WeightTextBox_OnTextChanged" />
+
+            <Label Content="Engine"/>
+            <TextBox x:Name="EngineTextBox" TextChanged="EngineTextBox_OnTextChanged" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10">
+            <StackPanel.Resources>
+                <Style TargetType="Label">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Margin" Value="0,0,0,10"/>
+                </Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Margin" Value="0,0,0,10"/>
+                </Style>
+                <Style TargetType="ComboBox">
+                    <Setter Property="Width" Value="200"/>
+                    <Setter Property="Height" Value="40"/>
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Margin" Value="0,0,0,10"/>
+                </Style>
+                <Style TargetType="CheckBox">
+                    <Setter Property="FontSize" Value="16"/>
+                    <Setter Property="Margin" Value="0,0,0,10"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <Label Content="Number Of Seats"/>
+            <TextBox x:Name="NumberOfSeatsTextBox" TextChanged="NumberOfSeatsTextBox_OnTextChanged" />
+
+            <Label Content="Number Of Sleeping Spaces"/>
+            <TextBox x:Name="NumberOfSleepingSpacesTextBox" TextChanged="NumberOfSleepingSpacesTextBox_OnTextChanged"/>
+
+            <Label Content="Toilet"/>
+            <CheckBox x:Name="HasToilet" Checked="HasToilet_OnChecked" Unchecked="HasToilet_OnUnchecked"></CheckBox>
+           
+
+            <Label Content="km Per Liter"/>
+            <TextBox x:Name="KmPerLiterTextBox" TextChanged="KmPerLiterTextBox_OnTextChanged" />
+
+            <ComboBox Text="Fuel Type">
+                <ComboBoxItem x:Name="DieselComboBoxItem" Content="Diesel" Selected="DieselComboBoxItem_OnSelected"/>
+                <ComboBoxItem x:Name="BenzinComboBoxItem" Content="Benzin" Selected="BenzinComboBoxItem_OnSelected"/>
+                <ComboBoxItem x:Name="ElectricComboBoxItem" Content="Electric" Selected="ElectricComboBoxItem_OnSelected"/>
+                <ComboBoxItem x:Name="HydrogenComboBoxItem" Content="Hydrogen" Selected="HydrogenComboBoxItem_OnSelected"/>
             </ComboBox>
-            <Label Content="towBar"></Label>
-            <CheckBox x:Name="Towbar" ></CheckBox>
+            <Label Content="Tow Bar"/>
+            <CheckBox x:Name="Towbar" Checked="Towbar_OnChecked" Unchecked="Towbar_OnUnchecked"/>
         </StackPanel>
     </Grid>
 </UserControl>

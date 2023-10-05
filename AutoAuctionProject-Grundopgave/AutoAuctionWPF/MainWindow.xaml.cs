@@ -58,9 +58,9 @@ namespace AutoAuctionWPF
             contentControl.Content = new BuyerOfAuctionControl(this, auction);
         }
         
-        public void ShowSellerOfAuctionScreen()
+        public void ShowSellerOfAuctionScreen(Auction auction)
         {
-            contentControl.Content = new SellerOfAuctionControl(this);
+            contentControl.Content = new SellerOfAuctionControl(this, auction);
         }
         
         public void ShowUserProfileScreen()
