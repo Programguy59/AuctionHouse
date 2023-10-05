@@ -13,6 +13,7 @@
     - Login system
     - Byde på Auktioner
     - Historik over bud
+    - Spille Baggrundsmusik
 
 
 ## Diagrammer
