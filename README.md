@@ -24,5 +24,5 @@
 
 ## Diagrammer
 
-- [Klasse Diagram]()
-- [Database Diagram]()
+- [Klasse Diagram](https://github.com/Programguy59/AuctionHouse/blob/main/AuctionClassDiagram.png)
+- [Database Diagram](https://github.com/Programguy59/AuctionHouse/blob/main/AuctionERDiagram.png)
