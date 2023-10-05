@@ -8,28 +8,66 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Label Content="Trunk"/>
-            <TextBox x:Name="depth" Width="200" Text="depth" Margin="0,0,0,10"/>
-            <TextBox x:Name="Width" Width="200" Text="Width" Margin="0,0,0,10"/>
-            <TextBox x:Name="height" Width="200" Text="height" Margin="0,0,0,10"/>
-            <TextBox x:Name="Engine" Width="200" Text="Engine" Margin="0,0,0,10"/>
-            <TextBox x:Name="kmPerLiter" Width="200" Text="km Per Liter" Margin="0,0,0,10"/>
-            <TextBox x:Name="NumberOfSeat" Width="200" Text="Number Of Seats" Margin="0,0,0,10"/>
-            <TextBox x:Name="loadCapacity" Width="200" Text="load Capacity" Margin="0,0,0,10"/>
 
-            <Label Content="fuel"></Label>
-            <ComboBox>
-                <ComboBoxItem Content="Diesel"/>
-                <ComboBoxItem Content="Benzin"/>
-                <ComboBoxItem Content="Electric"/>
-                <ComboBoxItem Content="Hydrogen"/>
-            </ComboBox>
-            <Label Content="Safety Bar"/>
-            <CheckBox x:Name="IsSafetyBar"></CheckBox>
-        
-            <Label Content="towBar"></Label>
-            <CheckBox x:Name="Towbar" ></CheckBox>
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Trunk"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Depth:"/>
+                <TextBox x:Name="DepthTextBox" Width="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Width:"/>
+                <TextBox x:Name="WidthTextBox" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Height:"/>
+                <TextBox x:Name="HeightTextBox" Width="200"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Engine:"/>
+                <TextBox x:Name="EngineTextBox" Width="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Km Per Liter:"/>
+                <TextBox x:Name="KmPerLiterTextBox" Width="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Number Of Seats:"/>
+                <TextBox x:Name="NumberOfSeatTextBox" Width="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Load Capacity:"/>
+                <TextBox x:Name="LoadCapacityTextBox" Width="200" />
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Fuel Type"/>
+                <ComboBox Text="Fuel Type">
+                    <ComboBoxItem x:Name="DieselComboBoxItem" Content="Diesel"/>
+                    <ComboBoxItem x:Name="BenzinComboBoxItem" Content="Benzin"/>
+                    <ComboBoxItem x:Name="ElectricComboBoxItem" Content="Electric"/>
+                    <ComboBoxItem x:Name="HydrogenComboBoxItem" Content="Hydrogen"/>
+                </ComboBox>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="Safety Bar"/>
+                <CheckBox x:Name="IsSafetyBar"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Vertical" Margin="0,0,0,10">
+                <Label Content="towBar"/>
+                <CheckBox x:Name="Towbar"/>
+            </StackPanel>
+
         </StackPanel>
     </Grid>
 </UserControl>
-    
