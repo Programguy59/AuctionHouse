@@ -3,69 +3,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:AutoAuctionWPF"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Trunk"/>
+                <Label Content="Trunk" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Depth:"/>
+                <Label Content="Depth:" />
                 <TextBox x:Name="DepthTextBox" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Width:"/>
-                <TextBox x:Name="WidthTextBox" Width="200"/>
+                <Label Content="Width:" />
+                <TextBox x:Name="WidthTextBox" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Height:"/>
-                <TextBox x:Name="HeightTextBox" Width="200"/>
+                <Label Content="Height:" />
+                <TextBox x:Name="HeightTextBox" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Engine:"/>
+                <Label Content="Engine:" />
                 <TextBox x:Name="EngineTextBox" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Km Per Liter:"/>
+                <Label Content="Km Per Liter:" />
                 <TextBox x:Name="KmPerLiterTextBox" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Number Of Seats:"/>
+                <Label Content="Number Of Seats:" />
                 <TextBox x:Name="NumberOfSeatTextBox" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Load Capacity:"/>
+                <Label Content="Load Capacity:" />
                 <TextBox x:Name="LoadCapacityTextBox" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Fuel Type"/>
+                <Label Content="Fuel Type" />
                 <ComboBox Text="Fuel Type">
-                    <ComboBoxItem x:Name="DieselComboBoxItem" Content="Diesel"/>
-                    <ComboBoxItem x:Name="BenzinComboBoxItem" Content="Benzin"/>
-                    <ComboBoxItem x:Name="ElectricComboBoxItem" Content="Electric"/>
-                    <ComboBoxItem x:Name="HydrogenComboBoxItem" Content="Hydrogen"/>
+                    <ComboBoxItem x:Name="DieselComboBoxItem" Content="Diesel" />
+                    <ComboBoxItem x:Name="BenzinComboBoxItem" Content="Benzin" />
+                    <ComboBoxItem x:Name="ElectricComboBoxItem" Content="Electric" />
+                    <ComboBoxItem x:Name="HydrogenComboBoxItem" Content="Hydrogen" />
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Safety Bar"/>
-                <CheckBox x:Name="IsSafetyBar"/>
+                <Label Content="Safety Bar" />
+                <CheckBox x:Name="IsSafetyBar" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="towBar"/>
-                <CheckBox x:Name="Towbar"/>
+                <Label Content="towBar" />
+                <CheckBox x:Name="Towbar" />
             </StackPanel>
 
         </StackPanel>

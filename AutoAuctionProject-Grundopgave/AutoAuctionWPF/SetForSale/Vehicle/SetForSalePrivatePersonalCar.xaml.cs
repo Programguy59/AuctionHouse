@@ -26,12 +26,12 @@ public partial class SetForSalePrivatePersonalCar : UserControl
         InitializeComponent();
     }
 
-    private void Towbar_OnChecked(object sender, System.Windows.RoutedEventArgs e)
+    private void Towbar_OnChecked(object sender, RoutedEventArgs e)
     {
         _towbar = true;
     }
 
-    private void Towbar_OnUnchecked(object sender, System.Windows.RoutedEventArgs e)
+    private void Towbar_OnUnchecked(object sender, RoutedEventArgs e)
     {
         _towbar = false;
     }

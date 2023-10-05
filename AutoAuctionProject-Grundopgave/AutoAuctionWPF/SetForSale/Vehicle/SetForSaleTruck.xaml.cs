@@ -3,144 +3,143 @@ using System.Windows;
 using System.Windows.Controls;
 using AutoAuctionProjekt.Classes;
 
-namespace AutoAuctionWPF.SetForSale
-{
-    public partial class SetForSaleTruck : UserControl
-    {
-        public static bool _towbar;
-        public static decimal _height;
-        public static decimal _length;
-        public static decimal _width;
-        public static decimal _weight;
-        public static double _engineSize;
-        public static decimal _loadCapacity;
-        public static double _kmPerLiter;
-        public static Vehicle.FuelTypeEnum _fuelType = Vehicle.FuelTypeEnum.Unknown;
-        
-        public SetForSaleTruck()
-        {
-            InitializeComponent();
-        }
+namespace AutoAuctionWPF.SetForSale;
 
-        private void HeightTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+public partial class SetForSaleTruck : UserControl
+{
+    public static bool _towbar;
+    public static decimal _height;
+    public static decimal _length;
+    public static decimal _width;
+    public static decimal _weight;
+    public static double _engineSize;
+    public static decimal _loadCapacity;
+    public static double _kmPerLiter;
+    public static Vehicle.FuelTypeEnum _fuelType = Vehicle.FuelTypeEnum.Unknown;
+
+    public SetForSaleTruck()
+    {
+        InitializeComponent();
+    }
+
+    private void HeightTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        try
         {
-            try
-            {
-                _height = Convert.ToDecimal(HeightTextBox.Text);
-            }
-            catch (FormatException ex)
-            {
-                // Handle the format exception (invalid input) here
-                // You can log the error or show a user-friendly message
-            }
+            _height = Convert.ToDecimal(HeightTextBox.Text);
         }
-    
-        private void LengthTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        catch (FormatException ex)
         {
-            try
-            {
-                _length = Convert.ToDecimal(LengthTextBox.Text);
-            }
-            catch (FormatException ex)
-            {
-                // Handle the format exception (invalid input) here
-                // You can log the error or show a user-friendly message
-            }
+            // Handle the format exception (invalid input) here
+            // You can log the error or show a user-friendly message
         }
-    
-        private void WidthTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    }
+
+    private void LengthTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        try
         {
-            try
-            {
-                _width = Convert.ToDecimal(WidthTextBox.Text);
-            }
-            catch (FormatException ex)
-            {
-                // Handle the format exception (invalid input) here
-                // You can log the error or show a user-friendly message
-            }
+            _length = Convert.ToDecimal(LengthTextBox.Text);
         }
-    
-        private void WeightTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        catch (FormatException ex)
         {
-            try
-            {
-                _weight = Convert.ToDecimal(WeightTextBox.Text);
-            }
-            catch (FormatException ex)
-            {
-                // Handle the format exception (invalid input) here
-                // You can log the error or show a user-friendly message
-            }
+            // Handle the format exception (invalid input) here
+            // You can log the error or show a user-friendly message
         }
-    
-        private void EngineSizeTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    }
+
+    private void WidthTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        try
         {
-            try
-            {
-                _engineSize = Convert.ToDouble(EngineTextBox.Text);
-            }
-            catch (FormatException ex)
-            {
-                // Handle the format exception (invalid input) here
-                // You can log the error or show a user-friendly message
-            }
+            _width = Convert.ToDecimal(WidthTextBox.Text);
         }
-    
-        private void LoadCapacityTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+        catch (FormatException ex)
         {
-            try
-            {
-                _loadCapacity = Convert.ToDecimal(LoadCapacityTextBox.Text);
-            }
-            catch (FormatException ex)
-            {
-                // Handle the format exception (invalid input) here
-                // You can log the error or show a user-friendly message
-            }
+            // Handle the format exception (invalid input) here
+            // You can log the error or show a user-friendly message
         }
-    
-        private void KmPerLiterTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    }
+
+    private void WeightTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        try
         {
-            try
-            {
-                _kmPerLiter = Convert.ToDouble(KmPerLiterTextBox.Text);
-            }
-            catch (FormatException ex)
-            {
-                // Handle the format exception (invalid input) here
-                // You can log the error or show a user-friendly message
-            }
+            _weight = Convert.ToDecimal(WeightTextBox.Text);
         }
-    
-        private void Towbar_OnChecked(object sender, RoutedEventArgs e)
+        catch (FormatException ex)
         {
-            _towbar = true;
+            // Handle the format exception (invalid input) here
+            // You can log the error or show a user-friendly message
         }
-    
-        private void Towbar_OnUnchecked(object sender, RoutedEventArgs e)
+    }
+
+    private void EngineSizeTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        try
         {
-            _towbar = false;
+            _engineSize = Convert.ToDouble(EngineTextBox.Text);
         }
-    
-        private void DieselComboBoxItem_OnSelected(object sender, RoutedEventArgs e)
+        catch (FormatException ex)
         {
-            _fuelType = Vehicle.FuelTypeEnum.Diesel;
+            // Handle the format exception (invalid input) here
+            // You can log the error or show a user-friendly message
         }
-    
-        private void BenzinComboBoxItem_OnSelected(object sender, RoutedEventArgs e)
+    }
+
+    private void LoadCapacityTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        try
         {
-            _fuelType = Vehicle.FuelTypeEnum.Benzin;
+            _loadCapacity = Convert.ToDecimal(LoadCapacityTextBox.Text);
         }
-    
-        private void ElectricComboBoxItem_OnSelected(object sender, RoutedEventArgs e)
+        catch (FormatException ex)
         {
-            _fuelType = Vehicle.FuelTypeEnum.Electric;
+            // Handle the format exception (invalid input) here
+            // You can log the error or show a user-friendly message
         }
-    
-        private void HydrogenComboBoxItem_OnSelected(object sender, RoutedEventArgs e)
+    }
+
+    private void KmPerLiterTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
+    {
+        try
         {
-            _fuelType = Vehicle.FuelTypeEnum.Hydrogen;
+            _kmPerLiter = Convert.ToDouble(KmPerLiterTextBox.Text);
         }
+        catch (FormatException ex)
+        {
+            // Handle the format exception (invalid input) here
+            // You can log the error or show a user-friendly message
+        }
+    }
+
+    private void Towbar_OnChecked(object sender, RoutedEventArgs e)
+    {
+        _towbar = true;
+    }
+
+    private void Towbar_OnUnchecked(object sender, RoutedEventArgs e)
+    {
+        _towbar = false;
+    }
+
+    private void DieselComboBoxItem_OnSelected(object sender, RoutedEventArgs e)
+    {
+        _fuelType = Vehicle.FuelTypeEnum.Diesel;
+    }
+
+    private void BenzinComboBoxItem_OnSelected(object sender, RoutedEventArgs e)
+    {
+        _fuelType = Vehicle.FuelTypeEnum.Benzin;
+    }
+
+    private void ElectricComboBoxItem_OnSelected(object sender, RoutedEventArgs e)
+    {
+        _fuelType = Vehicle.FuelTypeEnum.Electric;
+    }
+
+    private void HydrogenComboBoxItem_OnSelected(object sender, RoutedEventArgs e)
+    {
+        _fuelType = Vehicle.FuelTypeEnum.Hydrogen;
     }
 }

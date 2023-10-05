@@ -3,23 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:AutoAuctionWPF"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="550">
-   <Grid  Height="350" Width="525" Margin="0,0,0,0" Background="LightSkyBlue">  
-        <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" Name="textBlockHeading" Text="Login" VerticalAlignment="Top" Width="110"  FontSize="17" FontStretch="ExtraCondensed"/>  
-  
-        <Grid Margin="31,0,29,23" Background="White" Height="250" VerticalAlignment="Bottom">  
-            <Grid.RowDefinitions>  
-                <RowDefinition Height="252*" />  
-            </Grid.RowDefinitions>  
-            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="TextBlockUserName" Text="Username:" VerticalAlignment="Top" Width="110" />  
-           <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,60,0,0" Name="TextBlockPassword" Text="Password:" VerticalAlignment="Top" Width="110"  />  
-            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Name="UserNameBox" VerticalAlignment="Top" Width="222" />  
-            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,60,0,0" Name="PasswordBox" VerticalAlignment="Top" Width="222" />  
-            <Button Content="login" Height="23" HorizontalAlignment="Left" Margin="183,100,0,0" Name="login" VerticalAlignment="Top" Width="70" Click="Login_OnClick"/>  
-            <Button Content="creat User" Height="23" HorizontalAlignment="Left" Margin="60,100,0,0" Name="CreatUser" VerticalAlignment="Top" Width="70" Click="CreatUser_OnClick" />
-            <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,100,60,0" Name="button3" VerticalAlignment="Top" Width="70"  />  
-        </Grid>  
-    </Grid>  
+    <Grid Height="350" Width="525" Margin="0,0,0,0" Background="LightSkyBlue">
+        <TextBlock Height="23" HorizontalAlignment="Left" Margin="10,5,0,0" Name="textBlockHeading" Text="Login"
+                   VerticalAlignment="Top" Width="110" FontSize="17" FontStretch="ExtraCondensed" />
+
+        <Grid Margin="31,0,29,23" Background="White" Height="250" VerticalAlignment="Bottom">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="252*" />
+            </Grid.RowDefinitions>
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,20,0,0" Name="TextBlockUserName"
+                       Text="Username:" VerticalAlignment="Top" Width="110" />
+            <TextBlock Height="23" HorizontalAlignment="Left" Margin="67,60,0,0" Name="TextBlockPassword"
+                       Text="Password:" VerticalAlignment="Top" Width="110" />
+            <TextBox Height="23" HorizontalAlignment="Left" Margin="183,20,0,0" Name="UserNameBox"
+                     VerticalAlignment="Top" Width="222" />
+            <PasswordBox Height="23" HorizontalAlignment="Left" Margin="183,60,0,0" Name="PasswordBox"
+                         VerticalAlignment="Top" Width="222" />
+            <Button Content="login" Height="23" HorizontalAlignment="Left" Margin="183,100,0,0" Name="login"
+                    VerticalAlignment="Top" Width="70" Click="Login_OnClick" />
+            <Button Content="creat User" Height="23" HorizontalAlignment="Left" Margin="60,100,0,0" Name="CreatUser"
+                    VerticalAlignment="Top" Width="70" Click="CreatUser_OnClick" />
+            <Button Content="Cancel" Height="23" HorizontalAlignment="Right" Margin="0,100,60,0" Name="button3"
+                    VerticalAlignment="Top" Width="70" />
+        </Grid>
+    </Grid>
 </UserControl>

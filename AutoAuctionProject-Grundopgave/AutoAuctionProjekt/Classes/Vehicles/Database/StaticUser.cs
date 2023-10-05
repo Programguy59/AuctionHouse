@@ -1,39 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace AutoAuctionProjekt.Classes.Vehicles.Database
+namespace AutoAuctionProjekt.Classes.Vehicles.Database;
+
+public static partial class Database
 {
-    public static partial class Database
+    public static readonly List<User> Users = new();
+
+    public static User? GetUserByUserName(string UserName)
     {
-        public static readonly List<User> Users = new();
-
-        public static User? GetUserByUserName(string UserName)
+        foreach (var corpUser in CorporateUsers)
         {
-            foreach (var corpUser in Database.CorporateUsers)
-            {
-                User user = corpUser;
-                if (!Users.Contains(user))
-                {
-                    Users.Add(user);
-                }
-            }
-            foreach (var PrivteUser in Database.PrivateUsers)
-            {
-                User user = PrivteUser;
-                if (!Users.Contains(user))
-                {
-                    Users.Add(user);
-                }
-            }
-            return Users.FirstOrDefault(user => user.UserName == UserName);
+            User user = corpUser;
+            if (!Users.Contains(user)) Users.Add(user);
         }
 
-        public static List<User> GetAllUsers()
+        foreach (var PrivteUser in PrivateUsers)
         {
-            return Users;
+            User user = PrivteUser;
+            if (!Users.Contains(user)) Users.Add(user);
         }
+
+        return Users.FirstOrDefault(user => user.UserName == UserName);
+    }
+
+    public static List<User> GetAllUsers()
+    {
+        return Users;
     }
 }

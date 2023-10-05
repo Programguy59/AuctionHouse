@@ -9,73 +9,74 @@
              d:DesignHeight="800" d:DesignWidth="800">
     <Grid Background="#F0F0F0">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
 
         <Border BorderBrush="#CCCCCC" BorderThickness="1" Margin="30" CornerRadius="5">
             <StackPanel Margin="10">
                 <StackPanel.Resources>
                     <Style TargetType="TextBlock">
-                        <Setter Property="FontSize" Value="16"/>
-                        <Setter Property="Margin" Value="0 0 0 5"/>
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="Margin" Value="0 0 0 5" />
                     </Style>
                     <Style TargetType="TextBox">
-                        <Setter Property="FontSize" Value="16"/>
-                        <Setter Property="Height" Value="40"/>
-                        <Setter Property="Margin" Value="0 0 0 10"/>
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="Height" Value="40" />
+                        <Setter Property="Margin" Value="0 0 0 10" />
                     </Style>
                     <Style TargetType="ComboBox">
-                        <Setter Property="FontSize" Value="16"/>
-                        <Setter Property="Height" Value="40"/>
-                        <Setter Property="Margin" Value="0 0 0 10"/>
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="Height" Value="40" />
+                        <Setter Property="Margin" Value="0 0 0 10" />
                     </Style>
                     <Style TargetType="Button">
-                        <Setter Property="FontSize" Value="16"/>
-                        <Setter Property="Height" Value="40"/>
-                        <Setter Property="Margin" Value="0 0 0 10"/>
+                        <Setter Property="FontSize" Value="16" />
+                        <Setter Property="Height" Value="40" />
+                        <Setter Property="Margin" Value="0 0 0 10" />
                     </Style>
                 </StackPanel.Resources>
 
                 <TextBlock>Name</TextBlock>
-                <TextBox x:Name="NameTextBox"/>
+                <TextBox x:Name="NameTextBox" />
 
                 <TextBlock>Mileage</TextBlock>
-                <TextBox x:Name="MileageTextBox"/>
+                <TextBox x:Name="MileageTextBox" />
 
                 <TextBlock>Registration Number</TextBlock>
-                <TextBox x:Name="RegistrationNumberTextBox"/>
+                <TextBox x:Name="RegistrationNumberTextBox" />
 
                 <TextBlock>Year</TextBlock>
-                <TextBox x:Name="YearTextBox"/>
+                <TextBox x:Name="YearTextBox" />
 
                 <TextBlock>Start Bid</TextBlock>
-                <TextBox x:Name="StartBidTextBox"/>
-                
+                <TextBox x:Name="StartBidTextBox" />
+
                 <TextBlock>new price</TextBlock>
-                <TextBox x:Name="NewPriceTextBox"/>
+                <TextBox x:Name="NewPriceTextBox" />
 
                 <TextBlock>End Date</TextBlock>
-                <DatePicker x:Name="EndDatePicker"/>
+                <DatePicker x:Name="EndDatePicker" />
 
                 <TextBlock>Vehicle Type</TextBlock>
                 <ComboBox x:Name="ChoseVehicle">
-                    <ComboBoxItem Content="Bus" Selected="ComboBoxItemBus_OnSelected"/>
-                    <ComboBoxItem Content="Truck" Selected="ComboBoxItemTruck_OnSelected"/>
-                    <ComboBoxItem Content="Professional Personal Car" Selected="ComboBoxItemProfessionalPersonalCar_OnSelected"/>
-                    <ComboBoxItem Content="Private Personal Car" Selected=" ComboBoxItemPrivatePersonalCar_OnSelected"/>
+                    <ComboBoxItem Content="Bus" Selected="ComboBoxItemBus_OnSelected" />
+                    <ComboBoxItem Content="Truck" Selected="ComboBoxItemTruck_OnSelected" />
+                    <ComboBoxItem Content="Professional Personal Car"
+                                  Selected="ComboBoxItemProfessionalPersonalCar_OnSelected" />
+                    <ComboBoxItem Content="Private Personal Car" Selected=" ComboBoxItemPrivatePersonalCar_OnSelected" />
                 </ComboBox>
 
-                <Button Content="Set for Sale" Click="SetForSaleButton_Click" Background="#0078D4" Foreground="White"/>
-                <Button x:Name="cancel" Content="Cancel" Click="Cancel_OnClick"></Button>
+                <Button Content="Set for Sale" Click="SetForSaleButton_Click" Background="#0078D4" Foreground="White" />
+                <Button x:Name="cancel" Content="Cancel" Click="Cancel_OnClick" />
             </StackPanel>
         </Border>
 
         <StackPanel Grid.Column="1">
-            <local:SetForSaleBus x:Name="BusControl" Visibility="Collapsed"/>
-            <setForSale:SetForSaleTruck x:Name="TruckControl" Visibility="Collapsed"/>
-            <local:SetForSaleProfessionalPersonalCar x:Name="ProfessionalPersonalCarControl" Visibility="Collapsed"/>
-            <setForSale:SetForSalePrivatePersonalCar x:Name="PrivatePersonalCarControl" Visibility="Collapsed"/>
+            <local:SetForSaleBus x:Name="BusControl" Visibility="Collapsed" />
+            <setForSale:SetForSaleTruck x:Name="TruckControl" Visibility="Collapsed" />
+            <local:SetForSaleProfessionalPersonalCar x:Name="ProfessionalPersonalCarControl" Visibility="Collapsed" />
+            <setForSale:SetForSalePrivatePersonalCar x:Name="PrivatePersonalCarControl" Visibility="Collapsed" />
         </StackPanel>
     </Grid>
 </UserControl>

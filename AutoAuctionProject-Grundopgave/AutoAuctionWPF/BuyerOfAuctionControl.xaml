@@ -3,19 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:AutoAuctionWPF"
              mc:Ignorable="d"
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="auto" Height="auto">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                    <ColumnDefinition />
                 </Grid.ColumnDefinitions>
                 <StackPanel Grid.Column="0">
-                    <TextBlock Text="Vehicle Information" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Vehicle Information" FontWeight="Bold" Margin="0,0,0,10" />
                     <StackPanel x:Name="VehicleInfoPanel" Margin="0,0,0,10">
 
                         <TextBlock Text="Name:" FontWeight="Bold" />
@@ -118,15 +117,13 @@
                         <TextBlock Text="Load Capacity:" FontWeight="Bold" />
                         <TextBlock Text="{Binding LoadCapacity}" />
 
-                        
-
 
                     </StackPanel>
 
                 </StackPanel>
 
                 <StackPanel Grid.Column="2">
-                    <TextBlock Text="Auction Information" FontWeight="Bold" Margin="0,0,0,10"/>
+                    <TextBlock Text="Auction Information" FontWeight="Bold" Margin="0,0,0,10" />
                     <StackPanel x:Name="AuctionInfoPanel" Margin="0,0,0,10">
 
                         <TextBlock Text="Auction ID:" FontWeight="Bold" />
@@ -136,7 +133,7 @@
                         <TextBlock Text="{Binding MinimumPrice}" />
 
                         <TextBlock Text="Standing Bid:" FontWeight="Bold" />
-                        <TextBlock Text="{Binding StandingBid}" x:Name="StandingBidTextBlock"/>
+                        <TextBlock Text="{Binding StandingBid}" x:Name="StandingBidTextBlock" />
 
                         <TextBlock Text="Seller:" FontWeight="Bold" />
                         <TextBlock Text="{Binding Seller.UserName}" />
@@ -144,16 +141,16 @@
 
                     </StackPanel>
 
-                    <TextBlock Text="Latest Bid" FontWeight="Bold" Margin="0,0,0,10"/>
-                    <TextBlock x:Name="LatestBidTextBlock" Margin="0,0,0,10"/>
+                    <TextBlock Text="Latest Bid" FontWeight="Bold" Margin="0,0,0,10" />
+                    <TextBlock x:Name="LatestBidTextBlock" Margin="0,0,0,10" />
                 </StackPanel>
 
             </Grid>
-            <Label Width="250" Content="   Bid Amount"/>
+            <Label Width="250" Content="   Bid Amount" />
             <TextBox Height="23" x:Name="BidAmount" Width="223" />
 
-            <Button Content="Place a Bid" Click="PlaceBidButton_Click"/>
-            <Button Content="Cancel" Click="Back_Click"/>
+            <Button Content="Place a Bid" Click="PlaceBidButton_Click" />
+            <Button Content="Cancel" Click="Back_Click" />
         </StackPanel>
 
     </Grid>

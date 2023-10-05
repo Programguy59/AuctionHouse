@@ -18,17 +18,16 @@ public partial class SetForSaleBus : UserControl
     public static bool _hasToilet;
     public static double _kmPerLiter;
     public static Vehicle.FuelTypeEnum _fuelType = Vehicle.FuelTypeEnum.Unknown;
-    
-    
+
+
     public SetForSaleBus()
     {
-        InitializeComponent(); 
+        InitializeComponent();
     }
 
     private void Towbar_OnChecked(object sender, RoutedEventArgs e)
     {
-        
-        _towbar = true; 
+        _towbar = true;
     }
 
     private void Towbar_OnUnchecked(object sender, RoutedEventArgs e)
@@ -36,96 +35,96 @@ public partial class SetForSaleBus : UserControl
         _towbar = false;
     }
 
-   private void HeightTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-{
-    try
+    private void HeightTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        _height = Convert.ToDecimal(HeightTextBox.Text);
+        try
+        {
+            _height = Convert.ToDecimal(HeightTextBox.Text);
+        }
+        catch (FormatException ex)
+        {
+            // Handle the case where the input is not a valid decimal
+            // You might want to display an error message to the user
+        }
     }
-    catch (FormatException ex)
-    {
-        // Handle the case where the input is not a valid decimal
-        // You might want to display an error message to the user
-    }
-}
 
-private void LengthTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-{
-    try
+    private void LengthTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        _length = Convert.ToDecimal(LengthTextBox.Text);
+        try
+        {
+            _length = Convert.ToDecimal(LengthTextBox.Text);
+        }
+        catch (FormatException ex)
+        {
+            // Handle the case where the input is not a valid decimal
+            // You might want to display an error message to the user
+        }
     }
-    catch (FormatException ex)
-    {
-        // Handle the case where the input is not a valid decimal
-        // You might want to display an error message to the user
-    }
-}
 
-private void WeightTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-{
-    try
+    private void WeightTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        _weight = Convert.ToDecimal(WeightTextBox.Text);
+        try
+        {
+            _weight = Convert.ToDecimal(WeightTextBox.Text);
+        }
+        catch (FormatException ex)
+        {
+            // Handle the case where the input is not a valid decimal
+            // You might want to display an error message to the user
+        }
     }
-    catch (FormatException ex)
-    {
-        // Handle the case where the input is not a valid decimal
-        // You might want to display an error message to the user
-    }
-}
 
-private void EngineTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-{
-    try
+    private void EngineTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        _engineSize = Convert.ToDouble(EngineTextBox.Text);
+        try
+        {
+            _engineSize = Convert.ToDouble(EngineTextBox.Text);
+        }
+        catch (FormatException ex)
+        {
+            // Handle the case where the input is not a valid double
+            // You might want to display an error message to the user
+        }
     }
-    catch (FormatException ex)
-    {
-        // Handle the case where the input is not a valid double
-        // You might want to display an error message to the user
-    }
-}
 
-private void NumberOfSeatsTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-{
-    try
+    private void NumberOfSeatsTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        _numberOfSeats = Convert.ToUInt16(NumberOfSeatsTextBox.Text);
+        try
+        {
+            _numberOfSeats = Convert.ToUInt16(NumberOfSeatsTextBox.Text);
+        }
+        catch (FormatException ex)
+        {
+            // Handle the case where the input is not a valid ushort
+            // You might want to display an error message to the user
+        }
     }
-    catch (FormatException ex)
-    {
-        // Handle the case where the input is not a valid ushort
-        // You might want to display an error message to the user
-    }
-}
 
-private void KmPerLiterTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-{
-    try
+    private void KmPerLiterTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        _kmPerLiter = Convert.ToDouble(KmPerLiterTextBox.Text);
+        try
+        {
+            _kmPerLiter = Convert.ToDouble(KmPerLiterTextBox.Text);
+        }
+        catch (FormatException ex)
+        {
+            // Handle the case where the input is not a valid double
+            // You might want to display an error message to the user
+        }
     }
-    catch (FormatException ex)
-    {
-        // Handle the case where the input is not a valid double
-        // You might want to display an error message to the user
-    }
-}
 
-private void NumberOfSleepingSpacesTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
-{
-    try
+    private void NumberOfSleepingSpacesTextBox_OnTextChanged(object sender, TextChangedEventArgs e)
     {
-        _numberOfSleepingSpaces = Convert.ToUInt16(NumberOfSleepingSpacesTextBox.Text);
+        try
+        {
+            _numberOfSleepingSpaces = Convert.ToUInt16(NumberOfSleepingSpacesTextBox.Text);
+        }
+        catch (FormatException ex)
+        {
+            // Handle the case where the input is not a valid ushort
+            // You might want to display an error message to the user
+        }
     }
-    catch (FormatException ex)
-    {
-        // Handle the case where the input is not a valid ushort
-        // You might want to display an error message to the user
-    }
-}
 
 
     private void HasToilet_OnChecked(object sender, RoutedEventArgs e)

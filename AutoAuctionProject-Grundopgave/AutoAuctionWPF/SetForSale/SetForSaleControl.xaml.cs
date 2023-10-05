@@ -11,36 +11,35 @@ namespace AutoAuctionWPF;
 
 public partial class SetForSaleControl : UserControl
 {
-    private MainWindow mainWindow;
-    private string IsSelcted = "";
-    private string _vehicleName;
-    private double _mileage;
-    private string _registrationNumber;
-    private ushort _year;
-    private decimal _startBid;
+    private decimal _depth;
     private string _endDate;
-    private bool _towbar;
     private double _engineSize;
-    private double _kmPerLiter;
     private Vehicle.FuelTypeEnum _fuelType;
+    private bool _hasIsoFixFitting;
+    private bool _hasSaftybar;
+    private bool _hasToilet;
     private decimal _height;
+    private double _kmPerLiter;
     private decimal _length;
-    private decimal _weight;
+    private decimal _loadCapacity;
+    private double _mileage;
+    private decimal _newPrice;
     private ushort _numberOfSeats;
     private ushort _numberOfSleepingSpaces;
-    private bool _hasToilet;
-    private decimal _loadCapacity;
-    private bool _hasSaftybar;
-    private decimal _depth;
-    private bool _hasIsoFixFitting;
-    private decimal _newPrice;
-    
-    
+    private string _registrationNumber;
+    private decimal _startBid;
+    private bool _towbar;
+    private string _vehicleName;
+    private decimal _weight;
+    private ushort _year;
+    private string IsSelcted = "";
+    private readonly MainWindow mainWindow;
+
+
     public SetForSaleControl(MainWindow main)
     {
         InitializeComponent();
-        this.mainWindow = main;
-        
+        mainWindow = main;
     }
 
     private void SetForSaleButton_Click(object sender, RoutedEventArgs e)
@@ -53,7 +52,7 @@ public partial class SetForSaleControl : UserControl
         _startBid = Convert.ToDecimal(StartBidTextBox.Text);
         _endDate = EndDatePicker.Text;
         _newPrice = Convert.ToDecimal(NewPriceTextBox.Text);
-        
+
         if (IsSelcted == "Bus")
         {
             _height = SetForSaleBus._height;
@@ -69,7 +68,8 @@ public partial class SetForSaleControl : UserControl
             _hasToilet = SetForSaleBus._hasToilet;
             try
             {
-                new Bus(_vehicleName, _mileage, _registrationNumber, _year, _newPrice, _towbar, _engineSize, _kmPerLiter, _fuelType,
+                new Bus(_vehicleName, _mileage, _registrationNumber, _year, _newPrice, _towbar, _engineSize,
+                    _kmPerLiter, _fuelType,
                     new HeavyVehicle.VehicleDimensionsStruct(_height, _weight, _length), _numberOfSeats,
                     _numberOfSleepingSpaces, _hasToilet);
                 AuctionHouse.SetForSale(Database.Buses.Last(), Database.GetUserByUserName(Constants.Sql.User),
@@ -78,14 +78,11 @@ public partial class SetForSaleControl : UserControl
             catch (Exception exception)
             {
                 Console.WriteLine("something went wrong");
-                
             }
-
         }
 
         if (IsSelcted == "Truck")
         {
-            
             _height = SetForSaleTruck._height;
             _length = SetForSaleTruck._length;
             _weight = SetForSaleTruck._weight;
@@ -94,26 +91,26 @@ public partial class SetForSaleControl : UserControl
             _kmPerLiter = SetForSaleTruck._kmPerLiter;
             _fuelType = SetForSaleTruck._fuelType;
             _towbar = SetForSaleTruck._towbar;
-    
+
             MessageBox.Show(_engineSize.ToString());
-           try
+            try
             {
-                new Truck(_vehicleName, _mileage, _registrationNumber, _year, _newPrice, _towbar, _engineSize, _kmPerLiter, _fuelType,
+                new Truck(_vehicleName, _mileage, _registrationNumber, _year, _newPrice, _towbar, _engineSize,
+                    _kmPerLiter, _fuelType,
                     new HeavyVehicle.VehicleDimensionsStruct(_height, _weight, _length), _loadCapacity);
-                AuctionHouse.SetForSale(Database.Trucks.Last(), Database.GetUserByUserName(Constants.Sql.User), _startBid);
+                AuctionHouse.SetForSale(Database.Trucks.Last(), Database.GetUserByUserName(Constants.Sql.User),
+                    _startBid);
             }
             catch (Exception exception)
             {
                 Console.WriteLine("something went wrong");
                 throw;
             }
-           
         }
-        
+
         {
-            
         }
-        
+
         if (IsSelcted == "ProfessionalPersonalCar")
         {
             _hasSaftybar = SetForSaleProfessionalPersonalCar._hasSaftybar;
@@ -132,8 +129,8 @@ public partial class SetForSaleControl : UserControl
                     _startBid, _engineSize, _kmPerLiter, _fuelType, _numberOfSeats,
                     new PersonalCar.TrunkDimentionsStruct(_height, _weight, _depth), _hasSaftybar, _loadCapacity);
 
-                AuctionHouse.SetForSale(Database.ProfessionalPersonalCars.Last(), Database.GetUserByUserName(Constants.Sql.User), _startBid);
-
+                AuctionHouse.SetForSale(Database.ProfessionalPersonalCars.Last(),
+                    Database.GetUserByUserName(Constants.Sql.User), _startBid);
             }
             catch (Exception exception)
             {
@@ -141,11 +138,12 @@ public partial class SetForSaleControl : UserControl
             }
 
 
-            AuctionHouse.SetForSale(Database.ProfessionalPersonalCars.Last(), Database.GetUserByUserName(Constants.Sql.User), _startBid);
+            AuctionHouse.SetForSale(Database.ProfessionalPersonalCars.Last(),
+                Database.GetUserByUserName(Constants.Sql.User), _startBid);
         }
-        
+
         if (IsSelcted == "PrivatePersonalCar")
-        {   
+        {
             _towbar = SetForSalePrivatePersonalCar._towbar;
             _height = SetForSalePrivatePersonalCar._height;
             _weight = SetForSalePrivatePersonalCar._weight;
@@ -155,21 +153,20 @@ public partial class SetForSaleControl : UserControl
             _kmPerLiter = SetForSalePrivatePersonalCar._kmPerLiter;
             _fuelType = SetForSalePrivatePersonalCar._fuelType;
             _hasIsoFixFitting = SetForSalePrivatePersonalCar._hasIsoFixFitting;
-            
+
             new PrivatePersonalCar(_vehicleName, _mileage, _registrationNumber, _year,
-                _newPrice, _towbar,_engineSize, _kmPerLiter, _fuelType, _numberOfSeats,
-                new PersonalCar.TrunkDimentionsStruct(_height, _weight, _depth),_hasIsoFixFitting);
-            
-           AuctionHouse.SetForSale(Database.PrivatePersonalCars.Last(),
+                _newPrice, _towbar, _engineSize, _kmPerLiter, _fuelType, _numberOfSeats,
+                new PersonalCar.TrunkDimentionsStruct(_height, _weight, _depth), _hasIsoFixFitting);
+
+            AuctionHouse.SetForSale(Database.PrivatePersonalCars.Last(),
                 Database.GetUserByUserName(Constants.Sql.User), _startBid);
         }
+
         mainWindow.ShowHomeScreen();
-        
     }
 
     private void ChoseVehicle_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        
     }
 
 
@@ -202,7 +199,6 @@ public partial class SetForSaleControl : UserControl
 
     private void ComboBoxItemPrivatePersonalCar_OnSelected(object sender, RoutedEventArgs e)
     {
-        
         BusControl.Visibility = Visibility.Collapsed;
         PrivatePersonalCarControl.Visibility = Visibility.Visible;
         ProfessionalPersonalCarControl.Visibility = Visibility.Collapsed;
@@ -212,6 +208,6 @@ public partial class SetForSaleControl : UserControl
 
     private void Cancel_OnClick(object sender, RoutedEventArgs e)
     {
-        mainWindow.ShowHomeScreen();   
+        mainWindow.ShowHomeScreen();
     }
 }

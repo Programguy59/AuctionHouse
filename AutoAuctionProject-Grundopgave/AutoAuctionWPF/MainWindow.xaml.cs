@@ -1,93 +1,76 @@
-﻿using AutoAuctionProjekt.Classes;
-using AutoAuctionProjekt.Util;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System;
 using System.Media;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static AutoAuctionWPF.UserControlLogin;
+using AutoAuctionProjekt.Classes;
+using AutoAuctionProjekt.Util;
 
-namespace AutoAuctionWPF
+namespace AutoAuctionWPF;
+
+/// <summary>
+///     Interaction logic for MainWindow.xaml
+/// </summary>
+public partial class MainWindow : Window
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
-    public partial class MainWindow : Window
+    public MainWindow()
     {
-        public MainWindow()
-        {
-            InitializeComponent();
-            
-            try
-            {
-                SoundPlayer player = new SoundPlayer("../../../music/TwoTrucks.wav");
-                
-                player.PlayLooping();
-                player.Play();
-            }
-            catch (Exception ex)
-            {
-                // Handle the exception, e.g., log it or show an error message
-                Console.WriteLine($"An error occurred: {ex.Message}");
-            }
-            
-            DatabaseServer.Initialize(0);
+        InitializeComponent();
 
-            ShowLoginScreen(); // Start med at vise Login-skærmen
+        try
+        {
+            var player = new SoundPlayer("../../../music/TwoTrucks.wav");
+
+            player.PlayLooping();
+            player.Play();
         }
-        
-        
-
-        public void ShowLoginScreen()
+        catch (Exception ex)
         {
-            contentControl.Content = new UserControlLogin(this);
+            // Handle the exception, e.g., log it or show an error message
+            Console.WriteLine($"An error occurred: {ex.Message}");
         }
 
-        public void ShowHomeScreen()
-        {
-            contentControl.Content = new UserControlHomepage(this);
-        }
-        
-        public void ShowCreateUserScreen()
-        {
-            contentControl.Content = new CreateUserControl(this);
-        }
-        
-        public void ShowSetForSaleScreen()
-        {
-            contentControl.Content = new SetForSaleControl(this);
-        }
-        
-        public void ShowBuyerOfAuctionScreen(Auction auction)
-        {
-            contentControl.Content = new BuyerOfAuctionControl(this, auction);
-        }
-        
-        public void ShowSellerOfAuctionScreen(Auction auction)
-        {
-            contentControl.Content = new SellerOfAuctionControl(this, auction);
-        }
-        
-        public void ShowUserProfileScreen()
-        {
-            contentControl.Content = new UserProfileControl(this);
-        }
-        
-        public void BidHistoryControl()
-        {
-            contentControl.Content = new BidHistoryControl(this);
-        }
+        DatabaseServer.Initialize(0);
+
+        ShowLoginScreen(); // Start med at vise Login-skærmen
+    }
+
+
+    public void ShowLoginScreen()
+    {
+        contentControl.Content = new UserControlLogin(this);
+    }
+
+    public void ShowHomeScreen()
+    {
+        contentControl.Content = new UserControlHomepage(this);
+    }
+
+    public void ShowCreateUserScreen()
+    {
+        contentControl.Content = new CreateUserControl(this);
+    }
+
+    public void ShowSetForSaleScreen()
+    {
+        contentControl.Content = new SetForSaleControl(this);
+    }
+
+    public void ShowBuyerOfAuctionScreen(Auction auction)
+    {
+        contentControl.Content = new BuyerOfAuctionControl(this, auction);
+    }
+
+    public void ShowSellerOfAuctionScreen(Auction auction)
+    {
+        contentControl.Content = new SellerOfAuctionControl(this, auction);
+    }
+
+    public void ShowUserProfileScreen()
+    {
+        contentControl.Content = new UserProfileControl(this);
+    }
+
+    public void BidHistoryControl()
+    {
+        contentControl.Content = new BidHistoryControl(this);
     }
 }

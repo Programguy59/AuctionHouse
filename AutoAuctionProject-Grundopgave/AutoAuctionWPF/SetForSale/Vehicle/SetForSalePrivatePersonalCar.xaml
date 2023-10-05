@@ -3,62 +3,64 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:AutoAuctionWPF.SetForSale"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Trunk"/>
+                <Label Content="Trunk" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Depth:"/>
+                <Label Content="Depth:" />
                 <TextBox x:Name="DepthTextBox" TextChanged="DepthTextBox_OnTextChanged" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Width:"/>
+                <Label Content="Width:" />
                 <TextBox x:Name="WidthTextBox" TextChanged="WidthTextBox_OnTextChanged" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Height:"/>
+                <Label Content="Height:" />
                 <TextBox x:Name="HeightTextBox" TextChanged="HeightTextBox_OnTextChanged" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Engine:"/>
+                <Label Content="Engine:" />
                 <TextBox x:Name="EngineTextBox" TextChanged="EngineTextBox_OnTextChanged" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Km Per Liter:"/>
+                <Label Content="Km Per Liter:" />
                 <TextBox x:Name="KmPerLiterTextBox" TextChanged="KmPerLiterTextBox_OnTextChanged" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Number Of Seats:"/>
+                <Label Content="Number Of Seats:" />
                 <TextBox x:Name="NumberOfSeatTextBox" TextChanged="NumberOfSeatsTextBox_OnTextChanged" Width="200" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Fuel Type"/>
+                <Label Content="Fuel Type" />
                 <ComboBox Text="Fuel Type">
-                    <ComboBoxItem x:Name="DieselComboBoxItem" Content="Diesel" Selected="DieselComboBoxItem_OnSelected"/>
-                    <ComboBoxItem x:Name="BenzinComboBoxItem" Content="Benzin" Selected="BenzinComboBoxItem_OnSelected"/>
-                    <ComboBoxItem x:Name="ElectricComboBoxItem" Content="Electric" Selected="ElectricComboBoxItem_OnSelected"/>
-                    <ComboBoxItem x:Name="HydrogenComboBoxItem" Content="Hydrogen" Selected="HydrogenComboBoxItem_OnSelected"/>
+                    <ComboBoxItem x:Name="DieselComboBoxItem" Content="Diesel" Selected="DieselComboBoxItem_OnSelected" />
+                    <ComboBoxItem x:Name="BenzinComboBoxItem" Content="Benzin" Selected="BenzinComboBoxItem_OnSelected" />
+                    <ComboBoxItem x:Name="ElectricComboBoxItem" Content="Electric"
+                                  Selected="ElectricComboBoxItem_OnSelected" />
+                    <ComboBoxItem x:Name="HydrogenComboBoxItem" Content="Hydrogen"
+                                  Selected="HydrogenComboBoxItem_OnSelected" />
                 </ComboBox>
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Isofix Fittings"/>
-                <CheckBox x:Name="IsofixFittingsCheckBox" Checked="IsofixFittingsCheckBox_OnChecked" Unchecked="IsofixFittingsCheckBox_OnUnchecked"></CheckBox>
+                <Label Content="Isofix Fittings" />
+                <CheckBox x:Name="IsofixFittingsCheckBox" Checked="IsofixFittingsCheckBox_OnChecked"
+                          Unchecked="IsofixFittingsCheckBox_OnUnchecked" />
             </StackPanel>
 
             <StackPanel Orientation="Vertical" Margin="0,0,0,10">
-                <Label Content="Towbar"/>
+                <Label Content="Towbar" />
                 <CheckBox x:Name="TowbarCheckBox" Checked="Towbar_OnChecked" Unchecked="Towbar_OnUnchecked" />
             </StackPanel>
         </StackPanel>

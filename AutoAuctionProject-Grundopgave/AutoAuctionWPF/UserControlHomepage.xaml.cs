@@ -1,17 +1,16 @@
-﻿using AutoAuctionProjekt.Classes;
-using AutoAuctionProjekt.Classes.Vehicles.Database;
-using AutoAuctionProjekt.Util;
-using System;
-using System.Collections.ObjectModel;
-using System.Threading;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using AutoAuctionProjekt.Classes;
+using AutoAuctionProjekt.Classes.Vehicles.Database;
+using AutoAuctionProjekt.Util;
 
 namespace AutoAuctionWPF;
 
 public partial class UserControlHomepage : UserControl
 {
-    private MainWindow mainWindow;
+    private readonly MainWindow mainWindow;
+
     public UserControlHomepage(MainWindow main)
     {
         InitializeComponent();
@@ -20,27 +19,18 @@ public partial class UserControlHomepage : UserControl
         CurrentAuctionsList.Items.Clear();
         YourAuctionsList.Items.Clear();
 
-        ObservableCollection<Auction> yourAuctionList = new ObservableCollection<Auction>();
-        ObservableCollection<Auction> othersAuctionList = new ObservableCollection<Auction>();
+        var yourAuctionList = new ObservableCollection<Auction>();
+        var othersAuctionList = new ObservableCollection<Auction>();
 
-        foreach (Auction auction in Database.Auctions)
-        {
-
+        foreach (var auction in Database.Auctions)
             if (auction.Seller.UserName == Database.GetUserByUserName(Constants.Sql.User)?.UserName)
-            {
                 yourAuctionList.Add(auction);
-            }
-            else if (!auction.isDone)
-            {
-                othersAuctionList.Add(auction);
-            }
-
-
-        }
+            else if (!auction.isDone) othersAuctionList.Add(auction);
 
         YourAuctionsList.ItemsSource = yourAuctionList;
         CurrentAuctionsList.ItemsSource = othersAuctionList;
     }
+
     private void ViewProfileButton_Click(object sender, RoutedEventArgs e)
     {
         mainWindow.ShowUserProfileScreen();
@@ -48,27 +38,16 @@ public partial class UserControlHomepage : UserControl
 
     private void CreateAuctionButton_Click(object sender, RoutedEventArgs e)
     {
-
-        
-            mainWindow.ShowSetForSaleScreen();
-        
-
+        mainWindow.ShowSetForSaleScreen();
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
     {
-        Auction selectedAuction = (sender as Button).DataContext as Auction;
+        var selectedAuction = (sender as Button).DataContext as Auction;
 
         if ((sender as Button)?.Tag.ToString() == "Buyer")
-        {
             mainWindow.ShowBuyerOfAuctionScreen(selectedAuction);
-            
-        } else if ((sender as Button)?.Tag.ToString() == "Seller")
-        {
-            mainWindow.ShowSellerOfAuctionScreen(selectedAuction);
-
-        }
-
+        else if ((sender as Button)?.Tag.ToString() == "Seller") mainWindow.ShowSellerOfAuctionScreen(selectedAuction);
     }
 
     private void UpdateButton_Click(object sender, RoutedEventArgs e)
@@ -87,30 +66,19 @@ public partial class UserControlHomepage : UserControl
         YourAuctionsList.Items.Refresh();
 
 
-        ObservableCollection<Auction> yourAuctionList = new ObservableCollection<Auction>();
-        ObservableCollection<Auction> othersAuctionList = new ObservableCollection<Auction>();
+        var yourAuctionList = new ObservableCollection<Auction>();
+        var othersAuctionList = new ObservableCollection<Auction>();
 
-        
-        foreach (Auction auction in Database.Auctions)
-        {
 
+        foreach (var auction in Database.Auctions)
             if (auction.Seller.UserName == Database.GetUserByUserName(Constants.Sql.User)?.UserName)
-            {
                 yourAuctionList.Add(auction);
-            }
-            else if (!auction.isDone)
-            {
-                othersAuctionList.Add(auction);
-            }
-
-
-        }
+            else if (!auction.isDone) othersAuctionList.Add(auction);
 
         YourAuctionsList.ItemsSource = yourAuctionList;
         CurrentAuctionsList.ItemsSource = othersAuctionList;
 
         CurrentAuctionsList.Items.Refresh();
         YourAuctionsList.Items.Refresh();
-
     }
 }

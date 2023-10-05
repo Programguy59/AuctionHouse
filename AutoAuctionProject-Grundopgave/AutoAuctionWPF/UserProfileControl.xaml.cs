@@ -1,22 +1,20 @@
-﻿using AutoAuctionProjekt.Classes;
-using AutoAuctionProjekt.Classes.Vehicles.Database;
-using AutoAuctionProjekt.Util;
-using System.Reflection.Metadata;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System;
-using System.Windows.Data;
+using AutoAuctionProjekt.Classes;
+using AutoAuctionProjekt.Classes.Vehicles.Database;
+using AutoAuctionProjekt.Util;
 
 namespace AutoAuctionWPF;
 
 public partial class UserProfileControl : UserControl
 {
-    private MainWindow _mainWindow;
-    private User _user;
+    private readonly MainWindow _mainWindow;
+    private readonly User _user;
+
     public UserProfileControl(MainWindow mainWindow)
     {
         InitializeComponent();
-
 
 
         _mainWindow = mainWindow;
@@ -26,12 +24,7 @@ public partial class UserProfileControl : UserControl
         {
             UserInfoPanel.DataContext = Database.GetCorporateUserByUserName(Constants.Sql.User);
             CreditBox.Visibility = Visibility.Visible;
-
-
         }
-
-
-
     }
 
     private void backButton_Click(object sender, RoutedEventArgs e)
@@ -49,11 +42,9 @@ public partial class UserProfileControl : UserControl
             BalanceChangeAmount.Clear();
 
             DatabaseServer.UpdateBalance(_user.UserName, _user.Balance);
-
         }
-        catch (System.Exception)
+        catch (Exception)
         {
-
             MessageBox.Show("Input is not a number");
         }
     }

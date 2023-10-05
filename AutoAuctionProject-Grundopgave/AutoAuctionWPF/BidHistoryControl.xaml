@@ -3,20 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:local="clr-namespace:AutoAuctionWPF"
              mc:Ignorable="d"
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
-        <TextBlock Text="Bid history" FontSize="30"></TextBlock>
-        <DataGrid x:Name="CurrentAuctionsList" Width="400" Height="200" Margin="0,0,0,10" AutoGenerateColumns="False" >
+        <TextBlock Text="Bid history" FontSize="30" />
+        <DataGrid x:Name="CurrentAuctionsList" Width="400" Height="200" Margin="0,0,0,10" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Vehicle" Binding="{Binding Vehicle.Name}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Year" Binding="{Binding Vehicle.Year}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Your Bid" Binding="{Binding MyBid.BidAmount}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Accepted Bid" Binding="{Binding FinalBid.BidAmount}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Accepted Bid" Binding="{Binding iWon}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Vehicle" Binding="{Binding Vehicle.Name}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Year" Binding="{Binding Vehicle.Year}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Your Bid" Binding="{Binding MyBid.BidAmount}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Accepted Bid" Binding="{Binding FinalBid.BidAmount}" IsReadOnly="True" />
+                <DataGridTextColumn Header="Accepted Bid" Binding="{Binding iWon}" IsReadOnly="True" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Back" Content="Back" Width="50" Height="50" Click="Back_Click" Margin="711,440,39,10" ></Button>
+        <Button x:Name="Back" Content="Back" Width="50" Height="50" Click="Back_Click" Margin="711,440,39,10" />
     </Grid>
 </UserControl>
