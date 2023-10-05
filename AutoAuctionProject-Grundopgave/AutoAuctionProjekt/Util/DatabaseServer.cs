@@ -620,7 +620,7 @@ public static class DatabaseServer
     {
         var query =
                 "EXEC UpdateIsDone " + auctionId
-                + "', " + isDone;
+                + ", " + isDone;
 
         var reader = ExecuteNonQuery(query);
     }

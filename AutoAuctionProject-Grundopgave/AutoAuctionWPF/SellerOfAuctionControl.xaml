@@ -9,9 +9,19 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <TextBlock Text="Auction Information" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBlock x:Name="AuctionInfoTextBlock" Margin="0,0,0,10"/>
-            
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Label Content=" Name:" VerticalAlignment="Center"/>
+                <TextBlock x:Name="AuctionNameTextBlock" VerticalAlignment="Center" Margin="10,0"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Label Content=" Bid:" VerticalAlignment="Center"/>
+                <TextBlock x:Name="AuctionInfoTextBlock" VerticalAlignment="Center" Margin="10,0"/>
+            </StackPanel>
+
             <Button Content="Accept Standing Bid" Click="AcceptBidButton_Click"/>
+            <Button Content="Cancel" Click="ButtonBase_OnClick"/>
         </StackPanel>
     </Grid>
 </UserControl>
