@@ -15,10 +15,12 @@
     - Historik over bud
     - Spille Baggrundsmusik
 
--Projekter fokuserer på tre moduler: Bruger, Auktioner og Køretøjer
+
+- Projekter fokuserer på tre moduler: Bruger, Auktioner og Køretøjer
     - Bruger modulet handler om at holde information og validering af brugeres information.
     - Auktions modulet handler om at holde styr på hvem der har budt på hvilken bil og hvem der har sat den til salg.
     - Køretøjs modulet er objekt strukturen for køretøj og fokusere på nedarvning og polymorfi.
+
 
 ## Diagrammer
 
