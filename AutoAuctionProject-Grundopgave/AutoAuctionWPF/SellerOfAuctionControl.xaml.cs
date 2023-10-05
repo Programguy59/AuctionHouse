@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using AutoAuctionProjekt.Classes;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace AutoAuctionWPF;
@@ -6,7 +7,7 @@ namespace AutoAuctionWPF;
 public partial class SellerOfAuctionControl : UserControl
 {
     private MainWindow mainWindow;
-    public SellerOfAuctionControl(MainWindow main)
+    public SellerOfAuctionControl(MainWindow main, Auction auction)
     {
         InitializeComponent();
         this.mainWindow = main;

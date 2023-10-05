@@ -4,6 +4,8 @@ using AutoAuctionProjekt.Util;
 using System.Reflection.Metadata;
 using System.Windows;
 using System.Windows.Controls;
+using System;
+using System.Windows.Data;
 
 namespace AutoAuctionWPF;
 
@@ -15,7 +17,7 @@ public partial class UserProfileControl : UserControl
     {
         InitializeComponent();
 
-        
+
 
         _mainWindow = mainWindow;
         _user = Database.GetUserByUserName(Constants.Sql.User);
@@ -24,7 +26,6 @@ public partial class UserProfileControl : UserControl
         {
             UserInfoPanel.DataContext = Database.GetCorporateUserByUserName(Constants.Sql.User);
             CreditBox.Visibility = Visibility.Visible;
-            ChangeCredit.Visibility = Visibility.Visible;
 
 
         }
@@ -40,11 +41,22 @@ public partial class UserProfileControl : UserControl
 
     private void ChangeBalance_Click(object sender, RoutedEventArgs e)
     {
+        try
+        {
+            _user.Balance += Convert.ToDecimal(BalanceChangeAmount.Text);
+            UserInfoPanel.DataContext = null;
+            UserInfoPanel.DataContext = _user;
+            BalanceChangeAmount.Clear();
 
-    }
+            DatabaseServer.UpdateBalance(_user.UserName, _user.Balance);
 
-    private void ChangeCredit_Click(object sender, RoutedEventArgs e)
-    {
+        }
+        catch (System.Exception)
+        {
 
+            MessageBox.Show("Input is not a number");
+        }
     }
 }
+
+ 

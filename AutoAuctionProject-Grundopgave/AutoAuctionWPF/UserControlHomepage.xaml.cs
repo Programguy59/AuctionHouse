@@ -16,15 +16,28 @@ public partial class UserControlHomepage : UserControl
         mainWindow = main;
 
         CurrentAuctionsList.Items.Clear();
+        YourAuctionsList.Items.Clear();
 
-        ObservableCollection<Auction> auctionList = new ObservableCollection<Auction>();
+        ObservableCollection<Auction> yourAuctionList = new ObservableCollection<Auction>();
+        ObservableCollection<Auction> othersAuctionList = new ObservableCollection<Auction>();
 
         foreach (Auction auction in Database.Auctions)
         {
-            auctionList.Add(auction);
+
+            if (auction.Seller.UserName == Database.GetUserByUserName(Constants.Sql.User)?.UserName)
+            {
+                yourAuctionList.Add(auction);
+            }
+            else if (!auction.isDone)
+            {
+                othersAuctionList.Add(auction);
+            }
+
+
         }
 
-        CurrentAuctionsList.ItemsSource = auctionList;
+        YourAuctionsList.ItemsSource = yourAuctionList;
+        CurrentAuctionsList.ItemsSource = othersAuctionList;
 
 
     }
@@ -48,6 +61,15 @@ public partial class UserControlHomepage : UserControl
     {
         Auction selectedAuction = (sender as Button).DataContext as Auction;
 
-        mainWindow.ShowBuyerOfAuctionScreen(selectedAuction);
+        if ((sender as Button)?.Tag.ToString() == "Buyer")
+        {
+            mainWindow.ShowBuyerOfAuctionScreen(selectedAuction);
+            
+        } else if ((sender as Button)?.Tag.ToString() == "Seller")
+        {
+            mainWindow.ShowSellerOfAuctionScreen(selectedAuction);
+
+        }
+
     }
 }
