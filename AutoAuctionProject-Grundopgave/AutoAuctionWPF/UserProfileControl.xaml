@@ -23,13 +23,15 @@
 
                 <TextBlock Text="Credit:" FontWeight="Bold" x:Name="CreditBox" Visibility="Collapsed"/>
                 <TextBlock Text="{Binding Credit}" />
-                
-                <Button Content="Change Balance" x:Name="ChangeBalance" Click="ChangeBalance_Click"/>
-                <Button Content="View BidHistory" x:Name="ShowBidHistory" Click="ShowBidHistory_Click"/>
-                <Button Content="Change Credit" x:Name="ChangeCredit" Click="ChangeCredit_Click" Visibility="Collapsed"/>
 
+
+                <StackPanel Orientation="Horizontal">
+                    <Button Content="Add to Balance" x:Name="ChangeBalance" Click="ChangeBalance_Click"/>
+                    <TextBox x:Name="BalanceChangeAmount" Width="200"/>
+                </StackPanel>
+               
                 <Button Content="Back" x:Name="backButton" Click="backButton_Click"/>
-
+                <Button Content="View BidHistory" x:Name="ShowBidHistory" Click="ShowBidHistory_Click"/>
             </StackPanel>
             
             
