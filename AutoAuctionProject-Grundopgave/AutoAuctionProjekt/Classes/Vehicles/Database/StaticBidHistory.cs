@@ -27,27 +27,15 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
 
         public static BidHistory GetHigestBidOnAuction(int id)
         {
-            if (GetBidByAUctionId(id) == null)
-            {
-                Auction auction;
-                    auction = Database.GetAuctionById(id);
-               
-                BidHistory FirstBid = new(DateTime.Now, auction.MinimumPrice, Constants.Sql.User,auction.ID);
-                return FirstBid;
-            }
-            else
-            {
                 BidHistory higestBid = GetBidByAUctionId(id);
                 foreach (BidHistory bid in BidHistory)
                 {
-                    if (bid.BidAmount > higestBid.BidAmount)
+                    if (bid.BidAmount > higestBid.BidAmount && bid.Id == id)
                     {
                         higestBid = bid;
                     }
                 }
                 return higestBid;
-            }
-            
            
         }
 
