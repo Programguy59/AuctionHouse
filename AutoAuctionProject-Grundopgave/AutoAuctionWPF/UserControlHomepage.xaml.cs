@@ -1,7 +1,9 @@
 ﻿using AutoAuctionProjekt.Classes;
 using AutoAuctionProjekt.Classes.Vehicles.Database;
 using AutoAuctionProjekt.Util;
+using System;
 using System.Collections.ObjectModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -38,11 +40,7 @@ public partial class UserControlHomepage : UserControl
 
         YourAuctionsList.ItemsSource = yourAuctionList;
         CurrentAuctionsList.ItemsSource = othersAuctionList;
-
-
     }
-
-
     private void ViewProfileButton_Click(object sender, RoutedEventArgs e)
     {
         mainWindow.ShowUserProfileScreen();
@@ -70,6 +68,49 @@ public partial class UserControlHomepage : UserControl
             mainWindow.ShowSellerOfAuctionScreen(selectedAuction);
 
         }
+
+    }
+
+    private void UpdateButton_Click(object sender, RoutedEventArgs e)
+    {
+        Database.Auctions.Clear();
+        Database.BidHistory.Clear();
+        DatabaseServer.Initialize(0);
+
+        YourAuctionsList.ItemsSource = null;
+        CurrentAuctionsList.ItemsSource = null;
+
+
+        CurrentAuctionsList.Items.Clear();
+        CurrentAuctionsList.Items.Refresh();
+        YourAuctionsList.Items.Clear();
+        YourAuctionsList.Items.Refresh();
+
+
+        ObservableCollection<Auction> yourAuctionList = new ObservableCollection<Auction>();
+        ObservableCollection<Auction> othersAuctionList = new ObservableCollection<Auction>();
+
+        
+        foreach (Auction auction in Database.Auctions)
+        {
+
+            if (auction.Seller.UserName == Database.GetUserByUserName(Constants.Sql.User)?.UserName)
+            {
+                yourAuctionList.Add(auction);
+            }
+            else if (!auction.isDone)
+            {
+                othersAuctionList.Add(auction);
+            }
+
+
+        }
+
+        YourAuctionsList.ItemsSource = yourAuctionList;
+        CurrentAuctionsList.ItemsSource = othersAuctionList;
+
+        CurrentAuctionsList.Items.Refresh();
+        YourAuctionsList.Items.Refresh();
 
     }
 }

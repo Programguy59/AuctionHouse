@@ -42,7 +42,8 @@
                         </DataGridTemplateColumn>
                     </DataGrid.Columns>
                 </DataGrid>
-                
+
+                <Button x:Name="UpdateButton" Content="Update" Click="UpdateButton_Click"/>
                 <Button Content="Create New Auction" Click="CreateAuctionButton_Click"/>
                 <Button Content="View User Profile" Click="ViewProfileButton_Click"/>
             </StackPanel>
