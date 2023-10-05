@@ -18,8 +18,10 @@ public partial class BuyerOfAuctionControl : UserControl
         this.mainWindow = main;
 
         this.auction = auction;
+        LatestBidTextBlock.Text = auction.StandingBid.ToString();
 
         VehicleInfoPanel.DataContext = auction.Vehicle;
+        AuctionInfoPanel.DataContext = auction;
 
         Bus bus = Database.GetBusByVehicleId(auction.Vehicle.VehicleID);
         if (bus != null ) { BusPanel.Visibility = Visibility.Visible; VehicleTypeGrid.DataContext = bus; }
