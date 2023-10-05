@@ -1,7 +1,28 @@
-# AuctionHouse
+﻿# Indholdsfortegnelse
 
-Der var engang en sten og
-en pind
-sten er en sten  og kan godt lide PIZZA og burger så der for spiser han pizzaburger.
-Pind  er en pige pind og elsker  jord med ost.En dag sagde sten pind se hvad jeg kan. Jeg kigger. Sten hopper og springer. så siger pind jeg kan noget meget sejere. pind lavede en salto så sagde sten FUUUUUCK hvor sejt. De var bedste venner men så en dag skete der noget. sten havde fået en kæreste. Pind blev MEGA SUR og ked af det fordi at pind og sten var bedste venner 
-stens kæreste var en planke men pind havde altid ønsked sig at blive en planke  så pind begynde at grade.og så blev pind sur .Så siger sten bitch fight og så siger planke og pind vi går imod sten.Sten siger spurgt og så bliver sten til en gangster han får nogle nye gangster venner og glemmer planke og pind. planke og pind bliver ked af det de  sten og går med sine gangster venner med en bombe i hånden men han græder inden i  !! så  prøver pind og planke at blive ligesom sten men det går ikke så godt. gangsteren gras har en  atter   latter
+- [Om](#om)
+- [Diagrammer](#diagrammer)
+
+## Om
+
+- Dette er et Fiktivt Auktionshus, som er lavet i forbindelse med et skole projekt.
+- Projektet er udviklet af [Magnus](https://github.com/Programguy59), [Laurits](https://github.com/Lauritslund1) og [Casper](https://github.com/consoleBeep). i C# WPF med Microsoft SQL Server.
+- Auktionshuset er lavet til at kunne håndtere følgende:
+    - Brugere som både Sælgere og Købere
+    - Køretøjer af fire forskellige typer (Bus, Lastbil, Personbiler til både Privat og Erhverv)
+    - Login system
+    - Byde på Auktioner
+    - Historik over bud
+    - Spille Baggrundsmusik
+
+
+- Projekter fokuserer på tre moduler: Bruger, Auktioner og Køretøjer
+    - Bruger modulet handler om at holde information og validering af brugeres information.
+    - Auktions modulet handler om at holde styr på hvem der har budt på hvilken bil og hvem der har sat den til salg.
+    - Køretøjs modulet er objekt strukturen for køretøj og fokusere på nedarvning og polymorfi.
+
+
+## Diagrammer
+
+- [Klasse Diagram]()
+- [Database Diagram]()
