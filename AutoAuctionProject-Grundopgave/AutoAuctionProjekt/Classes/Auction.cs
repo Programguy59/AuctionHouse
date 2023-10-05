@@ -9,7 +9,7 @@ namespace AutoAuctionProjekt.Classes
     public class Auction
     {
 
-        public Auction(int id ,Vehicle vehicle, ISeller seller, decimal minimumPrice)
+        public Auction(int id, Vehicle vehicle, ISeller seller, decimal minimumPrice)
         {
             Vehicle = vehicle;
             Seller = seller;
