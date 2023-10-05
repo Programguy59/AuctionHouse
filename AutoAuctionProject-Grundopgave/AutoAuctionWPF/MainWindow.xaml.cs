@@ -20,7 +20,6 @@ public partial class MainWindow : Window
             var player = new SoundPlayer("../../../music/TwoTrucks.wav");
 
             player.PlayLooping();
-            player.Play();
         }
         catch (Exception ex)
         {
