@@ -47,4 +47,9 @@ public partial class UserProfileControl : UserControl
     {
 
     }
+
+    private void ShowBidHistory_Click(object sender, RoutedEventArgs e)
+    {
+        _mainWindow.BidHistoryControl();
+    }
 }

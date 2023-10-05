@@ -25,6 +25,7 @@
                 <TextBlock Text="{Binding Credit}" />
                 
                 <Button Content="Change Balance" x:Name="ChangeBalance" Click="ChangeBalance_Click"/>
+                <Button Content="View BidHistory" x:Name="ShowBidHistory" Click="ShowBidHistory_Click"/>
                 <Button Content="Change Credit" x:Name="ChangeCredit" Click="ChangeCredit_Click" Visibility="Collapsed"/>
 
                 <Button Content="Back" x:Name="backButton" Click="backButton_Click"/>

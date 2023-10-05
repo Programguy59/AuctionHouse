@@ -44,7 +44,6 @@ namespace AutoAuctionProjekt.Classes
         public IBuyer Buyer { get; set; }
 
 
-
         public bool isDone { get; set; }
 
 

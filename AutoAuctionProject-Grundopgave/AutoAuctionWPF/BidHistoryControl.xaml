@@ -8,16 +8,14 @@
              d:DesignHeight="500" d:DesignWidth="800">
     <Grid>
         <TextBlock Text="Bid history" FontSize="30"></TextBlock>
-        <ListView x:Name="BidHistoryListView">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Vehicle Name" Width="120" DisplayMemberBinding="{Binding VehicleName}" />
-                    <GridViewColumn Header="Year" Width="50" DisplayMemberBinding="{Binding Year}" />
-                    <GridViewColumn Header="Your Bid" Width="80" DisplayMemberBinding="{Binding YourBid}" />
-                    <GridViewColumn Header="Accepted Bid" Width="80" DisplayMemberBinding="{Binding AcceptedBid}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Button x:Name="CancelButton" Content="cancel" Width="50" Height="50" Click="CancelButton_OnClick" ></Button>
+        <DataGrid x:Name="CurrentAuctionsList" Width="400" Height="200" Margin="0,0,0,10" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Vehicle" Binding="{Binding Vehicle.Name}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding ID}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Your Bid" Binding="{Binding MinimumPrice}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Accepted Bid" Binding="{Binding StandingBid}" IsReadOnly="True"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="Back" Content="cancel" Width="50" Height="50" Click="Back_Click" Margin="711,440,39,10" ></Button>
     </Grid>
 </UserControl>

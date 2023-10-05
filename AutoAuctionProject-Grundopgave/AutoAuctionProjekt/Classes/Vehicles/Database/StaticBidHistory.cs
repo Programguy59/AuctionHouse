@@ -50,6 +50,21 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
             
            
         }
+
+        public static BidHistory GetHigestBidOnAuctionForUser(string userName,int id)
+        {
+            BidHistory higestBid = GetBidByAUctionId(id);
+            foreach (BidHistory bid in BidHistory)
+            {
+                if (bid.BidAmount > higestBid.BidAmount && bid.UserName == userName)
+                {
+                    higestBid = bid;
+                }
+            }
+            return higestBid;
+        }
+
+
         public static List<BidHistory> GetAllBidHistory()
         {
             return BidHistory;
