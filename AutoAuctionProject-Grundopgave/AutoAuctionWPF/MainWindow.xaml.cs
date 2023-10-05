@@ -2,7 +2,9 @@
 using AutoAuctionProjekt.Util;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Media;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,11 +29,26 @@ namespace AutoAuctionWPF
         public MainWindow()
         {
             InitializeComponent();
-
+            
+            try
+            {
+                SoundPlayer player = new SoundPlayer("../../../music/TwoTrucks.wav");
+                
+                player.PlayLooping();
+                player.Play();
+            }
+            catch (Exception ex)
+            {
+                // Handle the exception, e.g., log it or show an error message
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+            
             DatabaseServer.Initialize(0);
 
             ShowLoginScreen(); // Start med at vise Login-skærmen
         }
+        
+        
 
         public void ShowLoginScreen()
         {
