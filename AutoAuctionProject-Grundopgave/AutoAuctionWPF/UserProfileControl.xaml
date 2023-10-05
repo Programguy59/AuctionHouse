@@ -29,9 +29,10 @@
                     <Button Content="Add to Balance" x:Name="ChangeBalance" Click="ChangeBalance_Click"/>
                     <TextBox x:Name="BalanceChangeAmount" Width="200"/>
                 </StackPanel>
-               
-                <Button Content="Back" x:Name="backButton" Click="backButton_Click"/>
+
                 <Button Content="View BidHistory" x:Name="ShowBidHistory" Click="ShowBidHistory_Click"/>
+                <Button Content="Back" x:Name="backButton" Click="backButton_Click"/>
+                
             </StackPanel>
             
             

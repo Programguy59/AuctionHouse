@@ -11,11 +11,12 @@
         <DataGrid x:Name="CurrentAuctionsList" Width="400" Height="200" Margin="0,0,0,10" AutoGenerateColumns="False" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Vehicle" Binding="{Binding Vehicle.Name}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Year" Binding="{Binding ID}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Your Bid" Binding="{Binding MinimumPrice}" IsReadOnly="True"/>
-                <DataGridTextColumn Header="Accepted Bid" Binding="{Binding StandingBid}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Year" Binding="{Binding Vehicle.Year}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Your Bid" Binding="{Binding MyBid.BidAmount}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Accepted Bid" Binding="{Binding FinalBid.BidAmount}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Accepted Bid" Binding="{Binding iWon}" IsReadOnly="True"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="Back" Content="cancel" Width="50" Height="50" Click="Back_Click" Margin="711,440,39,10" ></Button>
+        <Button x:Name="Back" Content="Back" Width="50" Height="50" Click="Back_Click" Margin="711,440,39,10" ></Button>
     </Grid>
 </UserControl>

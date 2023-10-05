@@ -30,7 +30,7 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
                 BidHistory higestBid = GetBidByAUctionId(id);
                 foreach (BidHistory bid in BidHistory)
                 {
-                    if (bid.BidAmount > higestBid.BidAmount && bid.Id == id)
+                    if (bid.BidAmount > higestBid.BidAmount && bid.AuctionId == id)
                     {
                         higestBid = bid;
                     }
@@ -44,12 +44,14 @@ namespace AutoAuctionProjekt.Classes.Vehicles.Database
             BidHistory higestBid = GetBidByAUctionId(id);
             foreach (BidHistory bid in BidHistory)
             {
-                if (bid.BidAmount > higestBid.BidAmount && bid.UserName == userName)
+                if (bid.BidAmount > higestBid.BidAmount && bid.UserName == userName && bid.Id == id)
                 {
                     higestBid = bid;
                 }
             }
-            return higestBid;
+            if (higestBid.UserName == userName) { return higestBid; }
+            else { return null; }
+           
         }
 
 
